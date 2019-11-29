@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=20mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{Competitive Programming - Arkavidia V}
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{A. Longest Arithmetic Subarray} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 512MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Elza dan Anne adalah 2 orang anak kecil dari sebuah kerajaan yang sangat jauh.
+Pada suatu malam, saat Elza dan Anne sedang membuat \textit{snowman}, Elza mendengarkan sebuah bisikan misterius.
+bisikan itu memberikan sebuah ide permainan baru. Elza awalnya membuat $N$ buah \textit{snowman}.
+Setelah itu, dia memberi nomor $A_i$ pada setiap \textit{snowman} ke-i. $A_i$ < $A_j$, untuk $i < j$.
+Selanjutnya Elza memberikan 2 buah bilangan $l$ dan $r$. Ia meminta Anne untuk menghitung berapa banyak bilangan terurut 
+dengan selisih antar bilangan sama di dalam rentang $l$ dan $r$ (included).
+Tetapi karena Anne masih belum mahir menghitung, ia meminta Anda sebagai pengawal pribadi dari mereka untuk menyelesaikannya.
+Bantulah Anne untuk menyelesaikan permainan dari Elza!
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 100.000$), menyatakan banyaknya bilangan dalam array.
+Baris kedua terdiri dari N bilangan bulat $A_i$ ($-1e9 \leq A_i \leq 1e9$), menyatakan nomor \textit{snowman} ke i.
+Baris ketiga terdiri dari sebuah bilangan bulat positif $Q$ ($1 \leq Q \leq 100.000$), menyatakan banyaknya kasus uji.
+$Q$ baris berikutnya terdiri dari 2 bilangan, dengan baris ke-$i$ menyatakan bilangan $l_i$ dan $r_i$.
+
+\subsection*{Format Keluaran}
+Untuk tiap kasus uji, tuliskan jumlah bilangan terurut diantara $l_i$ dan $r_i$.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+8
+1 3 5 6 7 8 10 12
+3
+1 8
+2 4
+6 6
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+4
+2
+1
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{
+Penjelasan:
+1. [5,6,7,8] --> jaraknya 1, panjangnya 4
+2. [3,5] atau [5,6] --> jaraknya 2, panjangnya 2
+3. [8] --> gaada jarak, panjangnya 1
+}
+
+% Jika dibutuhkan, tambahkan penjelasan di sini
+
+\pagebreak
+
+\end{document}
+
