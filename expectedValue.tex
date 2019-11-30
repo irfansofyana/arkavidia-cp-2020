@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{A. Judul Problem} % ganti judul soal
+    \section*{A. Expected Value} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -48,59 +48,39 @@
 \end{center}
 
 \subsection*{Deskripsi}
+Saat berada di dalam hutan misterius, Elza dan Anda bertemu dengan suku matahari yang merupakan suku asli di dalam hutan tersebut.
+Kalian disabut dengan lapang dada oleh mereka. Mereka pun membuat sebuah pesta makan bersama untuk menyambut kalian.
+Pada saat menikmati makanan, Elza melihat anak-anak suku matahari memainkan sebuah game unik. Game ini bernama Expected Value. Elza pun
+mengajak Anda untuk memainkannya.
 
-Contoh memformat teks: \textbf{bold}, \textit{italic}, \underline{underline}, $x$.
+Diberikan sebuah bilangan $N$. Kalian diminta untuk memilih sebuah bilangan acak yang berada di antara angka $0$ sampai $N-1$ yang 
+direpresentasikan dengan biner.Panjangnya biner setiap angka akan sama panjang mengikuti bilangan terbesar, yaitu $N-1$.
+Cara memilihnya yaitu dengan melemparkan sebuah koin dengan 2 sisi, sisi yang bertuliskan $0$ dan $1$.
 
-Contoh membuat persamaan:
-
-\[ x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})} \]
-
-\begin{enumerate}
-    \setlength\itemsep{0pt}
-    \item Contoh penomoran.
-    \item Contoh penomoran.
-\end{enumerate}
-
-\begin{itemize}
-    \setlength\itemsep{0pt}
-    \item Contoh membuat poin-poin.
-    \item Contoh membuat poin-poin.
-\end{itemize}
-
-\begin{center}
-    Teks rata tengah
-    % Contoh gambar:
-    % \includegraphics[width=300px]{image-1}
-\end{center}
+Setelah mendengar penjelasan permainnya, Elza memberikan sebuah tantangan kepada Anda. Anda diminta untuk menghitung banyaknya 
+ekspektasi banyak pelemparan koin untuk mendapatkan bilangan yang valid ($0 < B < N-1$). Dapatkah Anda menaklukkan tantangan dari Elza?
 
 \subsection*{Format Masukan}
-
-Baris pertama terdiri dari satu bilangan bulat positif $T$ ($1 \leq T \leq 100.000$), menyatakan banyaknya kasus uji.
-Tiap kasus uji diawali dengan bilangan $N$ ($1 \leq N \leq 100.000$).
-$N$ baris berikutnya terdiri dari 3 bilangan, dengan baris ke-$i$ menyatakan bilangan $A_i$, $B_i$, dan $C_i$.
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 1e18$).
 
 \subsection*{Format Keluaran}
-
-Untuk tiap kasus uji, tuliskan $N$ baris, dengan baris ke-$i$ menyatakn jumlah $A_i + B_i + C_i$.
+Sebuah baris yang menyatakan banyaknya ekspektasi pelemparan koin untuk mendapatkan bilangan diantara $[0..N-1]$
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-3
-1 2 3
+1
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
--6
+1
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
-% \subsection*{Penjelasan}
-% Jika dibutuhkan, tambahkan penjelasan di sini
 
 \pagebreak
 

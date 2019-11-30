@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{A. Longest Arithmetic Subarray} % ganti judul soal
+    \section*{A. Tantangan Penjaga Pintu} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -49,52 +49,44 @@
 
 \subsection*{Deskripsi}
 
-Elza dan Anne adalah 2 orang anak kecil dari sebuah kerajaan yang sangat jauh.
-Pada suatu malam, saat Elza dan Anne sedang membuat \textit{snowman}, Elza mendengarkan sebuah bisikan misterius.
-bisikan itu memberikan sebuah ide permainan baru. Elza awalnya membuat $N$ buah \textit{snowman}.
-Setelah itu, dia memberi nomor $A_i$ pada setiap \textit{snowman} ke-i. $A_i < A_j$, untuk $i < j$.
-Selanjutnya Elza memberikan 2 buah bilangan $l$ dan $r$. Ia meminta Anne untuk menghitung berapa banyak bilangan terurut 
-dengan selisih antar bilangan sama di dalam rentang $l$ dan $r$ (included).
-Tetapi karena Anne masih belum mahir menghitung, ia meminta Anda sebagai pengawal pribadi dari mereka untuk menyelesaikannya.
-Bantulah Anne untuk menyelesaikan permainan dari Elza!
+Elza dan Anda , seorang Arkavidian, sedang melakukan petualangan ke hutan misterius di utara untuk menyelematkan Negara Arkavidia.
+Sesampainya di depan pintu hutan misterius, kalian mendapatkan tantangan dari penjaga pintu.
+kalian diberikan $N$ buah titik yang membagi rata sebuah lingkaran. selanjutnya Kalian harus berpindah dari titiknya
+sekarang (titik 0) ke titik-titik lain yang memenuhi syarat:
+
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Titik yang hendak dituju tidak bersebelahan dengan posisi sekarang
+    \item Titik yang hendak dituju tidak boleh berpotongan/ coincide dengan \textit{path} sebelumnya.
+\end{itemize}
+
+Setelah itu sang penjaga pintu bertanya kepada kalian berapa banyak \textit{path} yang dapat terbentuk dari $N$ buah titik tersebut.
+Saat kamu melihat muka Elza, ia terlihat kebingungan, sebagai partnernya yang setia, Anda harus membantunya 
+agar dapat masuk ke hutan misterius tersebut. Dapatkah Anda menolong Elza?
 
 \subsection*{Format Masukan}
-
-Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 100.000$), menyatakan banyaknya bilangan dalam array.
-Baris kedua terdiri dari N bilangan bulat $A_i$ ($-1e9 \leq A_i \leq 1e9$), menyatakan nomor \textit{snowman} ke i.
-Baris ketiga terdiri dari sebuah bilangan bulat positif $Q$ ($1 \leq Q \leq 100.000$), menyatakan banyaknya kasus uji.
-$Q$ baris berikutnya terdiri dari 2 bilangan, dengan baris ke-$i$ menyatakan bilangan $l_i$ dan $r_i$.
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 100.000$), menyatakan banyaknya point pembagi lingkaran.
 
 \subsection*{Format Keluaran}
-Untuk tiap kasus uji, tuliskan jumlah bilangan terurut diantara $l_i$ dan $r_i$.
+Sebuah baris yang menyatakan banyaknya \textit{path} yang ada.
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-8
-1 3 5 6 7 8 10 12
-3
-1 8
-2 4
-6 6
+5
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-4
 2
-1
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
 \subsection*{Penjelasan}
-1. [5,6,7,8] $-->$ jaraknya 1, panjangnya 4
-2. [3,5] atau [5,6] $-->$ jaraknya 2, panjangnya 2
-3. [8] $-->$ gaada jarak, panjangnya 1
-
+Jika setiap titik diberikan nomor 0,1,2,3,4 maka \textit{path} yang mungkin adalah 0,2,4 dan 0,3,1
 % Jika dibutuhkan, tambahkan penjelasan di sini
 
 \pagebreak
