@@ -13,7 +13,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 \renewcommand{\headrulewidth}{0pt}
-\lhead{Competitive Programming - Arkavidia V}
+\lhead{Competitive Programming - Arkavidia VI}
 \fancyfoot[CE,CO]{\thepage}
 \lstset{
     basicstyle=\ttfamily\small,
@@ -37,31 +37,40 @@
 \begin{document}
 
 \begin{center}
-    \section*{G. Himpunan Prima dan Urutan} % ganti judul soal
+    \section*{Himpunan Prima dan Urutan} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
         Batas Waktu  & 1s \\    % jangan lupa ganti time limit
-        Batas Memori & 512MB \\  % jangan lupa ganti memory limit
+        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
         \hline
     \end{tabular}
 \end{center}
 
 \subsection*{Deskripsi}
 
-Elza sedang mencari semua bilangan yang faktor primanya merupakan upahimpunan/\textit{subset} dari sebuah himpunan $H$, dengan $H$ berisi sejumlah bilangan prima.
-Anne, di sisi lain, sedang mencari urutan sebuah bilangan $K$ pada himpunan tersebut.
-Tugas Anda adalah membantu Elza dan Anne untuk memecahkan masalah mereka sekaligus dengan cara \textit{programming}.
+Elza adalah orang yang sangat menyukai matematika. Saat ini ia sedang terfokus pada teori bilangan tepatnya 
+sedang mempelajari faktor bilangan dan bilangan prima. Elza juga orang yang senang membuat soal-soal matematika, 
+oleh sebab itu saat ini ia memikirkan sebuah soal yang dapat berhubungan dengan bilangan prima dan faktor bilangan. 
+Setelah beberapa saat, Elza akhirnya mempunyai soal sebagai berikut.
+
+Diberikan sebuah himpunan $H$ yang berisi himpunan bilangan prima. Dari himpunan tersebut, akan dibangkitkan 
+semua bilangan bulat positif yang mana faktor prima-nya adalah \textit{subset} dari himpunan $H$ tersebut. 
+Bilangan-bilangan yang dibangkitkan tersebut kemudian akan diurutkan dari terkecil hingga terbesar. Bilangan 
+terkecil akan diberikan urutan-1. Apabila $K$ adalah bilangan bulat positif yang faktor prima-nya \textit{subset}
+dari himpunan $H$, maka ada di urutan keberapakah bilangan $K$ tersebut?
+
+Anda yang merupakan peserta Arkavidia diminta untuk menyelesaikan persoalan Elza. Dapatkah Anda menyelesaikannya?
 
 \subsection*{Format Masukan}
-
-Baris pertama terdiri atas sebuah bilangan bulat positif $H$ ($1 \leq H \leq 100.000$).
-$H$ baris berikutnya berisi sebuah bilangan prima.
-Baris terakhir berisi sebuah bilangan bulat $K$
+Baris pertama berisi sebuah bilangan bulat positif $N$ ($1 \leq N \leq 100.000$) yaitu banyaknya bilangan pada
+himpunan $H$. Baris berikutnya berisi $N$ buah bilangan elemen himpunan $H$, $H_i$ ($1 \leq H_i \leq 100.000$). Elemen himpunan $H$
+dipastikan bilangan prima. 
+Baris terakhir berisi sebuah bilangan bulat positif $K$ ($1 \leq K \leq 10^{18}$)
 
 \subsection*{Format Keluaran}
 
-Keluaran berupa posisi nilai $K$ pada deretan bilangan yang faktor primanya $\subseteq H$.
+Keluarkan satu bilangan bulat yang menyatakan urutan bilangan $K$ sesuai persoalan Elza.
 \\
 
 \begin{multicols}{2}
