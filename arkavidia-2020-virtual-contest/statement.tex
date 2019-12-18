@@ -54,21 +54,35 @@ Anne datang lomba terlambat. Tidak lama kemudian, Elza menyelesaikan lombanya.
 Elza kemudian ingin melihat peringkat dia dan Anne pada lomba tersebut.
 Tugas anda adalah membuat program yang menginput kedalam \textit{scoreboard} serta menampilkan nilai pada peringkat tertentu.
 
-\subsection*{Format Masukan}
+Di Negeri Arkavy sedang diadakan sebuah kontes pemrograman antar penduduk. Elza yang merupakan penggemar 
+pemrograman pun ingin mengikuti kontes pemrograman paling bergengsi di Negerinya ini. Sayangnya, saat waktu kontes tiba,
+Elza mendadak sakit hingga tidak dapat mengikut kontes pemrograman tersebut. Anne selaku ketua penyelenggara kontes 
+pemrograman di Negeri Arkavy memang baik hati. Dia menyediakan sebuah kontes virtual, dimana seseorang dapat mengikuti 
+kontes pemrograman tersebut setelah kontes pemrograman non-virtualnya telah selesai dilaksanakan. Elza pun cukup bahagia mendengar
+kabar tersebut dan dia memutuskan akan mengikuti kontes virtual tersebut.
 
-Baris pertama merupakan bilangan bulat $N$ ($1 \leq N \leq 20.000$) yang menyatakan banyaknya peserta awal.
-Baris kedua terdapat $N$ buah angka $a_n$ ($1 \leq a_n \leq 10^9$), yang menyatakan skor peserta \textbf{secara terurut}
-Baris ketiga merupakan bilangan bulat $Q$ ($1 \leq Q \leq 30.000$), yakni banyaknya \textit{query} yang dimasukkan pada \textit{scoreboard}
+Peringkat pada kontes pemrograman (baik yang virtual maupun tidak) di Negeri Arkavy ditentukan oleh skor, skor yang paling tinggi akan mendapat peringkat satu. 
+Peringkat peserta pada kontes pemrograman non-virtual akan dimasukkan ke peringkat kontes pemrograman virtual. Menyadari sistem 
+peringkat kontes virtual seperti ini, Elza lantas berpikir peringkatnya mungkin bisa saja berubah-ubah seiringnya ada peserta baru 
+yang mengikuti kontes virtual. Dirinya pun sekarang penasaran, jika ada beberapa orang yang mengikuti kontes virtual tersebut dan mendapatkan skor tertentu, dia 
+sesekali akan bertanya berapa skor yang dimiliki oleh peringkat $X$. Sebagai teman baik Elza, Anda tentu ingin membantunya.
+
+\subsection*{Format Masukan}
+Baris pertama berisi sebuah bilangan bulat $N$ ($1 \leq N \leq 20.000$) yang menyatakan banyaknya peserta kontes pemrograman non-virtual.
+Baris kedua terdapat $N$ buah angka $a_i$ ($1 \leq a_i \leq 10^9$), yang menyatakan skor peserta kontes pemrograman non-virtual \textbf{secara terurut}
+Baris ketiga berisi bilangan bulat $Q$ ($1 \leq Q \leq 30.000$), yakni banyaknya \textit{query} yang sedang dipikirkan Elza
 $Q$ Baris berikutnya berisi salah satu dari 2 tipe input :
 \begin{itemize}
     \setlength{\itemsep}{0pt}
-    \item Input berupa "1 $x$" yang berarti terdapat peserta virtual contest baru dengan skor $x$.
-    \item Input berupa "2 $x$" yang berarti menanyakan skor orang dengan peringkat x saat itu.
+    \item Input berupa "1 $X$" yang berarti terdapat peserta virtual contest baru dan mendapat skor $X$.
+    \item Input berupa "2 $X$" yang berarti Elza menanyakan skor orang dengan peringkat $X$ saat itu.
 \end{itemize}
+Untuk \textit{query} tipe-2 dapat dipastikan bahwa banyak peserta yang masuk dalam peringkat kontes virtual lebih
+dari sama dengan peringkat yang ditanya.
 
 \subsection*{Format Keluaran}
 
-Untuk setiap query berupa "2 x", tuliskan nilai peserta pada peringkat tersebut.
+Untuk setiap query berupa "2 $X$", tuliskan nilai peserta pada peringkat tersebut.
 \\
 
 \begin{multicols}{2}
