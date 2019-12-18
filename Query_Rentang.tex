@@ -49,27 +49,35 @@
 
 \subsection*{Deskripsi}
 
-Diberikan $N$ buah rentang dengan batas $L_{i}$ hingga $R_{i}$.
-Diberikan $Q$ buah query dengan rentang $X_{i}$ hingga $Y_{i}$, tentukan ada berapa banyak rentang dimana $L_{i} \leq X_{i}$ dan $Y_{i} \leq R_{i}$
-jika $L_{i}$ dan $R_{i}$ \leq 2000
+Diberikan $N$ buah rentang dengan batas $L_{i}$ dan $R_{i}$.
+Kemudian diberikan $Q$ buah query dengan batas rentang $X_{j}$ dan $Y_{j}$.
+Tentukan ada berapa banyak rentang dengan batas $A$ dan $B$ yang memenuhi $L_{i} \leq A \leq X_{j}$ dan $Y_{j} \leq B \leq R_{i}$,
+jika $0 \leq L_{i} \leq 2000$ dan $0 \leq R_{i} \leq 2000$.
 
 \subsection*{Format Masukan}
-
-
+Baris pertama adalah nilai $N$.
+Baris kedua hingga $N + 1$ adalah batas rentang.
+Baris ke $N + 2$ adalah nilai $Q$.
+Baris ke $N + 3$ hingga $N + Q + 2$ adalah batas rentang query.
 
 \subsection*{Format Keluaran}
-
+Keluarkan banyak rentang yang memenuhi.
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-
+2
+2 5
+1 8
+2
+1 3
+2 2
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-
+24
 \end{lstlisting}
 \vfill
 \null

@@ -48,24 +48,24 @@
 \end{center}
 
 \subsection*{Deskripsi}
-Diberikan sebuah array $A$ dengan panjang $N$.
-Terdapat sebuah fungsi $f$ yang menerima masukan sebuah array.
-Fungsi $f$ akan menghitung nilai XOR beruntun dari sebuah array.
-XOR beruntun adalah operasi XOR bersebelahan yang dilakukan pada array hingga panjangnya 1.
-Jika terdapat array $A$ dengan elemen $A_{i}$ ($1 \leq i \leq N$), 
-setelah dilakukan operasi XOR bersebelahan pada array $A$, 
-maka array $A$ akan menjadi array $B$ dengan elemen $B_{i}$ ($1 \leq i \leq N-1$), 
-$B_{i} = A_{i} XOR A_{i + 1}$.
-Hitunglah $f(A)$.
+
+Suatu saat pada sore hari, Elza bersama ($1 \leq N \leq 2.10^5$) temannya melaksanakan arisan bulanan.
+Karena bosan dengan pengundian menggunakan kertas, Elza bersama temannya membuat sebuah pseudo random generator.
+Pseudo random generator bekerja dengan cara memasukkan banyaknya peserta arisan lalu peserta arisan bergantian memasukkan sebuah angka $X$ yang tidak kurang dari 0 dan tidak lebih dari $10^9$.
+Selanjutnya, angka yang dimasukkan peserta arisan pertama akan dilakukan proses $XOR$ dengan angka peserta arisan kedua, 
+angka yang dimasukkan peserta arisan kedua akan dilakukan proses $XOR$ dengan peserta arisan ketiga, 
+dan begitu seterusnya hingga angka peserta arisan ke-$N - 1$ dan ke-$N$ diproses.
+Pemrosesan tersebut dilakukan terus menerus hingga didapatkan satu angka saja.
+Elza sebagai pemenang arisan sebelumnya tidak dapat mengikuti arisan dan hanya menjadi operator pseudo random generator.
 
 \subsection*{Format Masukan}
 
-Pada baris pertama diberikan $N$.
-Pada baris kedua diberikan array $A$ dengan panjang $N$.
+Pada baris pertama dimasukkan $N$.
+Pada baris kedua dimasukkan array $A$ dengan panjang $N$.
 
 \subsection*{Format Keluaran}
 
-Keluarkan sebuah integer $X$ yang merupakan hasil $f(A)$.
+Keluarkan sebuah integer $Y$ hasil dari pseudo random generator.
 \\
 
 \begin{multicols}{2}
@@ -83,12 +83,10 @@ Keluarkan sebuah integer $X$ yang merupakan hasil $f(A)$.
 \null
 \end{multicols}
 
-\subsection*{Penjelasan}
-Constraint:
-$(1 \leq N \leq 2.10^5)$,
-$(0 \leq Ai \leq 10^9)$,
-$(1 \leq i \leq N)$.
+% \subsection*{Penjelasan}
+% Jika dibutuhkan, tambahkan penjelasan di sini
 
-\pagebreak.
+\pagebreak
 
 \end{document}
+
