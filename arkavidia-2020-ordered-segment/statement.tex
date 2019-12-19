@@ -37,63 +37,61 @@
 \begin{document}
 
 \begin{center}
-    \section*{A. Judul Problem} % ganti judul soal
+    \section*{Ordered Segment} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
         Batas Waktu  & 1s \\    % jangan lupa ganti time limit
-        Batas Memori & 512MB \\  % jangan lupa ganti memory limit
+        Batas Memori & 32MB \\  % jangan lupa ganti memory limit
         \hline
     \end{tabular}
 \end{center}
 
 \subsection*{Deskripsi}
 
-Contoh memformat teks: \textbf{bold}, \textit{italic}, \underline{underline}, $x$.
+Elza adalah remaja berumur 18 tahun yang rajin dan hobi membaca buku.
+Hobinya tersebut didapat dari ayahnya yang juga hobi membaca buku.
+Waktu kecil ayahnya selalu membacakannya dongeng hingga Elza kecil tertidur.
+Momen indah itu selalu Elza ingat saat Elza senang maupun sedih.
+Kini Elza sudah menjadi mahasiswa.
+Kesibukan mengerjakan tugas dan belajar tidak mengahalangi Elza untuk membaca buku.
+Elza sangat senang membaca buku.
 
-Contoh membuat persamaan:
-
-\[ x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})} \]
-
-\begin{enumerate}
-    \setlength\itemsep{0pt}
-    \item Contoh penomoran.
-    \item Contoh penomoran.
-\end{enumerate}
-
-\begin{itemize}
-    \setlength\itemsep{0pt}
-    \item Contoh membuat poin-poin.
-    \item Contoh membuat poin-poin.
-\end{itemize}
-
-\begin{center}
-    Teks rata tengah
-    % Contoh gambar:
-    % \includegraphics[width=300px]{image-1}
-\end{center}
+Cahaya matahari keoranyean menyinari kamar Elza dan menemaninya terhanyut dalam buku yang ia baca.
+Lemari berisi buku-buku sebanyak $N$ memantulkan keindahan cahaya keoranyean itu.
+Buku-buku berdiri secara acak karena Elza belum sempat membereskan.
+Diantara buku-buku terdapat judul buku kesukaan Elza yang ayahnya sering bacakan kepada Elza saat kecil.
+Buku-buku bervolume kesukaan Elza tersebut dibatasi oleh indeks $L$ dan $R$ sebanyak $Q$ bagian.
+Namun apakah setiap bagian yang dibatasi $L$ dan $R$ terurut menaik?
 
 \subsection*{Format Masukan}
 
-Baris pertama terdiri dari satu bilangan bulat positif $T$ ($1 \leq T \leq 100.000$), menyatakan banyaknya kasus uji.
-Tiap kasus uji diawali dengan bilangan $N$ ($1 \leq N \leq 100.000$).
-$N$ baris berikutnya terdiri dari 3 bilangan, dengan baris ke-$i$ menyatakan bilangan $A_i$, $B_i$, dan $C_i$.
+Pada baris pertama dimasukkan banyaknya buku.
+Pada baris kedua dimasukkan volume buku.
+Pada baris ketiga dimasukkan banyaknya bagian.
+pada baris keempat dimasukkan batasan bagian.
 
 \subsection*{Format Keluaran}
 
-Untuk tiap kasus uji, tuliskan $N$ baris, dengan baris ke-$i$ menyatakn jumlah $A_i + B_i + C_i$.
+Keluarkan erurut atau tidaknya bagian yang dipisah oleh \textit{newline}.
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
+7
+2 4 5 2 1 2 3
 3
-1 2 3
+1 3
+2 5
+6 6
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
--6
+Terurut
+Tidak Terurut
+Terurut
 \end{lstlisting}
 \vfill
 \null
@@ -105,4 +103,3 @@ Untuk tiap kasus uji, tuliskan $N$ baris, dengan baris ke-$i$ menyatakn jumlah $
 \pagebreak
 
 \end{document}
-

@@ -13,7 +13,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 \renewcommand{\headrulewidth}{0pt}
-\lhead{Competitive Programming - Arkavidia V}
+\lhead{Competitive Programming - Arkavidia VI}
 \fancyfoot[CE,CO]{\thepage}
 \lstset{
     basicstyle=\ttfamily\small,
@@ -37,69 +37,56 @@
 \begin{document}
 
 \begin{center}
-    \section*{A. Judul Problem} % ganti judul soal
+    \section*{Tantangan Penjaga Pintu} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
         Batas Waktu  & 1s \\    % jangan lupa ganti time limit
-        Batas Memori & 512MB \\  % jangan lupa ganti memory limit
+        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
         \hline
     \end{tabular}
 \end{center}
 
 \subsection*{Deskripsi}
 
-Contoh memformat teks: \textbf{bold}, \textit{italic}, \underline{underline}, $x$.
-
-Contoh membuat persamaan:
-
-\[ x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})} \]
-
-\begin{enumerate}
-    \setlength\itemsep{0pt}
-    \item Contoh penomoran.
-    \item Contoh penomoran.
-\end{enumerate}
+Elza dan Anda , seorang Arkavidian, sedang melakukan petualangan ke hutan misterius di utara untuk menyelamatkan Negara Arkavidia.
+Sesampainya di depan pintu hutan misterius, kalian mendapatkan tantangan dari penjaga pintu.
+kalian diberikan $N$ buah titik yang membagi rata sebuah lingkaran. selanjutnya Kalian harus berpindah dari titiknya
+sekarang (titik 0) ke titik-titik lain yang memenuhi syarat:
 
 \begin{itemize}
     \setlength\itemsep{0pt}
-    \item Contoh membuat poin-poin.
-    \item Contoh membuat poin-poin.
+    \item Titik yang hendak dituju tidak bersebelahan dengan posisi sekarang
+    \item Titik yang hendak dituju tidak boleh berpotongan/ coincide dengan \textit{path} sebelumnya.
 \end{itemize}
 
-\begin{center}
-    Teks rata tengah
-    % Contoh gambar:
-    % \includegraphics[width=300px]{image-1}
-\end{center}
+Setelah itu sang penjaga pintu bertanya kepada kalian berapa banyak \textit{path} yang dapat terbentuk dari $N$ buah titik tersebut.
+Saat kamu melihat muka Elza, ia terlihat kebingungan, sebagai partnernya yang setia, Anda harus membantunya 
+agar dapat masuk ke hutan misterius tersebut. Dapatkah Anda menolong Elza?
 
 \subsection*{Format Masukan}
-
-Baris pertama terdiri dari satu bilangan bulat positif $T$ ($1 \leq T \leq 100.000$), menyatakan banyaknya kasus uji.
-Tiap kasus uji diawali dengan bilangan $N$ ($1 \leq N \leq 100.000$).
-$N$ baris berikutnya terdiri dari 3 bilangan, dengan baris ke-$i$ menyatakan bilangan $A_i$, $B_i$, dan $C_i$.
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 100.000$), menyatakan banyaknya point pembagi lingkaran.
 
 \subsection*{Format Keluaran}
-
-Untuk tiap kasus uji, tuliskan $N$ baris, dengan baris ke-$i$ menyatakn jumlah $A_i + B_i + C_i$.
+Sebuah baris yang menyatakan banyaknya \textit{path} yang ada.
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-3
-1 2 3
+5
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
--6
+2
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
-% \subsection*{Penjelasan}
+\subsection*{Penjelasan}
+Jika setiap titik diberikan nomor 0,1,2,3,4 maka \textit{path} yang mungkin adalah 0,2,4 dan 0,3,1
 % Jika dibutuhkan, tambahkan penjelasan di sini
 
 \pagebreak

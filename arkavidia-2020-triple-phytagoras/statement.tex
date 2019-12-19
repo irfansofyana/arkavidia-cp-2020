@@ -13,7 +13,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 \renewcommand{\headrulewidth}{0pt}
-\lhead{Competitive Programming - Arkavidia V}
+\lhead{Competitive Programming - Arkavidia VI}
 \fancyfoot[CE,CO]{\thepage}
 \lstset{
     basicstyle=\ttfamily\small,
@@ -37,11 +37,11 @@
 \begin{document}
 
 \begin{center}
-    \section*{A. Judul Problem} % ganti judul soal
+    \section*{Triple Phytagoras} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
-        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Waktu  & 2s \\    % jangan lupa ganti time limit
         Batas Memori & 512MB \\  % jangan lupa ganti memory limit
         \hline
     \end{tabular}
@@ -49,60 +49,42 @@
 
 \subsection*{Deskripsi}
 
-Contoh memformat teks: \textbf{bold}, \textit{italic}, \underline{underline}, $x$.
+Pak Joni sangat menyukai bilangan. Beberapa dari bilangan yang ia sukai adalah bilangan-bilangan yang membentuk Triple Pythagoras. 
+Triple Phytagoras adalah sebuah triple ($a, b, c$) dengan $a, b, c$ adalah bilangan asli sedemikian rupa sehingga 
+$a^2 + b^2 = c^2$. Tetapi, ia tidak menyukai Triple Phytagoras yang palsu, yaitu Triple Phytagoras yang semua bilangan 
+pembentuknya tidak saling relatif prima dan dapat dibagi bilangan bulat lebih dari 1 tertentu sehingga mendapatkan Triple Phytagoras lain. 
+Sebagai contoh ($6, 8, 10$) adalah Triple Phytagoras palsu karena bilangan pembentuknya tidak saling relatif prima dan jika tiap bilangan pembentuknya dibagi 2 maka akan menghasilkan ($3, 4, 5$) yang juga merupakan Triple Phytagoras.
 
-Contoh membuat persamaan:
+Pak Joni memiliki bilangan $N$ yang ganjil. Bantulah Pak Joni untuk mencari banyaknya Triple Phytagoras tidak palsu yang memiliki bentuk ($N, A, B$)!
 
-\[ x_{n+1} = x_{n} - \frac{f(x_{n})}{f'(x_{n})} \]
-
-\begin{enumerate}
-    \setlength\itemsep{0pt}
-    \item Contoh penomoran.
-    \item Contoh penomoran.
-\end{enumerate}
-
-\begin{itemize}
-    \setlength\itemsep{0pt}
-    \item Contoh membuat poin-poin.
-    \item Contoh membuat poin-poin.
-\end{itemize}
-
-\begin{center}
-    Teks rata tengah
-    % Contoh gambar:
-    % \includegraphics[width=300px]{image-1}
-\end{center}
 
 \subsection*{Format Masukan}
 
-Baris pertama terdiri dari satu bilangan bulat positif $T$ ($1 \leq T \leq 100.000$), menyatakan banyaknya kasus uji.
-Tiap kasus uji diawali dengan bilangan $N$ ($1 \leq N \leq 100.000$).
-$N$ baris berikutnya terdiri dari 3 bilangan, dengan baris ke-$i$ menyatakan bilangan $A_i$, $B_i$, dan $C_i$.
+Masukan berupa satu bilangan $N$ ($1 \leq N \leq 10^{18}$).
 
 \subsection*{Format Keluaran}
 
-Untuk tiap kasus uji, tuliskan $N$ baris, dengan baris ke-$i$ menyatakn jumlah $A_i + B_i + C_i$.
+Keluaran berupa satu bilangan yang menyatakan banyaknya Triple Phytagoras ($N, A, B$) yang tidak palsu.
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
 3
-1 2 3
+
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
--6
+1
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
-% \subsection*{Penjelasan}
-% Jika dibutuhkan, tambahkan penjelasan di sini
+\subsection*{Penjelasan}
+Terdapat satu Triple Phytagoras tidak palsu yang berbentuk ($3, A, B$), yaitu ($3, 4, 5$).
 
 \pagebreak
 
 \end{document}
-

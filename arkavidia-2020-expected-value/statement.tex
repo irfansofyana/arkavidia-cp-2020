@@ -1,0 +1,88 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=20mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{Competitive Programming - Arkavidia VI}
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Expected Value} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+Saat berada di dalam hutan misterius, Elza dan Anda bertemu dengan suku matahari yang merupakan suku asli di dalam hutan tersebut.
+Kalian disambut dengan lapang dada oleh mereka. Mereka pun membuat sebuah pesta makan bersama untuk menyambut kalian.
+Pada saat menikmati makanan, Elza melihat anak-anak suku matahari memainkan sebuah game unik. Game ini bernama \textit{Expected Value}. Elza pun
+mengajak Anda untuk memainkannya.
+
+Diberikan sebuah bilangan $N$. Kalian diminta untuk memilih sebuah bilangan acak yang berada di antara angka $0$ sampai $N-1$ yang 
+direpresentasikan dengan biner.Panjangnya biner setiap angka akan sama panjang mengikuti bilangan terbesar, yaitu $N-1$.
+Cara memilihnya yaitu dengan melemparkan sebuah koin dengan 2 sisi, sisi yang bertuliskan $0$ dan $1$.
+
+Setelah mendengar penjelasan permainnya, Elza memberikan sebuah tantangan kepada Anda. Anda diminta untuk menghitung berapa 
+ekspektasi banyak pelemparan koin untuk mendapatkan bilangan yang valid ($0 < B < N-1$). Dapatkah Anda menaklukkan tantangan dari Elza?
+
+\subsection*{Format Masukan}
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 1e18$).
+
+\subsection*{Format Keluaran}
+Sebuah baris yang menyatakan besar ekspektasi pelemparan koin untuk mendapatkan bilangan diantara $[0..N-1]$
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+1
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+2
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\pagebreak
+
+\end{document}
+
