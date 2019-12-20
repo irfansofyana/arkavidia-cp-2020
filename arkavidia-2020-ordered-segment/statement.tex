@@ -57,23 +57,27 @@ Kini Elza sudah menjadi mahasiswa.
 Kesibukan mengerjakan tugas dan belajar tidak mengahalangi Elza untuk membaca buku.
 Elza sangat senang membaca buku.
 
-Cahaya matahari keoranyean menyinari kamar Elza dan menemaninya terhanyut dalam buku yang ia baca.
-Lemari berisi buku-buku sebanyak $N$ memantulkan keindahan cahaya keoranyean itu.
-Buku-buku berdiri secara acak karena Elza belum sempat membereskan.
-Diantara buku-buku tersebut terdapat judul buku kesukaan Elza yang ayahnya sering bacakan kepada Elza saat kecil.
-Buku-buku bervolume kesukaan Elza tersebut dibatasi oleh indeks $L$ dan $R$ sebanyak $Q$ bagian.
-Namun apakah setiap bagian yang dibatasi $L$ dan $R$ terurut menaik?
+Cahaya matahari kemerahan menyinari kamar Elza dan menemaninya terhanyut dalam buku yang ia baca.
+Di kamarnya, Elza memiliki sebuah lemari yang menyimpan $N$ buah buku miliknya.
+Buku - buku yang tersusun di dalam lemari memiliki jumlah halaman $X$.
+
+Lemari tersebut memantulkan keindahan cahaya keoranyean yang di dapat dari pantulan buku - buku milik Elza.
+Elza yang suka akan keindahan, mengingkan agar lemari memantulkan keindahan yang diinginkannya.
+Agar lemari dapat memantulkan cahaya dengan keindahan yang diinginkan Elza,
+Elza ingin agar buku - buku yang berada pada $Q$ bagian $L$ dan $R$ memiliki kode buku yang terurut menaik.
+
+Bantulah Elza untuk menentukan apakah di setiap rentang $L$ dan $R$, buku - buku yang terpasang terurut menaik agar menghasilkan keindahan pantulan cahaya yang diinginkan oleh Elza.
 
 \subsection*{Format Masukan}
 
-Pada baris pertama dimasukkan banyaknya buku.
-Pada baris kedua dimasukkan volume buku.
-Pada baris ketiga dimasukkan banyaknya bagian.
-pada baris keempat dimasukkan batasan bagian.
+Baris pertama berisi sebuah bilangan bulat $N$ yang merupakan jumlah buku yang dimiliki Elza.
+Baris kedua berisi $N$ buah bilangan bulat $X$ dipisahkan dengan spasi. $X_{i}$ menyatakan jumlah halaman buku ke-i yang dimiliki Elza.
+Baris ketiga berisi sebuah bilangan bulat $Q$ yang merupakan banyaknya bagian buku agar menciptakan pantulan yang indah.
+Baris berikutnya berisi $Q$ buah rentang $L$ dan $R$ yang menyatakan rentang yang diperlukan agar memantulkan keindahan cahaya yang diinginkan Elza.
 
 \subsection*{Format Keluaran}
 
-Keluarkan terurut atau tidaknya bagian yang dipisah oleh \textit{newline}.
+Berisi $Q$ baris berupa nilai $YES$ atau $NO$ yang menyatakan apakah buku dengan rentang $L_i$ dan $R_i$ terurut menaik dipisahkan dengan \textit{newline}.
 \\
 
 \begin{multicols}{2}
@@ -89,9 +93,9 @@ Keluarkan terurut atau tidaknya bagian yang dipisah oleh \textit{newline}.
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-Terurut
-Tidak Terurut
-Terurut
+YES
+NO
+YES
 \end{lstlisting}
 \vfill
 \null
