@@ -49,19 +49,26 @@
 
 \subsection*{Deskripsi}
 
-Diberikan $N$ buah rentang dengan batas $L_{i}$ dan $R_{i}$.
-Kemudian diberikan $Q$ buah query dengan batas rentang $X_{j}$ dan $Y_{j}$.
-Tentukan ada berapa banyak rentang dengan batas $A$ dan $B$ yang memenuhi $L_{i} \leq A \leq X_{j}$ dan $Y_{j} \leq B \leq R_{i}$,
-jika $0 \leq L_{i} \leq 2000$ dan $0 \leq R_{i} \leq 2000$.
+Soal mengenai rentang pada Kompetisi Arkavidia sangatlah menantang.
+Elza yang merupakan salah satu peserta ingin melakukan survei mengenai berapa baris yang dibutuhkan untuk menyelesaikan problem tersebut kepada $N$ buah tim.
+Sayangnya, mereka tahu jika menjawab pertanyaan Elza dengan tepat maka akan memudahkan Elza untuk mengerjakan soal tersebut.
+Oleh karenanya, mereka bersepakat untuk menjawab pertanyaan Elza dengan hanya memberikan rentang dengan batas $L$ dan $R$ yang artinya baris yang mereka butuhkan berada di antara $L$ dan $R$ rentang tersebut.
+Dari hasil survei yang dilakukan, 
+Elza memiliki $N$ buah data rentang $L_{i}$ dan $R_{i}$ yang merupakan banyaknya baris yang dibutuhkan untuk tim ke $i$ menyelesaikan soal tersebut.
+Elza yang kesal karena tidak diberitahu jumlah pasti dari baris yang dibutuhkan untuk menyelesaikan soal memilih untuk bermain dengan data yang ia punya.
+Anda yang pandai dalam membuat program akhirnya ditantang Elza untuk bermain dengannya.
+Elza memberikan $Q$ buah tebakan yang di setiap tebakannya berisi rentang $X_{j}$ dan $Y_{j}$.
+Anda diminta untuk mencari banyaknya tim yang dapat menyelesaikan soal dengan rentang $A$ dan $B$ baris yang memenuhi $L_{i} \leq A \leq X_{j}$ dan $Y_{j} \leq B \leq R_{i}$.
+
 
 \subsection*{Format Masukan}
-Baris pertama adalah nilai $N$.
-Baris kedua hingga $N + 1$ adalah batas rentang.
-Baris ke $N + 2$ adalah nilai $Q$.
-Baris ke $N + 3$ hingga $N + Q + 2$ adalah batas rentang query.
+Baris pertama berisi sebuah bilangan bulat $N$ yang menyatakan banyaknya tim yang disurvei oleh Elza.
+Baris kedua hingga $N + 1$ adalah batas rentang $L_{i}$ dan $R_{i}$ dengan $0 \leq L_{i} \leq 2000$ dan $0 \leq R_{i} \leq 2000$ dengan $L_{i}$ dan $R_{i}$ merupakan baris yang dibutuhkan tim ke-$i$ untuk menyelesaikan soal.
+Baris ke $N + 2$ berisi sebuah bilangan bulat $Q$ berupa jumlah tebakan yang diberikan Elza.
+Baris ke $N + 3$ hingga $N + Q + 2$ adalah batas rentang query $X_{j}$ dan $Y_{j}$. 
 
 \subsection*{Format Keluaran}
-Keluarkan banyak rentang yang memenuhi.
+Berisi sebuah bilangan bulat yang merupakan banyaknya rentang yang memenuhi.
 \\
 
 \begin{multicols}{2}
