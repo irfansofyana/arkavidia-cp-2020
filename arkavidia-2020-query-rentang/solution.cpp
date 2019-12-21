@@ -3,8 +3,7 @@
 using namespace std;
 
 const int M = 2e3;
-int n, q;
-int l, r;
+int n, q, l, r;
 int dp[M + 5][M + 5];
 
 int main() {
