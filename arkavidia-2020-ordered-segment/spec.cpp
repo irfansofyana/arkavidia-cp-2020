@@ -67,8 +67,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             int L,R;
             q.clear();
             for (int i = 0;i<Q;i++){
-                L = randomArrayRange(1,N);
-                R = randomArrayRange(L,N);
+                L = rnd.nextInt(1,N);
+                R = rnd.nextInt(L,N);
                 q.push_back(make_pair(L,R));
             }
         }
