@@ -6,6 +6,7 @@ typedef long long LL;
 
 const int MAXX = 1e6;
 const LL MOD = 1e9+7;
+const LL MAXB = 1e18;
 
 LL N;
 vector<LL> primes;
@@ -51,14 +52,17 @@ void sieve(){
 }
 
 int millerRabin(LL p, int it){
-    mt19937 mt_rand(time(0));
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<LL> dis(1, MAXB);
     if (p == 2) return 1;
     if (p != 2 && p % 2 == 0) return 0;
     LL d = p-1;
     while (d%2 == 0) d /= 2;
     LL s = (p-1) / d;
     for (int i = 0; i < it; ++i){
-        LL a = mt_rand() % (p-1) + 1;
+        LL random = dis(gen);
+        LL a = random % (p-1) + 1;
         LL mod = powmod(a, d, p);
         if (mod == 1) continue;
         for (int i = 0; i <= s-1; ++i){
