@@ -55,10 +55,10 @@ Pertama, Elza memikirkan representasi biner dari semua bilangan antara $0$ sampa
 Elza tidak punya banyak waktu, naga tersebut sudah lapar, apalagi dia sudah membuang banyak waktu menjelaskan buah pikirnya kepada Anda. Sekarang, dia butuh bantuan Anda menentukan ekspektasi banyaknya pelemparan yang Elza lakukan untuk mendapatkan bilangan acak tersebut, untuk memastikan caranya tidak akan memakan terlalu banyak waktu. Karena jawabannya dapat berbentuk pecahan, untuk jawaban bernilai $\frac{p}{q}$, dengan $p$ dan $q$ relatif prima, cukup keluarkan nilai $pq^{-1} \mod (10^9+7)$ dimana $q^{-1}$ berarti invers perkalian $q$ terhadap bilangan $10^9+7$.
 
 \subsection*{Format Masukan}
-Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 10^{18}$).
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($2 \leq N \leq 10^{18}$).
 
 \subsection*{Format Keluaran}
-Sebuah bilangan $pq^{-1}$ yang menyatakan besar ekspektasi banyak pelemparan koin.
+Sebuah bilangan $pq^{-1}$ yang menyatakan besar ekspektasi banyak pelemparan koin. Dipastikan untuk nilai ekspektasi $\frac{p}{q}$, nilai $q$ tidak pernah habis dibagi $10^9+7$.
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
@@ -74,14 +74,14 @@ Sebuah bilangan $pq^{-1}$ yang menyatakan besar ekspektasi banyak pelemparan koi
 2
 \end{lstlisting}
 \begin{lstlisting}
-?? gatau belum ngitung
+800000010
 \end{lstlisting}
 \end{multicols}
 
 \subsection*{Penjelasan}
 Untuk \textit{testcase} pertama, bilangan dari $0$ sampai $3$ mempunyai representasi biner $00, 01, 10, 11$. Dua lemparan koin akan selalu menghasilkan bilangan yang valid dalam \textit{range}, sehingga ekspektasinya adalah dua.
 
-Untuk \textit{testcase} kedua dengan representasi biner $000, 001, 010, 011, 100$, contoh kejadian yang dapat terjadi adalah Elza melempar koin $1$ lalu $1$. Karena tidak ada bilangan dengan \textit{prefix} $11$, Elza melakukan pelemparan ulang, lalu mendapat bilangan $010$ misalnya. 
+Untuk \textit{testcase} kedua dengan representasi biner $000, 001, 010, 011, 100$ memiliki nilai ekspektasi $\frac{22}{5}$. Contoh kejadian yang dapat terjadi adalah Elza melempar koin $1$ lalu $1$. Karena tidak ada bilangan dengan \textit{prefix} $11$, Elza melakukan pelemparan ulang, lalu mendapat bilangan $010$ misalnya. 
 \pagebreak
 
 \end{document}
