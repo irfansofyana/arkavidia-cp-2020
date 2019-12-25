@@ -17,7 +17,7 @@ int main() {
     for(int i = 2; i <= n; i++){
         cin >> arr[i];
 
-        if(arr[i] >= arr[i - 1]){
+        if(arr[i] > arr[i - 1]){
             pre1[i] = pre1[i - 1] + 1;
             pre0[i] = pre0[i - 1];
             ne[i] = 1;
