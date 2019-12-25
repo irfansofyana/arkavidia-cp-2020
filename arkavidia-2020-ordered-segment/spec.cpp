@@ -7,12 +7,12 @@ typedef long long LL;
 
 const MAX_N = 100000;
 const MAX_B = 100000;
-const MAX_Q = 2000;
+const MAX_Q = 100000;
 
 class ProblemSpec : public BaseProblemSpec{
     protected:
         //list of variables 
-        int N, K;
+        int N, Q;
         vector<int> arr;
         vector<int> L,R;
         vector<string> ans;
@@ -108,6 +108,14 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
+            for (int i = 0; i < 4; ++i){
+                CASE(
+                    N = rnd.nextInt(1*MAX_N/10, 1*MAX_N),
+                    randomArrayRange(N, arr, 1*MAX_B/5, 1*MAX_B),
+                    Q = rnd.nextInt(1, 1*MAX_Q),
+                    randomQuery(N,Q,L,R)
+                );
+            }
         }
     private: 
         void randomArrayRange(int N, vector<int> & a, int lo, int hi){
@@ -117,11 +125,14 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             }
         }
         void randomQuery(int N,int Q,vector<int> & L, vector<int> & R){
+            int l,r;
             L.clear();
             R.clear();
             for (int i = 0;i<Q;i++){
-                L.push_back(rnd.nextInt(1,N));
-                R.push_back(rnd.nextInt(L,N));
+                l = rnd.nextInt(1,N);
+                r = rnd.nextInt(l,N);
+                L.push_back(l);
+                R.push_back(r);
             }
         }
 };
