@@ -31,14 +31,62 @@ class ProblemSpec : public BaseProblemSpec{
     }
 
     void Constraints(){
-        CONS(1 <= N && N <= )
+        CONS(1 <= N && N <= MAXN);
+        CONS(1 <= Q && Q <= MAXN);
+        CONS(eachElementBetween(L, 0, MAXM));
+        CONS(eachElementBetween(R, 0, MAXM));
+        CONS(eachElementBetween(ql, 0, MAXM));
+        CONS(eachElementBetween(qr, 0, MAXM));
+        CONS(equalSize(L, N));
+        CONS(equalSize(R, N));
+        CONS(equalSize(ql, Q));
+        CONS(equalSize(qr, Q));
+        CONS(check(L, R));
+        CONS(check(ql, qr));
     }
+
+    private:
+        bool check(const vector<int>& a, const vector<int>& b){
+            for (int i = 0; i < (int)a.size(); ++i){
+                if (a[i] > b[i]) return false;
+            }
+            return true;
+        }
+
+        bool equalSize(const vector<int>& a, int sz){
+            return ((int)a.size() == sz);
+        }
+
+        bool eachElementBetween(const vector<int>& a, int lo, int hi){
+            for (int i = 0; i < (int)a.size(); ++i){
+                if (a[i] > hi || a[i] < lo) return false;
+            }
+            return true;
+        }
 };
 
 class TestSpec : public BaseTestSpec<ProblemSpec>{
     protected:
         void TestCases(){
-
+            for (int i = 0; i < 5; ++i){
+                CASE(
+                    N = rnd.nextInt(1, 10000),
+                    randomArrayNormal(N, l, r),
+                    Q = rnd.nextInt(1, MAXN),
+                    randomArrayNormal(Q, ql, qr)
+                );
+            }
         }
     private:
+        void randomArrayNormal(int sz, vector<int> & a, vector<int> & b){
+            a.clear();
+            b.clear();
+            for (int i = 0; i < sz; ++i){
+                int l = rnd.nextInt(0, MAXM);
+                int r = rnd.nextInt(l, MAXM);
+                a.push_back(l);
+                b.push_back(r);
+            }
+        }
+
 };
