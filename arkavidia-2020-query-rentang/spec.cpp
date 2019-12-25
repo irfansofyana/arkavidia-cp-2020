@@ -68,13 +68,21 @@ class ProblemSpec : public BaseProblemSpec{
 class TestSpec : public BaseTestSpec<ProblemSpec>{
     protected:
         void TestCases(){
-            for (int i = 0; i < 5; ++i){
+            for (int i = 0; i < 3; ++i){
                 CASE(
-                    N = rnd.nextInt(1, 10000),
+                    N = rnd.nextInt(1, MAXN),
                     randomArrayNormal(N, l, r),
                     Q = rnd.nextInt(1, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
+            }
+            for (int i = 0; i < 5; ++i){
+                CASE(
+                    N = rnd.nextInt(1000, MAXN),
+                    randomArray1(N, l, r),
+                    Q = rnd.nextInt(1, MAXN),
+                    randomArrayNormal(Q, ql, qr)
+                )
             }
         }
     private:
@@ -86,6 +94,21 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                 int r = rnd.nextInt(l, MAXM);
                 a.push_back(l);
                 b.push_back(r);
+            }
+        }
+
+        void randomArray1(int sz, vector<int> &a, vector<int> &b){
+            a.clear();
+            b.clear();
+            for (int i = 0; i < sz; ++i){
+                int l, r;
+                if (i == 0){
+                    l = rnd.nextInt(0, MAXM);
+                    r = rnd.nextInt(l, MAXM);
+                }else {
+                    l = rnd.nextInt(a[i-1], b[i-1]);
+                    r = rnd.nextInt(b[i-1], MAXM);
+                }
             }
         }
 
