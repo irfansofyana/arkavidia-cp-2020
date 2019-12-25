@@ -17,16 +17,18 @@ int ask(int i, int val) {
     int ret = 0;
     int lo, hi, mid, best;
     while (i > 0) {
-        lo = 0, hi = bit[i].size(), best = -1;
-        while (lo <= hi) {
-            mid = (lo + hi) / 2;
-            if (bit[i][mid] >= val) {
-                best = mid;
-                hi = mid - 1;
-            } else lo = mid + 1;
-        }
-        if (best != -1) {
-            ret += bit[i].size() - best;
+        if (bit[i].size()) {
+            lo = 0, hi = bit[i].size() - 1, best = -1;
+            while (lo <= hi) {
+                mid = (lo + hi) / 2;
+                if (bit[i][mid] >= val) {
+                    best = mid;
+                    hi = mid - 1;
+                } else lo = mid + 1;
+            }
+            if (best != -1) {
+                ret += bit[i].size() - best;
+            }
         }
         i -= i & -i;
     }
