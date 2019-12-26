@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{Pesta Ulang Tahun} % ganti judul soal
+    \section*{Tantangan Penjaga Pintu} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -49,45 +49,53 @@
 
 \subsection*{Deskripsi}
 
-Elza dan Anda , seorang Arkavidian, sedang melakukan petualangan ke hutan misterius di utara untuk menyelamatkan Negara Arkavidia.
-Sesampainya di depan pintu hutan misterius, kalian mendapatkan tantangan dari penjaga pintu.
-kalian diberikan $N$ buah titik yang membagi rata sebuah lingkaran. selanjutnya Kalian harus berpindah dari titiknya
-sekarang (titik 0) ke titik-titik lain yang memenuhi syarat:
+Elza, seorang pendekar pengembara, mengabdikan hidupnya untuk menumpas kejahatan dan membantu yang lemah. Dalam pengembaraannya melewati suatu desa, dia melihat seorang anak kecil menangis terisak-isak. Elza pun menanyakan kepada anak itu kenapa dia menangis. Ternyata, anak itu hari ini sedang berulang tahun, tetapi dia tidak mempunyai pisau untuk memotong dan membagikan kue ulang tahunnya kepada teman-temannya. Elza lalu mengeluarkan pedang kepercayaannya yang tentunya sangat higienis untuk memotong kue pesta anak tersebut menjadi beberapa bagian.
+
+Kue pesta memiliki bentuk segi-N beraturan. Elza si pendekar handal ingin hanya menggunakan satu gerakan untuk membagi kue tersebut. Pertama, Elza meletakkan ujung pedangnya di titik sudut kue terdekat dengan dirinya, lalu Elza mulai menggerakan ujung pedangnya ke titik sudut lain sehingga
 
 \begin{itemize}
     \setlength\itemsep{0pt}
     \item Titik yang hendak dituju tidak bersebelahan dengan posisi sekarang
-    \item Titik yang hendak dituju tidak boleh berpotongan/ coincide dengan \textit{path} sebelumnya.
+    \item Garis potongan yang hendak dibentuk tidak boleh berpotongan dengan garis potongan sebelumnya kecuali di titik sudut kue
 \end{itemize}
 
-Setelah itu sang penjaga pintu bertanya kepada kalian berapa banyak \textit{path} yang dapat terbentuk dari $N$ buah titik tersebut.
-Saat Anda melihat muka Elza, ia terlihat kebingungan, sebagai partnernya yang setia, Anda harus membantunya 
-agar dapat masuk ke hutan misterius tersebut. Dapatkah Anda menolong Elza?
+Elza terus menggerakan pedangnya seperti ini sampai tidak ada gerakan valid yang dapat dilakukan. Saat Elza sedang sibuk memotong kue tersebut, anak kecil itu penasaran berapa banyak kah kemungkinan potongan yang dapat terjadi dengan aturan pemotongan seperti ini. Bantulah anak kecil ini menyelesaikan permasalahan tersebut untuk membuat hari ulang tahun terbaik untuknya. Perhatikan bahwa karena jawabannya mungkin sangat besar, cukup keluarkan jawabannya $\mod 10^9 + 7$.
 
 \subsection*{Format Masukan}
-Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 100.000$), menyatakan banyaknya point pembagi lingkaran.
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($4 \leq N \leq 10^{18}$), menyatakan banyaknya titik sudut kue.
 
 \subsection*{Format Keluaran}
-Sebuah baris yang menyatakan banyaknya \textit{path} yang ada.
+Sebuah baris yang menyatakan banyaknya cara pemotongan yang ada, $\mod 10^9 + 7$.
 \\
 
 \begin{multicols}{2}
-\subsection*{Contoh Masukan}
+\subsection*{Contoh Keluaran}
 \begin{lstlisting}
 5
+\end{lstlisting}
+\begin{lstlisting}
+6
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
 2
 \end{lstlisting}
-\vfill
-\null
+\begin{lstlisting}
+6
+\end{lstlisting}
 \end{multicols}
 
 \subsection*{Penjelasan}
-Jika setiap titik diberikan nomor 0,1,2,3,4 maka \textit{path} yang mungkin adalah 0,2,4 dan 0,3,1
-% Jika dibutuhkan, tambahkan penjelasan di sini
+Untuk segienam, ada enam kemungkinan potongan.
+
+\includegraphics[width=40px]{1.png}
+\includegraphics[width=40px]{2.png}
+\includegraphics[width=40px]{3.png}
+\includegraphics[width=40px]{4.png}
+\includegraphics[width=40px]{5.png}
+\includegraphics[width=40px]{6.png}
+
 
 \pagebreak
 
