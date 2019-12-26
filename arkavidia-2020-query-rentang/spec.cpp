@@ -68,7 +68,7 @@ class ProblemSpec : public BaseProblemSpec{
 class TestSpec : public BaseTestSpec<ProblemSpec>{
     protected:
         void TestCases(){
-            for (int i = 0; i < 3; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1, MAXN),
                     randomArrayNormal(N, l, r),
@@ -80,9 +80,41 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                 CASE(
                     N = rnd.nextInt(1000, MAXN),
                     randomArray1(N, l, r),
+                    Q = rnd.nextInt(1000, MAXN),
+                    randomArrayNormal(Q, ql, qr)
+                );
+            }
+            for (int i = 0; i < 3; ++i){
+                CASE(
+                    N = rnd.nextInt(10000, MAXN),
+                    randomArrayNormal(N, l, r),
                     Q = rnd.nextInt(1, MAXN),
                     randomArrayNormal(Q, ql, qr)
-                )
+                );
+            }
+            for (int i = 0; i < 5; ++i){
+                CASE(
+                    N = rnd.nextInt(100000, MAXN),
+                    randomArray1(N, l, r),
+                    Q = rnd.nextInt(1000, MAXN),
+                    randomArrayNormal(Q, ql, qr)
+                );
+            }
+            for (int i = 0; i < 2; ++i){
+                CASE(
+                    N = rnd.nextInt(100000, MAXN),
+                    randomArray1(N, l, r),
+                    Q = rnd.nextInt(100000, MAXN),
+                    randomArray1(Q, ql, qr)
+                );
+            }
+            for (int i = 0; i < 3; ++i){
+                CASE(
+                    N = MAXN,
+                    randomArray1(N, l, r),
+                    Q = MAXN,
+                    randomArrayNormal(Q, ql, qr)
+                );
             }
         }
     private:

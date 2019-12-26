@@ -22,5 +22,5 @@
 **/tc
 .vscode/*
 
-# Unignore build file
+# ignore build file
 **build
