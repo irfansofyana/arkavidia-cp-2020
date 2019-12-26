@@ -55,6 +55,7 @@ int millerRabin(LL p, int it){
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<LL> dis(1, MAXB);
+    if (p == 1) return 0;
     if (p == 2) return 1;
     if (p != 2 && p % 2 == 0) return 0;
     LL d = p-1;
