@@ -71,7 +71,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1, MAXN),
-                    randomArrayNormal(N, l, r),
+                    randomArrayNormal(N, L, R),
                     Q = rnd.nextInt(1, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
@@ -79,7 +79,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 5; ++i){
                 CASE(
                     N = rnd.nextInt(1000, MAXN),
-                    randomArray1(N, l, r),
+                    randomArray1(N, L, R),
                     Q = rnd.nextInt(1000, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
@@ -87,7 +87,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 3; ++i){
                 CASE(
                     N = rnd.nextInt(10000, MAXN),
-                    randomArrayNormal(N, l, r),
+                    randomArrayNormal(N, L, R),
                     Q = rnd.nextInt(1, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
@@ -95,7 +95,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 5; ++i){
                 CASE(
                     N = rnd.nextInt(100000, MAXN),
-                    randomArray1(N, l, r),
+                    randomArray1(N, L, R),
                     Q = rnd.nextInt(1000, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
@@ -103,7 +103,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(100000, MAXN),
-                    randomArray1(N, l, r),
+                    randomArray1(N, L, R),
                     Q = rnd.nextInt(100000, MAXN),
                     randomArray1(Q, ql, qr)
                 );
@@ -111,7 +111,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 3; ++i){
                 CASE(
                     N = MAXN,
-                    randomArray1(N, l, r),
+                    randomArray1(N, L, R),
                     Q = MAXN,
                     randomArrayNormal(Q, ql, qr)
                 );
