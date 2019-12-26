@@ -102,7 +102,10 @@ LL findPrimeFactor(LL N){
             ++res;
         }
     }
-    if (millerRabin(N, 1000)){
+    if (N == 1){
+        return res;
+    }
+    else if (millerRabin(N, 1000)){
         ++res;
     }else{
         LL sqrtN = findSqrt(N);
@@ -119,6 +122,7 @@ int main(){
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     sieve();
     cin >> N;
-    cout << powmod(2, findPrimeFactor(N)-1, MOD) << '\n';
+    if (N == 1) cout << 0 << '\n';
+    else cout << powmod(2, findPrimeFactor(N)-1, MOD) << '\n';
     return 0;
 }
