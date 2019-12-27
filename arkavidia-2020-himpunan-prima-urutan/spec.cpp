@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace tcframe;
 
-const int NMax = 500;
+const int NMax = 100;
 const int HMax = 2e6;
 const long long INF = 1e18;
 
@@ -86,7 +86,7 @@ protected:
 			CASE(N = rnd.nextInt(1, 50), randomPrimes(N, rnd.nextInt(1, 999), H), K = randomK(rnd.nextInt(1, 15), H));
 		}
 		for (int i = 0; i < 5; i++) {
-			CASE(N = rnd.nextInt(51, NMax), randomPrimes(N, rnd.nextInt(1000, 100000), H), K = randomK(rnd.nextInt(16, 62), H));
+			CASE(N = rnd.nextInt(50 + 1, NMax), randomPrimes(N, rnd.nextInt(1000, 100000), H), K = randomK(rnd.nextInt(16, 62), H));
 		}
 		for (int i = 0; i < 3; i++) {
 			CASE(N = NMax, randomPrimes(N, lenPrimes, H), K = randomK(63, H));
