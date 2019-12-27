@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace tcframe;
 
-const int NMax = 1e5;
+const int NMax = 100;
 const int HMax = 2e6;
 const long long INF = 1e18;
 
@@ -11,7 +11,7 @@ protected:
     int N;
 	vector<int> H;
 	long long K;
-	int res;
+	long long res;
 
     void InputFormat() {
         LINE(N);
@@ -83,40 +83,41 @@ protected:
 		CASE(N = 1, H = {3}, K = 3);
 		CASE(N = 2, H = {2, 3}, K = 3);
 		for (int i = 0; i < 5; i++) {
-			CASE(N = rnd.nextInt(1, 999), randomPrimes(rnd.nextInt(1, 999)), randomK(rnd.nextInt(1, 15)));
+			CASE(N = rnd.nextInt(1, 50), randomPrimes(N, rnd.nextInt(1, 999), H), K = randomK(rnd.nextInt(1, 15), H));
 		}
 		for (int i = 0; i < 5; i++) {
-			CASE(N = rnd.nextInt(1000, NMax), randomPrimes(rnd.nextInt(1000, NMax)), randomK(rnd.nextInt(16, 62)));
+			CASE(N = rnd.nextInt(51, NMax), randomPrimes(N, rnd.nextInt(1000, 100000), H), K = randomK(rnd.nextInt(16, 62), H));
 		}
 		for (int i = 0; i < 3; i++) {
-			CASE(N = NMax, randomPrimes(lenPrimes), randomK(63));
+			CASE(N = NMax, randomPrimes(N, lenPrimes, H), K = randomK(63, H));
 		}
 		CASE(N = 2, H = {2, 5}, K = INF);
-		CASE(N = 5, H = {2, 3, 5, 7, 9}, K = INF);
+		CASE(N = 5, H = {2, 3, 5, 7, 11}, K = INF);
     }
 
 private:
-    void randomPrimes(int num) {
+    void randomPrimes(const int & N, int num, vector<int> & H) {
 		num = max(num, N + 5);
 		assert(num <= lenPrimes);
 		map<int, int> mp;
 		for (int i = 0; i < N; i++) {
 			int cur = primes[rnd.nextInt(0, num)];
-			while (mp[cur] > 0) cur = primes[rnd.nextInt(0, num)];
+			while (mp.find(cur) != mp.end()) cur = primes[rnd.nextInt(0, num)];
 			mp[cur]++;
 			H.push_back(cur);
-		}	
+		}
         sort(H.begin(), H.end());
     }
 
-	void randomK(int num) {
+	long long randomK(int num, const vector<int> & H) {
 		assert(63 >= num && num >= 1);
-		K = 1;		
+		long long K = 1;		
 		for (int i = 0; i < num; i++) {
 			long long cur = H[rnd.nextInt(0, (int) H.size() - 1)];			
 			if (K >= INF / cur) break;
 			K *= cur;
 		}
+		return K;
 	}
 };
 

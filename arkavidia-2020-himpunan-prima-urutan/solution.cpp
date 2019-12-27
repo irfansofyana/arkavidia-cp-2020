@@ -21,15 +21,19 @@ int main(){
     }
     cin >> K;
     int order = 1;
-    while (!pq.empty() && pq.top() <= LIMIT){
+    bool stop = false;
+    while (!pq.empty() && pq.top() <= LIMIT && !stop){
         LL top = pq.top();
-        // cout << top << " " << order << '\n';
         pq.pop();
         ans[top] = order++;
         for (int i = 1; i <= N; ++i){
             if (i >= last[top]){
                 last[H[i] * top] = i;
-                pq.push(H[i] * top);
+                if (top >= LIMIT / H[i]) {
+                    stop = true;
+                    break;
+                }
+                else pq.push(H[i] * top);
             }
         }
     }
