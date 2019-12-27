@@ -29,8 +29,7 @@ int main(){
         for (int i = 1; i <= N; ++i){
             if (i >= last[top]){
                 last[H[i] * top] = i;
-                if (top >= LIMIT / H[i]) {
-                    stop = true;
+                if (top > LIMIT / H[i]) {
                     break;
                 }
                 else pq.push(H[i] * top);
