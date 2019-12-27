@@ -48,61 +48,46 @@
 \end{center}
 
 \subsection*{Deskripsi}
-
-XOR adalah salah satu operator dalam aljabar boolean. Operator ini menerima dua buah operan berupa nilai boolean ($true, false$ 
-atau $0, 1$) dan menghasilkan $true$ atau $1$ jika salah satu operan bernilai $true$ atau $1$ tetapi tidak keduanya. 
-Tabel kebenaran untuk operator ini adalah sebagai berikut.
+XOR atau $\oplus$ merupakan salah satu operator logika dalam aljabar boolean yang menerima dua buah operan berupa nilai boolean ($true, false$ atau $0, 1$) dan menghasilkan nilai $true$ atau $1$ jika (dan hanya jika) salah satu operan bernilai $true$ atau $1$ tetapi tidak keduanya. Tabel kebenaran berikut menunjukkan nilai $A \oplus B$ untuk nilai $A$ dan $B$ yang berbeda-beda: 
 
 \begin{center}
 \begin{tabular}{c|c|c}
-A & B & A XOR B \\ \hline
+$A$ & $B$ & $A \oplus  B$ \\ \hline
 0 & 0 & 0       \\
 1 & 0 & 1       \\
 0 & 1 & 1       \\
 1 & 1 & 0
 \end{tabular}
 \end{center}
-Operasi XOR dapat dilakukan dengan operan berupa bilangan dalam basis biner,
- dengan cara melakukan operasi XOR pada tiap digit kedua operan yang bersesuaian.
+Operasi XOR juga dapat dilakukan dengan operan berupa bilangan bulat non-negatif, dengan cara melakukan operasi XOR pada tiap digit kedua operan dalam bentuk biner dengan posisi yang bersesuaian. Contohnya:
+$$ 181 \oplus 108 = 10110101_2 \oplus 01101100_2 = 11011001_2 = 217 $$
 
-Contoh:
-\begin{center}
-$10110101_2$ xor $11011001_2 = 01101100_2$
-\end{center}
-
-Sebuah bilangan bulat non-negatif $N$ dapat dihasilkan dengan menjumlahkan $k$ buah biangan bulat non-negatif ($a_1, a_2, a_3, ... a_k$), 
-Dalam persoalan ini, Anda diminta mencari Minimum XOR, yaitu nilai minimum yang dapat dihasilkan dari operasi  $a_1$ xor $a_2$ xor $a_3$ xor $...$ xor $a_k$.
+Diberikan sebuah bilangan bulat non-negatif $N$ dan sebuah bilangan asli $k$. Untuk sembarang tupel $k$ bilangan bulat non-negatif $(a_1, a_2, \ldots, a_k)$ yang berjumlah $N$, carilah nilai minimum dari $a_1 \oplus a_2 \oplus \ldots \oplus a_k$ (perhatikan bahwa operasi XOR bersifat asosiatif sehingga urutan pengoperasian pada persamaan tersebut tidak berpengaruh pada hasil akhir).
 
 \subsection*{Format Masukan}
 
-Masukan terdiri dari dua bilangan  $N, K$ ($1 \leq N \leq 10^6, 1 \leq K \leq 10^5$), dengan $N = a_1 + a_2 + a_3 + ... + a_K$.
+Masukan terdiri dari dua bilangan  $N, k$ ($0 \leq N \leq 10^{18}, 1 \leq k \leq 10^{18}$)
 
 \subsection*{Format Keluaran}
 
-Keluaran berupa nilai minimum yang mungkin dihasilkan oleh $a_1$ xor $a_2$ xor $a_3$ xor $...$ xor $a_K$
-\\
+Keluaran berupa nilai minimum yang mungkin dihasilkan oleh $a_1 \oplus a_2 \oplus \ldots \oplus a_k$ dimana $a_i$ merupakan bilangan bulat non-negatif yang berjumlah $N$.
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-10 4
+5 3
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-0
+1
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
 \subsection*{Penjelasan}
-Empat bilangan dapat dijumlahkan menjadi 10
-\[ 3 + 3 + 2 + 2 = 10 \]
-Keempat bilangan ini dapat di-XOR-kan menghasilkan nilai minimum
-\begin{center}
-$11_2$ xor $11_2$ xor $10_2$ xor $10_2 = 0$
-\end{center}
+Bilangan $2, 2, 1$ berjumlah $5$ dengan nilai $2 \oplus 2 \oplus 1 = 1$. Dapat dibuktikan tidak dapat dihasilkan nilai XOR yang lebih kecil dari $1$.
 \pagebreak
 
 \end{document}
