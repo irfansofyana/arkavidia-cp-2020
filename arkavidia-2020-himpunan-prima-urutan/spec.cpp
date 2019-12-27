@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace tcframe;
 
-const int NMax = 100;
+const int NMax = 500;
 const int HMax = 2e6;
 const long long INF = 1e18;
 
