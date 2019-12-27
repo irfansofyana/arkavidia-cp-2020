@@ -15,5 +15,9 @@ int main() {
     ios::sync_with_stdio(0); cin.tie(0);
 
     cin >> N;
-    cout << (2 * powmod(N-5)) % PMOD << '\n';
+    if (N == 4) {
+        cout << 1 << '\n';
+    } else {
+        cout << (2 * powmod(N-5)) % PMOD << '\n';
+    }
 }

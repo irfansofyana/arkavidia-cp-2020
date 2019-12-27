@@ -6,7 +6,7 @@ constexpr long long PMOD = 1e9 + 7;
 struct fracmod {
     fracmod() : fracmod(0) {}
     fracmod(long long x) : val{x} {
-        x %= PMOD;
+        val %= PMOD;
     }
 
     fracmod operator+(fracmod x) {
