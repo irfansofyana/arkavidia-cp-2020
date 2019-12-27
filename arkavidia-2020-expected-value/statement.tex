@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{Expected Value} % ganti judul soal
+    \section*{Naga Liar} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -48,40 +48,40 @@
 \end{center}
 
 \subsection*{Deskripsi}
-Saat berada di dalam hutan misterius, Elza dan Anda bertemu dengan suku matahari yang merupakan suku asli di dalam hutan tersebut.
-Kalian disambut dengan lapang dada oleh mereka. Mereka pun membuat sebuah pesta makan bersama untuk menyambut kalian.
-Pada saat menikmati makanan, Elza melihat anak-anak suku matahari memainkan sebuah game unik. Game ini bernama \textit{Expected Value}. Elza pun
-mengajak Anda untuk memainkannya.
+Gawat! Dalam ekspedisinya menyelamatkan tuan putri, pasukan Elza bertemu seorang naga liar di padang rumput. Sekarang, Elza harus menentukan satu orang tumbal dari pasukannya untuk dikorbankan ke naga tersebut agar sisa pasukannya dapat kabur. Pasukan Elza berjumlah $N$ orang, dan Elza ingin memilih suatu bilangan acak antara $0$ sampai $N-1$ dengan peluang yang sama untuk menentukan siapa orang yang akan dikorbankan. Tentunya hal tersebut sangatlah sulit dilakukan di tengah padang rumput, apalagi Elza hanya membawa sebuah koin. Untungnya, Elza mengerti representasi biner sehingga dia menciptakan cara unik berikut.
 
-Diberikan sebuah bilangan $N$. Kalian diminta untuk memilih sebuah bilangan acak yang berada di antara $0$ sampai $N-1$ yang 
-direpresentasikan dengan biner. Panjangnya biner setiap angka akan sama panjang mengikuti bilangan terbesar, yaitu $N-1$.
-Cara memilihnya yaitu dengan melemparkan sebuah koin dengan 2 sisi, sisi yang bertuliskan $0$ dan $1$.
+Pertama, Elza memikirkan representasi biner dari semua bilangan antara $0$ sampai $N-1$, menambahkan digit nol di depan setiap bilangan sebanyak seperlunya agar semua representasinya memiliki panjang yang sama. Lalu, Elza menentukan sisi mana dari koin yang akan merepresentasikan digit nol dan satu. Elza pun mulai melempar koin tersebut, mengumpulkan digit hasil pelemparannya sampai membentuk salah satu bilangan diantara $0$ sampai $N-1$. Sayangnya ada kemungkinan digit yang dia kumpulkan tidak mungkin membentuk salah satu bilangan dari $0$ sampai $N-1$, jika itu terjadi, Elza terpaksa langsung membuang semua digit yang dia kumpulkan dan memulai lagi dari awal.
 
-Setelah mendengar penjelasan permainannya, Elza memberikan sebuah tantangan kepada Anda. Anda diminta untuk menghitung berapa 
-ekspektasi banyak pelemparan koin untuk mendapatkan bilangan yang valid, yaitu sebuah bilangan $B$ yang ada di dalam rentang $0 < B < N-1$. Dapatkah Anda menaklukkan tantangan dari Elza?
+Elza tidak punya banyak waktu, naga tersebut sudah lapar, apalagi dia sudah membuang banyak waktu menjelaskan buah pikirnya kepada Anda. Sekarang, dia butuh bantuan Anda menentukan ekspektasi banyaknya pelemparan yang Elza lakukan untuk mendapatkan bilangan acak tersebut, untuk memastikan caranya tidak akan memakan terlalu banyak waktu. Karena jawabannya dapat berbentuk pecahan, untuk jawaban bernilai $\frac{p}{q}$, dengan $p$ dan $q$ relatif prima, cukup keluarkan nilai $pq^{-1} \mod (10^9+7)$ dimana $q^{-1}$ berarti invers perkalian $q$ terhadap bilangan $10^9+7$.
 
 \subsection*{Format Masukan}
-Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 10^{18}$).
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($2 \leq N \leq 10^{18}$).
 
 \subsection*{Format Keluaran}
-Sebuah baris yang menyatakan besar ekspektasi pelemparan koin untuk mendapatkan bilangan diantara $[0..N-1]$
-\\
+Sebuah bilangan $pq^{-1}$ yang menyatakan besar ekspektasi banyak pelemparan koin. Dipastikan untuk nilai ekspektasi $\frac{p}{q}$, nilai $q$ tidak pernah habis dibagi $10^9+7$.
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-1
+4
+\end{lstlisting}
+\begin{lstlisting}
+5
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
 2
 \end{lstlisting}
-\vfill
-\null
+\begin{lstlisting}
+800000010
+\end{lstlisting}
 \end{multicols}
 
+\subsection*{Penjelasan}
+Untuk \textit{testcase} pertama, bilangan dari $0$ sampai $3$ mempunyai representasi biner $00, 01, 10, 11$. Dua lemparan koin akan selalu menghasilkan bilangan yang valid dalam \textit{range}, sehingga ekspektasinya adalah dua.
 
+Untuk \textit{testcase} kedua dengan representasi biner $000, 001, 010, 011, 100$ memiliki nilai ekspektasi $\frac{22}{5}$. Contoh kejadian yang dapat terjadi adalah Elza melempar koin $1$ lalu $1$. Karena tidak ada bilangan dengan \textit{prefix} $11$, Elza melakukan pelemparan ulang, lalu mendapat bilangan $010$ misalnya. 
 \pagebreak
 
 \end{document}
