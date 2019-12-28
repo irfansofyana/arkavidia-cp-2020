@@ -2,8 +2,8 @@
 #include <bits/stdc++.h>
 using namespace tcframe;
 
-const int NMax = 1e4;
-const int KMax = 1e4;
+const int NMax = 5000;
+const int KMax = 5000;
 const long long INF = 1e18;
 
 class ProblemSpec : public BaseProblemSpec {
@@ -72,25 +72,37 @@ protected:
         CASE(N = 1, STAT = {1}, K = 1, ISI = {1});
         CASE(N = 2, STAT = {1, 1}, K = 1, ISI = {1});
         CASE(N = 4, STAT = {0, 0, 1, 1}, K = 2, ISI = {2, 3});
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(1, 500), randomSTAT(), K = rnd.nextInt(1, 500), randomISI());
 		}
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
 			CASE(N = rnd.nextInt(1, 500), randomSTAT(), K = rnd.nextInt(501, KMax), randomISI());
 		}
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(501, NMax), randomSTAT(), K = rnd.nextInt(1, 500), randomISI());
 		}
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
 			CASE(N = rnd.nextInt(501, NMax), randomSTAT(), K = rnd.nextInt(501, KMax), randomISI());
 		}
         
-        for (int i = 0; i < 10; i++) {
-			CASE(N = rnd.nextInt(5000, NMax), randomSTAT(), K = rnd.nextInt(1, KMax), randomISI());
+        for (int i = 0; i < 5; i++) {
+			CASE(N = rnd.nextInt(1000, NMax), randomSTAT(), K = rnd.nextInt(1, KMax), randomISI());
 		}
+        for (int i = 0; i < 5; i++){
+			CASE(N = rnd.nextInt(5000, NMax), randomSTAT(), K = rnd.nextInt(1000, KMax), randomISI());
+        }
 
         // Jawaban > 0
-        for (int i = 0; i < 15; i++){
+        for (int i = 0; i < 5; i++){
+            CASE(N = rnd.nextInt(1, NMax), randomSTAT(), randomSISA());
+        }
+        for (int i = 0; i < 3; i++){
+            CASE(N = rnd.nextInt(1000, NMax), randomSTAT(), randomSISA());
+        }
+        for (int i = 0; i < 2; i++){
+            CASE(N = rnd.nextInt(3000, NMax), randomSTAT(), randomSISA());
+        }
+        for (int i = 0; i < 5; i++){
             CASE(N = rnd.nextInt(5000, NMax), randomSTAT(), randomSISA());
         }
     }
@@ -103,7 +115,7 @@ private:
     }
 
     void allSTAT(int isi){
-        assert(0<=isi && isi<=1)
+        assert(0<=isi && isi<=1);
         for (int i = 0; i < N; i++){
             STAT.push_back(isi);
         }
@@ -138,20 +150,20 @@ private:
         for (int i = 0; i < len; i++){
             if (seq[i].second == 0) continue;
             if (i>0){
-                int ambil = rnd.nextInt(0, seq[i-1]-1);
-                seq[i-1] -= ambil;
-                seq[i] += ambil;
+                int ambil = rnd.nextInt(0, seq[i-1].first-1);
+                seq[i-1].first -= ambil;
+                seq[i].first += ambil;
             }
             if (i<len-1){
-                int ambil = rnd.nextInt(0, seq[i+1]-1);
-                seq[i+1] -= ambil;
-                seq[i] += ambil;
+                int ambil = rnd.nextInt(0, seq[i+1].first-1);
+                seq[i+1].first -= ambil;
+                seq[i].first += ambil;
             }
         }
 
         for (int i = 0; i < len; i++){
             if (seq[i].second == 0) continue;
-            ISI.push_back(seq[i]);
+            ISI.push_back(seq[i].first);
         }
 
         K = ISI.size();
