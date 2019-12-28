@@ -4,30 +4,26 @@ using namespace std;
 int arr[MAXN+5], temp[MAXN+5];
 int n;
 
-//Tester
-int brute(){
-	for(int i = 0; i < n; i++){
-		temp[i] = arr[i];
-	}
-
-	for(int i = n; i >= 1; i--){
-		for(int j = 0; j < i-1; j++){
-			temp[j] = temp[j]^temp[j+1];
+//Lucas theorem
+int oddCheck(int a, int b){
+	while(b){
+		if(!(a&1) && (b&1)){
+			return false;
 		}
+		a >>= 1;
+		b >>= 1;
 	}
-	return temp[0];
+	return true;
 }
 
 int calc(){
-	if(n == 1){
-		return arr[0];
-	} else if (n == 2){
-		return arr[0]^arr[n-1];
-	} else if (n%2){
-		return arr[0]^arr[n-1];
-	} else {
-		return (arr[0]^arr[1]) ^ (arr[n-1]^arr[n-2]);
+	int res = 0;
+	for(int i = 0; i <= n-1; i++){
+		if(oddCheck(n-1, i)){
+			res ^= arr[i];
+		}
 	}
+	return res;
 }
 
 int main(){
