@@ -75,20 +75,20 @@ protected:
 		for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(1, 500), randomSTAT(), K = rnd.nextInt(1, 500), randomISI());
 		}
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(1, 500), randomSTAT(), K = rnd.nextInt(501, KMax), randomISI());
 		}
         for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(501, NMax), randomSTAT(), K = rnd.nextInt(1, 500), randomISI());
 		}
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(501, NMax), randomSTAT(), K = rnd.nextInt(501, KMax), randomISI());
 		}
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
 			CASE(N = rnd.nextInt(1000, NMax), randomSTAT(), K = rnd.nextInt(1, KMax), randomISI());
 		}
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < 2; i++){
 			CASE(N = rnd.nextInt(5000, NMax), randomSTAT(), K = rnd.nextInt(1000, KMax), randomISI());
         }
 
@@ -96,10 +96,10 @@ protected:
         for (int i = 0; i < 5; i++){
             CASE(N = rnd.nextInt(1, NMax), randomSTAT(), randomSISA());
         }
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 5; i++){
             CASE(N = rnd.nextInt(1000, NMax), randomSTAT(), randomSISA());
         }
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < 8; i++){
             CASE(N = rnd.nextInt(3000, NMax), randomSTAT(), randomSISA());
         }
         for (int i = 0; i < 5; i++){
