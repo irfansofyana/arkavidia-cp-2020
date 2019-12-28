@@ -8,7 +8,7 @@ int arr[MAXN+5], block[MAXN+5];
 int n,k;
 
 bool jumpCheck(int now, int pos){
-	return now + block[pos] < n && !arr[now+block[pos]]
+	return now + block[pos] < n && !arr[now+block[pos]];
 }
 
 int rekur(int now, int pos){
