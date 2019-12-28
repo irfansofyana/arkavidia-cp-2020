@@ -30,7 +30,7 @@ class ProblemSpec : public BaseProblemSpec{
 
         void GradingConfig(){
             TimeLimit(1);
-            MemoryLimit(256);
+            MemoryLimit(64);
         }
 
         void Constraints(){
