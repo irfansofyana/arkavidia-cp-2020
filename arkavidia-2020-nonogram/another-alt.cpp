@@ -8,11 +8,11 @@ int arr[MAXN+5], block[MAXN+5];
 int n,k;
 
 bool jumpCheck(int now, int pos){
-	return now + block[pos] < n && !arr[now+block[pos]];
+	return now + block[pos] <= n && !arr[now+block[pos]];
 }
 
 int rekur(int now, int pos){
-	if(now == n){
+	if(now >= n){
 		return (pos == k);
 	}
 
@@ -25,14 +25,14 @@ int rekur(int now, int pos){
 	} else {
 		if(arr[now]){
 			if(jumpCheck(now, pos)){
-				ret = rekur(now+block[pos], pos+1);
+				ret = rekur(now+block[pos]+1, pos+1);
 			} else {
 				ret = 0;
 			}
 		} else {
 			ret = rekur(now+1, pos);
 			if(jumpCheck(now, pos)){
-				ret += rekur(now+block[pos], pos+1);
+				ret += rekur(now+block[pos]+1, pos+1);
 			}
 		}
 	}
