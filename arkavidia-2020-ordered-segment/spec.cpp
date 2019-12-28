@@ -5,9 +5,9 @@ using namespace std;
 
 typedef long long LL;
 
-const MAX_N = 100000;
-const MAX_B = 100000;
-const MAX_Q = 100000;
+const int MAX_N = 100000;
+const int MAX_B = 100000;
+const int MAX_Q = 100000;
 
 class ProblemSpec : public BaseProblemSpec{
     protected:
