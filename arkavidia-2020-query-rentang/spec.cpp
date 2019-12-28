@@ -1,4 +1,5 @@
 #include <tcframe/spec.hpp>
+#include <assert.h>
 
 using namespace std;
 using namespace tcframe;
@@ -79,7 +80,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 5; ++i){
                 CASE(
                     N = rnd.nextInt(1000, MAXN),
-                    randomArray1(N, L, R),
+                    randomArrayNormal(N, L, R),
                     Q = rnd.nextInt(1000, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
@@ -95,7 +96,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 5; ++i){
                 CASE(
                     N = rnd.nextInt(100000, MAXN),
-                    randomArray1(N, L, R),
+                    randomArrayNormal(N, L, R),
                     Q = rnd.nextInt(1000, MAXN),
                     randomArrayNormal(Q, ql, qr)
                 );
@@ -103,17 +104,25 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(100000, MAXN),
-                    randomArray1(N, L, R),
+                    randomArrayNormal(N, L, R),
                     Q = rnd.nextInt(100000, MAXN),
-                    randomArray1(Q, ql, qr)
+                    randomArrayNormal(Q, ql, qr)
                 );
             }
             for (int i = 0; i < 3; ++i){
                 CASE(
                     N = MAXN,
-                    randomArray1(N, L, R),
+                    randomArrayNormal(N, L, R),
                     Q = MAXN,
                     randomArrayNormal(Q, ql, qr)
+                );
+            }
+            for (int i = 0; i < 3; ++i){
+                CASE(
+                    N = MAXN,
+                    randomArrayNormal(N, L, R),
+                    Q = MAXN,
+                    randomWorstCase(Q, ql, qr, L, R)
                 );
             }
         }
@@ -141,6 +150,23 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     l = rnd.nextInt(a[i-1], b[i-1]);
                     r = rnd.nextInt(b[i-1], MAXM);
                 }
+                a.push_back(l);
+                b.push_back(r);
+            }
+        }
+
+        void randomWorstCase(int sz, vector<int> &a, vector<int> &b, const vector<int> &l, const vector<int> &R){
+            a.clear();
+            b.clear();
+            int maks = 0;
+            assert(L.size() == R.size());
+            for (int i = 0; i < L.size(); ++i){
+                maks = max(maks, L[i]);
+                maks = max(maks, R[i]);
+            }
+            for (int i = 0; i < sz; ++i){
+                int l = rnd.nextInt(maks, MAXM);
+                int r = rnd.nextInt(l, MAXM);
                 a.push_back(l);
                 b.push_back(r);
             }
