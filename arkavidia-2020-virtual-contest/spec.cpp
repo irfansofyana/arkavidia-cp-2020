@@ -11,11 +11,12 @@ protected:
     int N, Q, askCount;
     vector<int> score, ans;
     vector<pair<int,int> > query;
+    vector<int> tipe, value;
 
     void BeforeOutputFormat(){
         askCount = 0;
-        for(int i = 0; i < query.size(); i++){
-            if(query[i].first == 2){
+        for(int i = 0; i < tipe.size(); i++){
+            if(tipe[i] == 2){
                 askCount++;
             }
         }
@@ -25,7 +26,7 @@ protected:
         LINE(N);
         LINE(score % SIZE(N));
         LINE(Q);
-        LINES(query) % SIZE(Q);
+        LINES(tipe, value) % SIZE(Q);
     }
 
     void OutputFormat() {
@@ -41,8 +42,8 @@ protected:
         CONS(1 <= N && N <= MAXN);
         CONS(1 <= Q && Q <= MAXQ);
         CONS(rangeCheck(score, 1, MAXVAL));
-        CONS(queryCheck(query, N, 1, MAXVAL));
-        CONS(query.size() == Q && score.size() == N);
+        CONS(queryCheck(tipe, value, N, 1, MAXVAL));
+        CONS(tipe.size() == Q && value.size() == Q && score.size() == N);
     }
 
 private:
@@ -54,16 +55,16 @@ private:
         return true;
     }
 
-    bool queryCheck(vector<pair<int,int> > query, int participant, int a, int b){
+    bool queryCheck(vector<int> tipe, vector<int> value, int participant, int a, int b){
         bool isAskExist = false;
-        for(int i = 0; i < query.size(); i++){
-            if(query[i].first == 1){
+        for(int i = 0; i < tipe.size(); i++){
+            if(tipe[i] == 1){
                 participant++;
-                if(query[i].second < a || query[i].second > b)
+                if(value[i] < a || value[i] > b)
                     return false;
             } else {
                 isAskExist = true;
-                if(query[i].second < 1 || query[i].second  > participant)
+                if(value[i] < 1 || value[i] > participant)
                     return false;
             }
         }
@@ -75,7 +76,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 protected:
     void SampleTestCase1() {
         Input({
-            "6"
+            "6",
             "98 66 59 57 34 12",
             "6",
             "2 3",
@@ -96,6 +97,8 @@ protected:
     void BeforeTestCase(){
         score.clear();
         query.clear();
+        tipe.clear();
+        value.clear();
     }
 
     void TestCases() {
@@ -109,6 +112,13 @@ protected:
 
         for(int i = 0; i < 8; i++){
             CASE(N = rnd.nextInt(1, MAXN), Q = rnd.nextInt(1, MAXQ), initScore(N, score), alternateQuery(N, Q, query));
+        }
+    }
+
+    void AfterTestCase(){
+        for(int i = 0; i < Q; i++){
+            tipe.push_back(query[i].first);
+            value.push_back(query[i].second);
         }
     }
 
@@ -148,7 +158,7 @@ private:
 
     void alternateQuery(int N, int Q, vector<pair<int,int> > &query){
         for(int i = 0; i < Q; i++){
-            if(Q % 2){
+            if(i % 2){
                 query.push_back(make_pair(2, rnd.nextInt(1, N)));
             } else {
                 query.push_back(make_pair(1, rnd.nextInt(1, MAXVAL)));
