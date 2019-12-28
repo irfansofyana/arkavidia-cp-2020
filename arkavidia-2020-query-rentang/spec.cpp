@@ -27,7 +27,7 @@ class ProblemSpec : public BaseProblemSpec{
 
     void GradingConfig(){
         TimeLimit(1);
-        MemoryLimit(32);
+        MemoryLimit(64);
     }
 
     void Constraints(){
@@ -70,9 +70,9 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
         void TestCases(){
             for (int i = 0; i < 2; ++i){
                 CASE(
-                    N = rnd.nextInt(1, MAXN),
+                    N = rnd.nextInt(1, 1000),
                     randomArrayNormal(N, L, R),
-                    Q = rnd.nextInt(1, MAXN),
+                    Q = rnd.nextInt(1, 1000),
                     randomArrayNormal(Q, ql, qr)
                 );
             }
@@ -141,6 +141,8 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     l = rnd.nextInt(a[i-1], b[i-1]);
                     r = rnd.nextInt(b[i-1], MAXM);
                 }
+                a.push_back(l);
+                b.push_back(r);
             }
         }
 
