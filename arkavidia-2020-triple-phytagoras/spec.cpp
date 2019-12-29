@@ -128,19 +128,19 @@ protected:
 
     void TestCases() {
         // generate
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             CASE(N = randomOdd(1, 100));
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             CASE(N = randomOdd(101, 1000));
         }
         
         // large nums   
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             CASE(N = randomOdd(1001, 1000000000));
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 7; i++) {
             CASE(N = randomOdd(1000000001, MAXN));
         }
 
@@ -148,10 +148,10 @@ protected:
         for (int i = 0; i < 3; i++) {
             CASE(N = primes[i + 1]);
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             CASE(N = randomPrime(10, 100));
         }
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             CASE(N = randomPrime(101, 1000));
         }
         for (int i = 0; i < 5; i++) {
