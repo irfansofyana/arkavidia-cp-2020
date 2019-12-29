@@ -102,17 +102,17 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             }
             for (int i = 0; i < 4; ++i){
                 CASE(
-                    N = rnd.nextInt(1*MAX_N/10, 1*MAX_N),
+                    N = rnd.nextInt(1*MAX_N, 1*MAX_N),
                     randomArrayRange(N, arr, 1*MAX_B/5, 1*MAX_B),
-                    Q = rnd.nextInt(1*MAX_Q/5, 1*MAX_Q),
+                    Q = rnd.nextInt(1*MAX_Q/2, 1*MAX_Q),
                     randomQuery(N,Q,L,R)
                 );
             }
             for (int i = 0; i < 4; ++i){
                 CASE(
-                    N = rnd.nextInt(1*MAX_N/10, 1*MAX_N),
+                    N = rnd.nextInt(1*MAX_N, 1*MAX_N),
                     randomArrayRange(N, arr, 1*MAX_B/5, 1*MAX_B),
-                    Q = rnd.nextInt(1, 1*MAX_Q),
+                    Q = rnd.nextInt(1*MAX_Q, 1*MAX_Q),
                     randomQuery(N,Q,L,R)
                 );
             }
