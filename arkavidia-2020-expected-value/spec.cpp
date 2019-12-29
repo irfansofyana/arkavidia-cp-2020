@@ -31,7 +31,7 @@ protected:
             "4"
         });
         Output({
-            "8"
+            "2"
         });
     }
     void SampleTestCase2() {
@@ -39,7 +39,7 @@ protected:
             "5"
         });
         Output({
-            "22"
+            "800000010"
         });
     }
 
