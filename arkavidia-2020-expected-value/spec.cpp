@@ -53,7 +53,7 @@ protected:
         CASE(A = 1000000000000);
         CASE(A = 283928192892222222);
         for (int i = 0; i < 3; ++i){
-            CASE(A = randomNumber(1, 1000000000000000000));
+            CASE(A = randomNumber(2, 1000000000000000000));
         }
         for (int i = 0; i < 5; ++i){
             CASE(A = randomNumber(10000000000, 1000000000000000000));
