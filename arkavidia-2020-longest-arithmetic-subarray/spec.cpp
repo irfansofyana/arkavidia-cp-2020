@@ -84,15 +84,60 @@ protected:
     }
 	
 	void BeforeTestCase() {
-		
+        arr.clear();
+		L.clear();
+        R.clear();
 	}	
 
     void TestCases() {
-       
+       CASE(
+           N = 5,
+           arr = {1, 2, 3, 4, 5},
+           Q = 6,
+           L = {1, 2, 2, 3, 4, 4},
+           R = {5, 5, 4, 4, 4, 5}
+       );
+
+       CASE(
+           N = 1,
+           arr = {1},
+           Q = 1,
+           L = {1},
+           R = {1}
+       );
+
+       CASE(
+           N = 3,
+           arr = {1, 9, 16},
+           Q = {3},
+           L = {1, 1, 1},
+           R = {3, 3, 2}
+       );
+
+        for (int i = 0; i < 3; ++i){
+            CASE(
+                N = rnd.nextInt(1, 1000),
+                randomAllArithmeticSeqInc(N, arr),
+                Q = rnd.nextInt(1, 1000),
+                randomRange(Q, L, R, N);
+            );
+        }
     }
 
 private:
-  
+    void randomAllArithmeticSeqInc(int sz, vector<int>& arr){
+        int a = rnd.nextInt(-MAXB, MAXB);
+        int b = rnd.nextInt()
+        long long last = 1LL*(a + (sz-1) * 
+    }
 
+    void randomRange(int sz, vector<int> & L, vector<int> & R, int maks){
+        for (int i = 0; i < sz; ++i){
+            int l = rnd.nextInt(1, maks);
+            int r = rnd.nextInt(l, maks);
+            L.push_back(l);
+            R.push_back(r);
+        }
+    }
 };
 
