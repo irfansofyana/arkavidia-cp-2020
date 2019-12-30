@@ -1,10 +1,12 @@
 #include <tcframe/spec.hpp>
+#include <assert.h>
 
 using namespace tcframe;
 using namespace std;
 
 const int MAXN = 100000;
 const int MAXQ = 100000;
+const int MAXB = 1000000000;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
@@ -31,7 +33,15 @@ protected:
     }
 
     void Constraints() {
-
+        CONS(1 <= N && N <= MAXN);
+        CONS(eachElementBetween(arr, -MAXB, MAXB));
+        CONS((int)arr.size() == N);
+        CONS(1 <= Q && Q <= MAXQ);
+        CONS((int)L.size() == Q);
+        CONS((int)R.size() == Q);
+        CONS(eachElementBetween(L, 1, N));
+        CONS(eachElementBetween(R, 1, N));
+        CONS(validRangeQuery(L, R));
     }
 
 private:
@@ -43,6 +53,14 @@ private:
         }
         return true;
     }
+
+    bool validRangeQuery(const vector<int>& L, const vector<int>& R){
+        assert((int)L.size() == (int)R.size());
+        for (int i = 0; i < (int)L.size(); ++i){
+            if (L[i] > R[i]) return false;
+        }
+        return true;
+    }
 };
 
 class TestSpec : public BaseTestSpec<ProblemSpec> {
@@ -51,27 +69,22 @@ protected:
 	
     void SampleTestCase1() {
         Input({
-            "2",
-			"2 3",
-			"9"
+            "8",
+			"1 3 5 6 7 8 10 12",
+			"3",
+            "1 8",
+            "2 4",
+            "6 6"
         });
         Output({
-            "6"
+            "4",
+            "2",
+            "1"
         });
     }
 	
 	void BeforeTestCase() {
-		H.clear();
-		isPrime.assign(HMax + 1, true);
-		isPrime[1] = false;
-		for (long long i = 2; i <= HMax; i++) {
-			if (isPrime[i]) {
-				primes.push_back(i);
-				for (long long j = i * i; j <= HMax; j += i)
-					isPrime[j] = false;			
-			}
-		}
-		lenPrimes = (int) primes.size() - 1;
+		
 	}	
 
     void TestCases() {
