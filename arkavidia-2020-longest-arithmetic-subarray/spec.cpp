@@ -3,6 +3,8 @@
 using namespace tcframe;
 using namespace std;
 
+const int MAXN = 100000;
+const int MAXQ = 100000;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
@@ -10,6 +12,7 @@ protected:
     vector<int> arr;
     int Q;
     vector<int> L, R;
+    vector<int> ans;
     
     void InputFormat() {
         LINE(N);
@@ -19,7 +22,7 @@ protected:
     }
 
     void OutputFormat() {
-        LINE(res);
+        LINES(ans) % SIZE(Q);
     }
 
     void GradingConfig() {
@@ -28,9 +31,7 @@ protected:
     }
 
     void Constraints() {
-        CONS(1 <= N && N <= NMax);
-		CONS(eachElementBetween(H, 2, HMax));
-		CONS(1 <= K && K <= INF);
+
     }
 
 private:
