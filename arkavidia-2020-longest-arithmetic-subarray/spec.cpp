@@ -6,11 +6,16 @@ using namespace std;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
+    int N;
+    vector<int> arr;
+    int Q;
+    vector<int> L, R;
     
     void InputFormat() {
         LINE(N);
-		LINE(H % SIZE(N));
-		LINE(K);
+		LINE(arr % SIZE(N));
+		LINE(Q);
+        LINES(L, R) % SIZE(Q);
     }
 
     void OutputFormat() {
