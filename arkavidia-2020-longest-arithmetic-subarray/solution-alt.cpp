@@ -95,7 +95,8 @@ int main(){
 			pair<int,int> ans2 = get_max(1, 0, n-1, a, ans1.second-1);
 			printf("%d\n", max(ans2.first, min(ans1.first, b-ans1.second+1)));
 		} else {
-			return printf("%d\n", min(b-a+1, ans1.first));
+			printf("%d\n", min(b-a+1, ans1.first));
 		}
 	}
+	return 0;
 }
