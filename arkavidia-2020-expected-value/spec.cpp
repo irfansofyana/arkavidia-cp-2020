@@ -4,7 +4,7 @@ using namespace tcframe;
 class ProblemSpec : public BaseProblemSpec {
 protected:
     long long A;
-    int res;
+    long long res;
 
     void InputFormat() {
         LINE(A);
@@ -52,10 +52,23 @@ protected:
         CASE(A = 3);
         CASE(A = 1000000000000);
         CASE(A = 283928192892222222);
-        CASE(A = rnd.nextLongLong(1, 1000000000000000000));
-        CASE(A = rnd.nextLongLong(1, 1000000000000000000));
-        CASE(A = rnd.nextLongLong(1, 1000000000000000000));
-        CASE(A = rnd.nextLongLong(1, 1000000000000000000));
-        CASE(A = rnd.nextLongLong(1, 1000000000000000000));
+        for (int i = 0; i < 3; ++i){
+            CASE(A = randomNumber(2, 1000000000000000000));
+        }
+        for (int i = 0; i < 5; ++i){
+            CASE(A = randomNumber(10000000000, 1000000000000000000));
+        }
+        for (int i = 0; i < 4; ++i){
+            CASE(A = randomNumber(100000000000000000, 1000000000000000000));
+        }
+    }
+private:
+    long long randomNumber(long long lo, long long hi){
+        long long res = rnd.nextLongLong(lo, hi);
+        long long num = (long long)1e9 + 7;
+        while (res % num == 0){
+            res = rnd.nextLongLong(lo, hi);
+        }
+        return res;
     }
 };

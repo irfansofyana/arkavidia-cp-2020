@@ -55,7 +55,7 @@ Setiap bilangan pada deretan bilangan tersebut menunjukkan banyak sel bersebelah
 yang terisi pada baris atau kolom tersebut. Deretan sel terisi pada suatu baris maupun kolom tidak 
 dapat menempel dengan deretan sel terisi lainnya
 
-Berikut contoh dari sebuah tabel \textit{Nonogram}.
+Berikut contoh dari sebuah papan \textit{Nonogram}.
 
 \includegraphics[width=100px]{Nonogram-Steve}
 
@@ -70,11 +70,11 @@ berapa banyak cara pengisian sel yang masih kosong sehingga permainan \textit{No
 
 \subsection*{Format Masukan}
 
-Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 10.000$), yaitu ukuran kolom papan \textit{Nonogram} yang sedang dimainkan Nana.
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1 \leq N \leq 5000$), yaitu ukuran kolom papan \textit{Nonogram} yang sedang dimainkan Nana.
 Baris berikutnya berisi $N$ bilangan dengan nilai 0 atau 1 yang mendeskripsikan kondisi papan \texit{Nonogram} yang sedang dimainkan Nana. 
 Nilai 0 mengindikasikan sel yang masih kosong dan 1 mengindikasikan sel yang sudah terisi.
-Baris berikutnya berisi satu bilangan bulat positif $K$ ($1 \leq K \leq 10.000$), yaitu banyak bilangan pada deretan bilangan yang sesuai dengan baris pada papan \textit{Nonogram}.
-Baris berikutnya berisi $K$ bilangan bulat positif $B$ ($1 \leq B \leq 10.000$) yang menunjukkan banyak sel yang terisi pada satu deretan.
+Baris berikutnya berisi satu bilangan bulat positif $K$ ($1 \leq K \leq 5000$), yaitu banyak bilangan pada deretan bilangan yang sesuai dengan baris pada papan \textit{Nonogram}.
+Baris berikutnya berisi $K$ bilangan bulat positif $B$ ($1 \leq B \leq 5000$) yang menunjukkan banyak sel yang terisi pada satu deretan.
 
 Contoh:
 
@@ -85,7 +85,7 @@ Pada gambar tersebut, $N$ bernilai 8 dengan deretan nilai [0, 0, 0, 0, 0, 1, 0, 
 \subsection*{Format Keluaran}
 
 Keluarkan sebuah bilangan yang merupakan banyaknya konfigurasi pengisian sel-sel yang masih kosong pada \texit{Nonogram} 
-sehingga permainan tersebut selesai.
+sehingga permainan tersebut selesai dimodulo dengan $10^{9}+7$
 \\
 
 \begin{multicols}{2}

@@ -13,7 +13,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 \renewcommand{\headrulewidth}{0pt}
-\lhead{Competitive Programming - Arkavidia V}
+\lhead{Competitive Programming - Arkavidia VI}
 \fancyfoot[CE,CO]{\thepage}
 \lstset{
     basicstyle=\ttfamily\small,
@@ -42,7 +42,7 @@
     \begin{tabular}{ | c c | }
         \hline
         Batas Waktu  & 1s \\    % jangan lupa ganti time limit
-        Batas Memori & 32MB \\  % jangan lupa ganti memory limit
+        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
         \hline
     \end{tabular}
 \end{center}
@@ -51,10 +51,12 @@
 
 Soal mengenai rentang pada Kompetisi Arkavidia sangatlah menantang.
 Elza yang merupakan salah satu peserta ingin melakukan survei mengenai berapa baris yang dibutuhkan untuk menyelesaikan problem tersebut kepada $N$ buah tim.
+
 Sayangnya, mereka tahu jika menjawab pertanyaan Elza dengan tepat maka akan memudahkan Elza untuk mengerjakan soal tersebut.
 Oleh karenanya, mereka bersepakat untuk menjawab pertanyaan Elza dengan hanya memberikan rentang dengan batas $L$ dan $R$ yang artinya baris yang mereka butuhkan berada di antara $L$ dan $R$ rentang tersebut.
 Dari hasil survei yang dilakukan, 
-Elza memiliki $N$ buah data rentang $L_i$ dan $R_i$ yang merupakan banyaknya baris yang dibutuhkan untuk tim ke $i$ menyelesaikan soal tersebut.
+Elza memiliki $N$ buah data rentang $L_i$ dan $R_i$ yang merupakan banyaknya baris yang dibutuhkan untuk tim ke-$i$ menyelesaikan soal tersebut.
+
 Elza yang kesal karena tidak diberitahu jumlah pasti dari baris yang dibutuhkan untuk menyelesaikan soal memilih untuk bermain dengan data yang ia punya.
 Anda yang pandai dalam membuat program akhirnya ditantang Elza untuk bermain dengannya.
 Elza memberikan $Q$ buah tebakan yang di setiap tebakannya berisi rentang $X_j$ dan $Y_j$.
@@ -62,10 +64,10 @@ Anda diminta untuk mencari banyaknya tim yang dapat menyelesaikan soal dengan re
 
 
 \subsection*{Format Masukan}
-Baris pertama berisi sebuah bilangan bulat $N$ yang menyatakan banyaknya tim yang disurvei oleh Elza.
+Baris pertama berisi sebuah bilangan bulat $N$ ($1 \leq N \leq 1.000.000$) yang menyatakan banyaknya tim yang disurvei oleh Elza.
 Baris kedua hingga $N + 1$ adalah batas rentang $L_i$ dan $R_i$ ($0 \leq L_i,R_i \leq 2000$) dengan $L_i$ dan $R_i$ merupakan rentang banyaknya baris yang dibutuhkan tim ke-$i$ untuk menyelesaikan soal.
-Baris ke $N + 2$ berisi sebuah bilangan bulat $Q$ berupa jumlah tebakan yang diberikan Elza.
-Baris ke $N + 3$ hingga $N + Q + 2$ adalah batas rentang query $X_j$ dan $Y_j$ tebakan yang diberikan Elza. 
+Baris ke $N + 2$ berisi sebuah bilangan bulat $Q$ ($1 \leq Q \leq 1.000.000$) berupa jumlah tebakan yang diberikan Elza.
+Baris ke $N + 3$ hingga $N + Q + 2$ adalah batas rentang query $X_j$ dan $Y_j$ ($0 \leq X_j,Y_j \leq 2000$) tebakan yang diberikan Elza. 
 
 \subsection*{Format Keluaran}
 Berisi $Q$ buah bilangan bulat $Z$. $Z_j$ merupakan banyaknya rentang yang memenuhi untuk tebakan ke $j$.
@@ -92,7 +94,9 @@ Berisi $Q$ buah bilangan bulat $Z$. $Z_j$ merupakan banyaknya rentang yang memen
 \end{multicols}
 
 \subsection*{Penjelasan}
-1. Terdapat 1 tim ($1 8$) yang memenuhi $1 \leq 1 \leq 8$ dan $1 \leq 3 \leq 8$.
+Untuk tebakan pertama, terdapat 1 tim (tim kedua) yang memenuhi, karena $1 \leq 1 \leq 8$ dan $1 \leq 3 \leq 8$.
+
+Untuk tebakan kedua, terdapat 2 tim (tim pertama dan kedua) yang memenuhi.
 
 \pagebreak
 
