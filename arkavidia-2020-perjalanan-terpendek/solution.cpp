@@ -78,12 +78,14 @@ int main() {
             }
         }
     }
-
+    int idx = 1;
     long long fmin = dp[1];
     for(int i = 2; i <= n; i++){
-        fmin = min(fmin, dp[i]);
+        if(dp[i] < fmin){
+            idx = i;
+            fmin = dp[i];
+        }
     }
-
-    cout << fmin << '\n';
+    cout << idx << " " << fmin << '\n';
     return 0;
 }
