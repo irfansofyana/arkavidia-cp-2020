@@ -16,14 +16,14 @@ using namespace std;
 
 const int N = 2e5 + 7;
 
-int n;
-int ar[N];
+long long n;
+long long ar[N];
 
-int fac[N];
+long long fac[N];
 
-bool comb(int a, int b){
-    int atas = fac[a];
-    int bawah = fac[b] + fac[a-b];
+bool comb(long long a, long long b){
+    long long atas = fac[a];
+    long long bawah = fac[b] + fac[a-b];
 
     return (bawah>=atas);
 }
@@ -39,8 +39,8 @@ int main () {
     }
 
     for (int i=1;i<N;i++){
-        int tm = 0;
-        int cur = i;
+        long long tm = 0;
+        long long cur = i;
         while (cur % 2 == 0){
             tm++;
             cur/=2;
@@ -49,7 +49,7 @@ int main () {
         fac[i] = fac[i-1] + tm;
     }
 
-    int res = 0;
+    long long res = 0;
     for (int i=1;i<=n;i++){
         if (comb(n-1, i-1)){
             res = (res ^ ar[i]);
