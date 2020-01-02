@@ -116,6 +116,14 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
+            for (int i = 0; i < 4; ++i){
+                CASE(
+                    N = MAX_N,
+                    randomArrayHard(N, arr),
+                    Q = MAX_Q,
+                    randomQuery(N,Q,L,R)
+                );
+            }
         }
     private: 
         void randomArrayRange(int N, vector<int> & a, int lo, int hi){
@@ -133,6 +141,23 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                 r = rnd.nextInt(l,N);
                 L.push_back(l);
                 R.push_back(r);
+            }
+        }
+        void randomArrayHard(int N, vector<int> & a) {
+            a.clear();
+            int maxNaik = rnd.nextInt(MAX_N/2,MAX_N);
+            a.push_back(1);
+            for (int i = 1;i<MAX_N;i++) {
+                a.push_back(i+1);
+            }
+            for(int i = maxNaik;i < MAX_N;i++) {
+                a.push_back(i-(maxNaik-i+1));
+            }
+        }
+        void randomQueryHard(int N,int Q,vector<int> & L, vector<int> & R) {
+            for(int i = 0;i<Q;i++){
+                L.push_back(1);
+                R.push_back(MAX_N);
             }
         }
 };
