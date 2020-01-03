@@ -68,7 +68,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            for (int i = 0; i < 4; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1*MAX_N/100, 1*MAX_N/10),
                     randomArrayRange(N, arr, 1, 1*MAX_B/5),
@@ -76,7 +76,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            for (int i = 0; i < 4; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1*MAX_N/100, 1*MAX_N/10),
                     randomArrayRange(N, arr, 1*MAX_B/5, 1*MAX_B),
@@ -84,7 +84,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            for (int i = 0; i < 4; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1*MAX_N/10, 1*MAX_N),
                     randomArrayRange(N, arr, 1, 1*MAX_B/5),
@@ -121,7 +121,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     N = MAX_N,
                     randomArrayHard(N, arr),
                     Q = MAX_Q,
-                    randomQuery(N,Q,L,R)
+                    randomQueryHard(N,Q,L,R)
                 );
             }
         }
