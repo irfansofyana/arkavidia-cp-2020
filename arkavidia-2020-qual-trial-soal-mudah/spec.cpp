@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include <tcframe/spec.hpp>
 using namespace std;
 using namespace tcframe;
@@ -9,8 +8,7 @@ protected:
     int ans;
 
     void InputFormat() {
-        //
-        LINE(a, b)
+        LINE(a, b);
     }
 
     void OutputFormat() {
@@ -23,9 +21,8 @@ protected:
     }
 
     void Constraints() {
-        //
-        CASE(1 <= a && a <= 100);
-        CASE(1 <= b && b <= 100);
+        CONS(1 <= a && a <= 100);
+        CONS(1 <= b && b <= 100);
     }
 };
 
@@ -33,7 +30,10 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
 protected:
     void TestCases() {
         for (int i = 0; i < 5; ++i){
-            CASE(a = rnd.nextInt(1, 100), b = rnd.nextInt(1, 100));
+            CASE(
+                a = rnd.nextInt(1, 100),
+                b = rnd.nextInt(1, 100)
+            );
         }
     }
 };
