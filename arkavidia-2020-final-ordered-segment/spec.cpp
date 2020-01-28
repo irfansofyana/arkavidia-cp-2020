@@ -68,7 +68,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            for (int i = 0; i < 4; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1*MAX_N/100, 1*MAX_N/10),
                     randomArrayRange(N, arr, 1, 1*MAX_B/5),
@@ -76,7 +76,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            for (int i = 0; i < 4; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1*MAX_N/100, 1*MAX_N/10),
                     randomArrayRange(N, arr, 1*MAX_B/5, 1*MAX_B),
@@ -84,7 +84,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            for (int i = 0; i < 4; ++i){
+            for (int i = 0; i < 2; ++i){
                 CASE(
                     N = rnd.nextInt(1*MAX_N/10, 1*MAX_N),
                     randomArrayRange(N, arr, 1, 1*MAX_B/5),
@@ -116,31 +116,20 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomQuery(N,Q,L,R)
                 );
             }
-            CASE(
-                N = rnd.nextInt(1*MAX_N, 1*MAX_N),
-                randomArrayRangeGood(N, arr, 1, 1*MAX_B),
-                Q = rnd.nextInt(1*MAX_Q, 1*MAX_Q),
-                randomQueryGood(N,Q,L,R)
-            );
+            for (int i = 0; i < 4; ++i){
+                CASE(
+                    N = MAX_N,
+                    randomArrayHard(N, arr),
+                    Q = MAX_Q,
+                    randomQueryHard(N,Q,L,R)
+                );
+            }
         }
     private: 
         void randomArrayRange(int N, vector<int> & a, int lo, int hi){
             a.clear();
             for (int i = 0; i < N; i++){
                 a.push_back(rnd.nextInt(lo, hi));
-            }
-        }
-        void randomArrayRangeGood(int N, vector<int> & a, int lo, int hi){
-            a.clear();
-            int x = lo;
-            for (int i = 0; i < N; i++){
-                if (i < N/2) {
-                    x = rnd.nextInt(x , hi);
-                    a.push_back(x);
-                } else {
-                    x = rnd.nextInt(lo, hi);
-                    a.push_back(x);
-                }
             }
         }
         void randomQuery(int N,int Q,vector<int> & L, vector<int> & R){
@@ -154,15 +143,21 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                 R.push_back(r);
             }
         }
-        void randomQueryGood(int N,int Q,vector<int> & L, vector<int> & R){
-            int l,r;
-            L.clear();
-            R.clear();
-            for (int i = 0;i<Q;i++){
-                l = rnd.nextInt(1,N/100);
-                r = rnd.nextInt(99*N/100,N);
-                L.push_back(l);
-                R.push_back(r);
+        void randomArrayHard(int N, vector<int> & a) {
+            a.clear();
+            int maxNaik = rnd.nextInt(MAX_N/2,MAX_N);
+            a.push_back(1);
+            for (int i = 1;i<MAX_N;i++) {
+                a.push_back(i+1);
+            }
+            for(int i = maxNaik;i < MAX_N;i++) {
+                a.push_back(i-(maxNaik-i+1));
+            }
+        }
+        void randomQueryHard(int N,int Q,vector<int> & L, vector<int> & R) {
+            for(int i = 0;i<Q;i++){
+                L.push_back(1);
+                R.push_back(MAX_N);
             }
         }
 };
