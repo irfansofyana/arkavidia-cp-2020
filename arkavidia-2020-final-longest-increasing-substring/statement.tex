@@ -51,37 +51,39 @@
 
 Sebuah epidemi penyakit menyebar menjadi ancaman yang menyeramkan di seluruh dunia.
 Badan kesehatan dunia telah mendata n kota yang terdampak oleh epidemi penyakit.
-Untuk memudahkan pendataan, masing - masing kota diberi nama dari 1 hingga n. 
-Untuk setiap kota , didata jumlah warganya yang tertular oleh epidemi penyakit tersebut.
+Untuk memudahkan pendataan, masing - masing kota diberi nomor dari $1$ hingga $n$. 
+Untuk setiap kota , didata jumlah warganya yang tertular oleh epidemi penyakit tersebut, sehingga Badan Kesehatan Dunia memiliki data warga yang terdampak berupa $A_1$,$A_2$,..,$A_n$.
 
 Sebagai langkah antisipasi, Badan Kesehatan Dunia ingin mencari pola ketaraturan dari penyebaran epidemi.
-Sebuah sequence kota dianggap memiliki kesamaan pola penyebaran dengan sequence kota lain jika 
-setiap kota tersebut dapat di'rotasi' agar mendapat sequence kota yang lain. 
-Sebagai upaya mengatasi epidemi, Badan kesehatan dunia ingin mencoba sebuah formulasi vaksin baru ke sejumlah kota.
+Sejumlah $x$ kota berurutan, $A_i$,$A_i+1$,$A_i+2$,...,$A_x$ dianggap memiliki kesamaan pola penyebaran dengan $x$ kota berurutan yang lain, $A_j$,$A_j+1$,$A_j+2$,...,$A_j+x$ jika 
+$x$ kota tersebut dapat di'rotasi' agar mendapat urutan $x$ kota yang lain.
 
-Agar vaksin dapat berfungsi optimal, percobaan dilakukan kepada sebuah sequence kota yang memiliki kesamaan pola penyebaran dengan sequence kota lain yang jumlah warga yang tertular membentuk sequence yang menaik.
+Selanutnya dilakukan upaya mengatasi epidemi, dengan mencoba sebuah formulasi vaksin baru ke sejumlah kota.
+
+Agar vaksin dapat berfungsi optimal, percobaan dilakukan kepada $x$ kota dengan nomor terurut yang memiliki kesamaan pola penyebaran dengan $x$ kota terurut lain yang jumlah warga tertular membentuk barisan yang menaik.
 
 Anda sebagai programmer yang memiliki keinginan untuk membasmi epidemi tersebut, 
 diminta untuk mencari berapa banyak kota maksimal yang dapat dilakukan uji percobaan vaksin !
 
 \subsection*{Format Masukan}
-
-
+Baris pertama $n$ banyaknya kota 
+Baris kedua berisi $n$ buah bilangan berupa $A_1$,$A_2$,..,$A_n$ yang menandakan banyaknya warga terdampak di kota ke-$i$
 
 \subsection*{Format Keluaran}
-
+Sebuah baris berisi banyaknya kota maksimal yang dapat dilakukan uji percobaan vaksin
 
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-
+4
+1 2 2 1
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-
+2
 \end{lstlisting}
 \vfill
 \null
