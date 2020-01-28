@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=20mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{Competitive Programming - Arkavidia VI}
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Epidemi Penyakit} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Sebuah epidemi penyakit menyebar menjadi ancaman yang menyeramkan di seluruh dunia.
+Badan kesehatan dunia telah mendata n kota yang terdampak oleh epidemi penyakit.
+Untuk memudahkan pendataan, masing - masing kota diberi nomor dari $1$ hingga $n$. 
+Untuk setiap kota , didata jumlah warganya yang tertular oleh epidemi penyakit tersebut, sehingga Badan Kesehatan Dunia memiliki data warga yang terdampak berupa $A_1$,$A_2$,..,$A_n$.
+
+Sebagai langkah antisipasi, Badan Kesehatan Dunia ingin mencari pola ketaraturan dari penyebaran epidemi.
+Sejumlah $x$ kota berurutan, $A_i$,$A_i+1$,$A_i+2$,...,$A_x$ dianggap memiliki kesamaan pola penyebaran dengan $x$ kota berurutan yang lain, $A_j$,$A_j+1$,$A_j+2$,...,$A_j+x$ jika 
+$x$ kota tersebut dapat di'rotasi' agar mendapat urutan $x$ kota yang lain.
+
+Selanutnya dilakukan upaya mengatasi epidemi, dengan mencoba sebuah formulasi vaksin baru ke sejumlah kota.
+
+Agar vaksin dapat berfungsi optimal, percobaan dilakukan kepada $x$ kota dengan nomor terurut yang memiliki kesamaan pola penyebaran dengan $x$ kota terurut lain yang jumlah warga tertular membentuk barisan yang menaik.
+
+Anda sebagai programmer yang memiliki keinginan untuk membasmi epidemi tersebut, 
+diminta untuk mencari berapa banyak kota maksimal yang dapat dilakukan uji percobaan vaksin !
+
+\subsection*{Format Masukan}
+Baris pertama $n$ banyaknya kota 
+Baris kedua berisi $n$ buah bilangan berupa $A_1$,$A_2$,..,$A_n$ yang menandakan banyaknya warga terdampak di kota ke-$i$
+
+\subsection*{Format Keluaran}
+Sebuah baris berisi banyaknya kota maksimal yang dapat dilakukan uji percobaan vaksin
+
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+4
+1 2 2 1
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+2
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{Penjelasan}
+
+\pagebreak
+
+\end{document}
