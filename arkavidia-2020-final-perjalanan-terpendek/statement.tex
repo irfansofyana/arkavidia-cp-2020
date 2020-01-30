@@ -37,26 +37,27 @@
 \begin{document}
 
 \begin{center}
-    \section*{Tantangan Penjaga Pintu} % ganti judul soal
+    \section*{Perjalanan Terpendek} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
         Batas Waktu  & 1s \\    % jangan lupa ganti time limit
-        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
+        Batas Memori & 128MB \\  % jangan lupa ganti memory limit
         \hline
     \end{tabular}
 \end{center}
 
 \subsection*{Deskripsi}
 
-Libur tahun baru telah tiba ! Pak Joni dan keluarga berencana berlibur di sebuah negara impiannya, Arkavland.
+Libur tahun baru telah tiba! Pak Joni dan keluarga berencana berlibur di sebuah negara impiannya, Arkavland.
 Arkavland memiliki $N$ buah kota yang diberi nomor dari $1$ hingga $N$. Kota - kota tersebut dihubungkan dengan $M$ buah jalan dengan aturan sebagai berikut :
 
 \begin{enumerate}
     \setlength\itemsep{0pt}
     \item Tiap jalan yang menghubungkan kota $A$ dan $B$ memiliki panjang $1 km$
-    \item Kota $A$ dan $B$ terhubung oleh maksimal sebuah rute 
-    \item Jika terdapat rute dari kota $A$ ke kota $B$, rute tersebut berlaku juga sebaliknya.
+    \item Jalanan di Arkavland adalah dua arah, artinya apabila terdapat jalan yang menghubungkan kota $A$ ke kota $B$ maka seseorang dapat berpindah dari kota $B$ ke kota $A$ juga
+    \item Setiap sepasang kota ($A$, $B$) di Arkavland akan terhubung dengan sebuah rute perjalanan tertentu
+    
 \end{enumerate}
 
 Dalam rencana liburannya yang hanya satu minggu, ia ingin berkeliling ke setiap kota, namun dia sangat pelit, sehingga Pak Joni ingin agar dapat mengeluarkan biaya seminimal mungkin dalam liburannya. 
@@ -64,7 +65,7 @@ Dalam rencana liburannya yang hanya satu minggu, ia ingin berkeliling ke setiap 
 Bantulah pak Joni mencari kota di negara Arkavland yang memiliki total jumlah jarak rute dari setiap kota lain ke kota tersebut adalah yang paling minimum.
 
 \subsection*{Format Masukan}
-Baris pertama terdiri dari dua buah bilangan $N$ dan $M$ ($1 \leq N,M \leq 10^{6}$). $N$ dan $M$ berturut-turut menyatakan banyaknya kota dan jalan di negara Arkavland.
+Baris pertama terdiri dari dua buah bilangan $N$ dan $M$ ($1 \leq M < N \leq 10^{6}$). $N$ dan $M$ berturut-turut menyatakan banyaknya kota dan jalan di negara Arkavland.
 Baris kedua hingga baris ke $M + 1$ terdiri dari dua buah bilangan $A_i$ dan $B_i$ ($1 \leq $A_i$,$B_i$ \leq N$) yang menyatakan kota $A$ dan kota $B$ terhubung oleh jalan ke-$i$
 
 \subsection*{Format Keluaran}
@@ -88,14 +89,14 @@ Sebuah baris berisi dua bilangan $A$ dan $X$. $A$ menyatakan nomor kota yang mem
 \null
 \end{multicols}
 
-\subsection*{Penjelasan}
+% \subsection*{Penjelasan}
 
-\includegraphics[width=40px]{1.png}
-\includegraphics[width=40px]{2.png}
-\includegraphics[width=40px]{3.png}
-\includegraphics[width=40px]{4.png}
-\includegraphics[width=40px]{5.png}
-\includegraphics[width=40px]{6.png}
+% \includegraphics[width=40px]{1.png}
+% \includegraphics[width=40px]{2.png}
+% \includegraphics[width=40px]{3.png}
+% \includegraphics[width=40px]{4.png}
+% \includegraphics[width=40px]{5.png}
+% \includegraphics[width=40px]{6.png}
 
 
 \pagebreak
