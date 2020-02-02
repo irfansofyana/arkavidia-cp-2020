@@ -53,7 +53,7 @@ Prof. Faiz seorang ilmuwan terkemuka di Negara Arkavidia berhasil menemukan sebu
 
 Teknologi teleportasi yang ditemukan mampu memindahkan kendaraan pada posisi $A$ menuju posisi $B$.
 
-Awal tahun merupakan saat yang tepat untuk mencoba alat baru ini pada ruas jalan di Negara Arkavidia yang dibangun sejauh $N$ kilometer yang setiap kilometernya direpresentasikan dalam bentuk titik. Prof. Faiz merencanakan uji coba akan dilakukan dengan $Q$ tahap. Dengan setiap tahapnya dapat berupa :
+Awal tahun merupakan saat yang tepat untuk mencoba alat baru ini pada ruas jalan di Negara Arkavidia yang dibangun sejauh $N$ ($1 \leq N \leq 100.000$) kilometer yang setiap kilometernya direpresentasikan dalam bentuk titik. Prof. Faiz merencanakan uji coba akan dilakukan dengan $Q$ tahap. Dengan setiap tahapnya dapat berupa :
 
 \begin{enumerate}
     \setlength\itemsep{0pt}
@@ -68,13 +68,12 @@ Awal tahun merupakan saat yang tepat untuk mencoba alat baru ini pada ruas jalan
 Anda yang merupakan programmer terhebat di Negara Arkavidia sengaja direkrut oleh Prof. Faiz untuk membantu Prof. Faiz melaksanakan tugasnya. Tentu saja, Anda yang juga sudah mempelajari etika keprofesian bersedia membantu Prof. Faiz dengan senang hati. Tugas anda mudah saja, mencatat setiap tahapan yang dilakukan dan tentunya selalu dengan sigap menjawab pertanyaan Prof. Faiz mengenai keefektifan penempatan alat teleportasi tepat seusai setiap uji coba teleportasi dilakukan.
 
 \subsection*{Format Masukan}
-Baris pertama berisi bilangan $N$ dan $Q$. $N$ merupakan panjang jalan di Negara Arkavidia. $Q$ merupakan banyakya tahapan uji coba yang dilakukan
-Baris kedua hingga baris ke-$Q+1$ merupakan kegiatan yang dilakukan Prof. Faiz dalam setiap tahapannya.
-Setiap baris dapat berupa :
+Baris pertama berisi bilangan $N$ dan $Q$ ($1 \leq N, Q \leq 100.000$). $N$ merupakan panjang jalan di Negara Arkavidia. $Q$ merupakan banyakya tahapan uji coba yang dilakukan
+Baris kedua hingga baris ke-$Q+1$ merupakan kegiatan yang dilakukan Prof. Faiz dalam setiap tahapannya. Setiap baris dapat berupa :
 \begin{enumerate}
     \setlength\itemsep{0pt}
-    \item $1$ $A$ $B$ berarti penambahan alat teleportasi yang menghubungkan titik $A$ dan $B$
-    \item $2$ $A$ $B$ berarti pengurangan alat teleportasi yang menghubungkan titik $A$ dan $B$
+    \item $1$ $A$ $B$ ($1 \leq A, B \leq 100.000$) berarti penambahan alat teleportasi yang menghubungkan titik $A$ dan $B$
+    \item $2$ $A$ $B$ ($1 \leq A, B \leq 100.000$) berarti pengurangan alat teleportasi yang menghubungkan titik $A$ dan $B$
     \item $3$ berarti ujicoba dilakukan    
 \end{enumerate}
 
