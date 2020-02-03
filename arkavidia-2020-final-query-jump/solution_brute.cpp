@@ -12,9 +12,9 @@ int main() {
   while (q--) {
     int t, x, y;
     cin >> t;
-    if (t != 2)
+    if (t != 3)
       cin >> x >> y;
-    if (t == 2) {
+    if (t == 3) {
       int ans = 0;
       int now = *nodes.begin();
       while (now != n+1) {
@@ -31,7 +31,7 @@ int main() {
       go[x] = y;
       go[y] = x;
     }
-    else if (t == 3) {
+    else if (t == 2) {
       assert(nodes.count(x) && nodes.count(y));
       assert(go[x] == y && go[y] == x); 
       nodes.erase(x);
