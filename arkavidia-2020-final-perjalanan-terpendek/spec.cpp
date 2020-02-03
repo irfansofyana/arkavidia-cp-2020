@@ -3,7 +3,6 @@
 using namespace tcframe;
 
 const int MAXN = 1000000;
-const int MAXM = 1000000;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
@@ -12,7 +11,7 @@ protected:
 
     void InputFormat() {
         LINE(N, M);
-		LINE(A, B) % SIZE(M);
+		LINES(A, B) % SIZE(M);
     }
 
     void OutputFormat() {
@@ -21,14 +20,14 @@ protected:
 
     void GradingConfig() {
         TimeLimit(1);
-        MemoryLimit(64);
+        MemoryLimit(128);
     }
 
     void Constraints() {
         CONS(1 <= N && N <= MAXN);
-        CONS(1 <= M && M <= MAXM);
-		CONS(eachElementBetween(A, 1, MAXN));
-        CONS(eachElementBetween(B, 1, MAXN));
+        CONS(M < N);
+		CONS(eachElementBetween(A, 1, N));
+        CONS(eachElementBetween(B, 1, N));
         CONS(isTree(N, M, A, B));
         CONS(A.size() == B.size() && B.size() == M);
     }
@@ -63,17 +62,17 @@ private:
         vector<vector<int> > v;
 
         v.resize(N);
-
         for(int i = 0; i < A.size(); i++){
-            v[A[i]].push_back(B[i]);
-            v[B[i]].push_back(A[i]);
+            v[A[i]-1].push_back(B[i]-1);
+            v[B[i]-1].push_back(A[i]-1);
         }
         return v;
     }
 
-    bool dfs(int now, int last, const int &N, const int &M, const vector<vector<int>> &adj, const vector<bool> &visited){
+    bool dfs(int now, int last, const int &N, const int &M, const vector<vector<int>> &adj, vector<bool> &visited){
         if(visited[now])
             return false;
+        visited[now] = true;
         bool res = true;
         for(int i = 0; i < adj[now].size(); i++){
             if(last == adj[now][i]){
@@ -106,6 +105,9 @@ protected:
 	}	
 
     void TestCases() {
+        for(int i = 0; i < 3; i++){
+            CASE(N = 10, M = N-1, randomTree(N, A, B));
+        }
         for(int i = 0; i < 20; i++){
             CASE(N = rnd.nextInt(1, MAXN), M = N-1, randomTree(N, A, B));
         }
@@ -115,14 +117,17 @@ private:
 
     void renumber(int n, vector<int>& u, vector<int>& v) {
         vector<int> permutation;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n-1; i++) {
             permutation.push_back(i);
         }
         rnd.shuffle(permutation.begin(), permutation.end());
-        for (int i = 0; i < u.size(); i++) {
-            u[i] = permutation[u[i]];
-            v[i] = permutation[v[i]];
+        vector<int> tempu(u), tempv(v);
+        for (int i = 0; i < n-1; i++) {
+            tempu[i] = u[permutation[i]];
+            tempv[i] = v[permutation[i]];
         }
+        u = tempu;
+        v = tempv;
     }
 
     void randomTree(int n, vector<int>& u, vector<int>& v) {
@@ -131,6 +136,10 @@ private:
             v.push_back(rnd.nextInt(0, i - 1));
         }
         renumber(n, u, v);
+        for(int i = 0; i < u.size(); i++){
+            u[i]++;
+            v[i]++;
+        }
     }
 };
 
