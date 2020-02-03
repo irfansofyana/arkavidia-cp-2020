@@ -1,7 +1,9 @@
 //by irfansofyana
 #include <tcframe/spec.hpp>
+#include <assert.h>
 
 using namespace std;
+using namespace tcframe;
 
 typedef long long LL;
 
