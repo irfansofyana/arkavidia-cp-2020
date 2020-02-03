@@ -127,7 +127,12 @@ private:
             end = list[dist][elmt];
             if (vis[end.fi][end.se] > 0) break;
         }
-        if (!ada) end = {rnd.nextInt(0, R-1), rnd.nextInt(0, C-1)};
+        if (!ada) {
+            end = start;
+            while (end == start) {
+                end = {rnd.nextInt(0, R-1), rnd.nextInt(0, C-1)};
+            }
+        }
         G[end.fi][end.se] = 'O';
 
         // std::cerr << vis[end.fi][end.se] << endl;
@@ -171,6 +176,7 @@ private:
                     }
                 }
             }
+            lewat[end.fi][end.se] = 1;
             lewat[start.fi][start.se] = 1;
             for (int i=0;i<R;i++) {
                 for (int j=0;j<C;j++) {
@@ -180,6 +186,37 @@ private:
                     }
                 }
             }
+        }
+    }
+
+    void GenerateToxicGrid(int x) {
+        InitGrid();
+        if (x == 1) {
+            G[0][0] = 'X';
+            G[0][1] = 'K';
+            G[1][0] = 'O';
+            G[1][1] = 'X';
+        } else if (x == 2) {
+            G[0][0] = 'X';
+            G[0][1] = 'O';
+            G[1][0] = 'K';
+            G[1][1] = 'X';
+        } else if (x == 3) {
+            G[0][0] = 'X';
+            G[0][2] = 'K';
+            G[2][0] = 'O';
+            G[2][2] = 'X';
+        } else if (x == 4) {
+            G[0][0] = 'O';
+            G[0][1] = 'X';
+            G[1][0] = 'X';
+            G[1][1] = 'K';
+        } else if (x == 5) {
+            G[0][13518] = 'K';
+            G[0][86519] = 'O';
+        } else if (x == 6) {
+            G[0][0] = 'O';
+            G[99999][0] = 'K';
         }
     }
 
@@ -204,16 +241,16 @@ protected:
     // no obstacle
     void TestGroup1() {
         // (hampir) kotak
-        for (int i=1;i<=3;i++) {
+        for (int i=1;i<=2;i++) {
             int p = rnd.nextInt(16, 300);
             CASE(R = rnd.nextInt(p - 15, p + 15), C = rnd.nextInt(p - 15, p + 15), A = rnd.nextInt(1, sqrt(R)), B = rnd.nextInt(1, sqrt(C)), GenerateGrid(false));
         }
         // agak panjang
-        for (int i=1;i<=3;i++) {
+        for (int i=1;i<=2;i++) {
             CASE(R = rnd.nextInt(1, 1000), C = rnd.nextInt(1, 100), A = rnd.nextInt(1, sqrt(R)), B = rnd.nextInt(1, sqrt(C)), GenerateGrid(false));
         }
         // gepeng
-        for (int i=1;i<=3;i++) {
+        for (int i=1;i<=2;i++) {
             CASE(R = rnd.nextInt(1, 5), C = rnd.nextInt(1000, 100000 / R), A = rnd.nextInt(1, 5), B = rnd.nextInt(1, 5), GenerateGrid(false));
         }
     }
@@ -221,16 +258,16 @@ protected:
     // ada obstacle
     void TestGroup2() {
         // (hampir) kotak
-        for (int i=1;i<=3;i++) {
+        for (int i=1;i<=4;i++) {
             int p = rnd.nextInt(16, 300);
             CASE(R = rnd.nextInt(p - 15, p + 15), C = rnd.nextInt(p - 15, p + 15), A = rnd.nextInt(1, sqrt(R)), B = rnd.nextInt(1, sqrt(C)), GenerateGrid(true));
         }
         // agak panjang
-        for (int i=1;i<=3;i++) {
+        for (int i=1;i<=4;i++) {
             CASE(R = rnd.nextInt(1, 1000), C = rnd.nextInt(1, 100), A = rnd.nextInt(1, sqrt(R)), B = rnd.nextInt(1, sqrt(C)), GenerateGrid(true));
         }
         // gepeng
-        for (int i=1;i<=3;i++) {
+        for (int i=1;i<=4;i++) {
             CASE(R = rnd.nextInt(1, 5), C = rnd.nextInt(1000, 100000 / R), A = rnd.nextInt(1, min(3, R)), B = rnd.nextInt(1, 3), GenerateGrid(true));
         }
     }
@@ -243,6 +280,19 @@ protected:
         for (int i=1;i<=3;i++) {
             CASE(R = rnd.nextInt(5, 15), C = rnd.nextInt(5, 15),  A = rnd.nextInt(1, sqrt(R)), B = rnd.nextInt(1, sqrt(C)), GenerateGrid(true));
         }
+        for (int i=1;i<=3;i++) {
+            CASE(R = rnd.nextInt(2, 10), C = rnd.nextInt(2, 10),  A = rnd.nextInt(1, sqrt(R)), B = rnd.nextInt(1, sqrt(C)), GenerateGrid(true));
+        }
+    }
+
+    // tc corner kejam
+    void TestGroup4() {
+        CASE(R = 2, C = 2, A = 1, B = 1, GenerateToxicGrid(1));
+        CASE(R = 2, C = 2, A = 1, B = 1, GenerateToxicGrid(2));
+        CASE(R = 3, C = 3, A = 2, B = 2, GenerateToxicGrid(3));
+        CASE(R = 2, C = 2, A = 1, B = 1, GenerateToxicGrid(4));
+        CASE(R = 1, C = 100000, A = 1, B = C - 1, GenerateToxicGrid(5));
+        CASE(R = 100000, C = 1, A = 1, B = C - 1, GenerateToxicGrid(6));
     }
 
 };
