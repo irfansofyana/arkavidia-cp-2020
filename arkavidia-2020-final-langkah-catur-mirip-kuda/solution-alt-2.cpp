@@ -17,9 +17,23 @@ int count(int r1, int c1, int r2, int c2) {
 }
 
 bool bisa(int r1, int c1, int r2, int c2) {
-    if (r1 > r2) swap(r1, r2);
-    if (c1 > c2) swap(c1, c2);
-    if (count(r1,c1,r1,c2) + count(r1,c2,r2,c2) == 0 || count(r1,c1,r2,c1) + count(r2,c1,r2,c2) == 0) return 1; else return 0;
+    /*
+    K-
+    -O
+    */
+    if ((r1 > r2 && c1 > c2) || (r1 < r2 && c1 < c2)) {
+        if (r1 > r2) {
+            swap(r1, r2);
+            swap(c1, c2);
+        }
+        if (count(r1,c1,r1,c2) + count(r1,c2,r2,c2) == 0 || count(r1,c1,r2,c1) + count(r2,c1,r2,c2) == 0) return 1; else return 0;
+    } else {
+        if (r1 > r2) {
+            swap(r1, r2);
+            swap(c1, c2);
+        }
+        if (count(r1,c2,r2,c2) + count(r1,c2,r1,c1) == 0 || count(r2,c2,r2,c1) + count(r1,c1,r2,c1) == 0) return 1; else return 0;
+    }
 }
 
 int main () {
