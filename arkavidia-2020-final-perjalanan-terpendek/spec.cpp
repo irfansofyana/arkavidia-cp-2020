@@ -6,7 +6,8 @@ const int MAXN = 1000000;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
-    int N, M, distSum, targetCity;
+    int N, M;
+    long long distSum, targetCity;
     vector<int> A, B;
 
     void InputFormat() {
