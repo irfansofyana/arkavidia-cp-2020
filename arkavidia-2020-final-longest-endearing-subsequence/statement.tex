@@ -1,0 +1,89 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\geometry{ a4paper, total={170mm,257mm}, top=20mm, right=20mm, bottom=20mm, left=20mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{Competitive Programming - Arkavidia VI}
+\fancyfoot[CE,CO]{\thepage}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+
+\begin{document}
+
+\begin{center}
+    \section*{Les} % ganti judul soal
+
+    \begin{tabular}{ | c c | }
+        \hline
+        Batas Waktu  & 1s \\    % jangan lupa ganti time limit
+        Batas Memori & 64MB \\  % jangan lupa ganti memory limit
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection*{Deskripsi}
+
+Elza adalah seorang pemrogram kompetitif yang senang mengikuti perlombaan pemrograman kompetitif di berbagai penjuru Arkavland. Sekarang, Elza diberi amanah untuk membuat soal pemrograman untuk digunakan dalam perlombaan yang diadakan oleh kampusnya. Elza bukanlah orang yang cukup kreatif. Dia berpikir dia hanya tinggal mengambil sebuah soal klasik yang diketahui semua orang, mengubahnya sedikit, dan mem\textit{propose} soal tersebut. Maka, dalam soal ini, Anda diminta mencari panjang dari les atau \textit{longest endearing subsequence} dengan definisi sebagai berikut:
+
+Suatu barisan bilangan bulat sepanjang $n$, $a_1, a_2, \ldots, a_n$ disebut \textit{increasing} apabila berlaku $a_1 < a_2 < \cdots < a_n$. Sekarang, suatu barisan bilangan bulat $a_1, a_2, \ldots, a_n$ disebut \textit{endearing} apabila barisan tersebut \textit{increasing}, atau terdapat sebuah bilangan $1 \leq k < n$ sehingga $a_{k+1} < a_{k+2} < \cdots < a_n < a_1 < \cdots < a_k$.
+
+Suatu barisan $a_1, a_2, \ldots, a_n$ disebut \textit{subsequence} dari $b_1, b_2, \ldots, b_m$ jika terdapat barisan indeks $1 \leq l_1 < l_2 < \cdots < l_n \leq m$ sehingga $a_i = b_{l_i}$ untuk semua $i$. \textit{Longest endearing subsequence} dari suatu barisan adalah \textit{subsequence} terpanjang dari barisan tersebut yang bersifat \textit{endearing}.
+
+Cari panjang dari \textit{longest endaring subsequence} diberikan suatu barisan.
+
+\subsection*{Format Masukan}
+Baris pertama berisi satu bilangan bulat $N$ ($1 \leq N \leq 10^5$), panjang barisan yang diberikan.
+Baris kedua berisi $N$ buah bilangan berupa $a_1, a_2, \ldots, a_N$, ($1 \leq a_i \leq 10^8$) isi dari barisan yang diberikan.
+
+\subsection*{Format Keluaran}
+Sebuah baris berisi panjang \textit{longest endearing sequence} dari barisan yang diberikan.
+
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan}
+\begin{lstlisting}
+6
+3 6 4 1 5 2
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran}
+\begin{lstlisting}
+4
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{Penjelasan}
+Salah satu dari \textit{endearing subsequence} dalam barisan tersebut adalah $3\:6\:1\:2$ dengan nilai $k$ sebesar $2$, yang memiliki panjang $4$.
+
+\pagebreak
+
+\end{document}
