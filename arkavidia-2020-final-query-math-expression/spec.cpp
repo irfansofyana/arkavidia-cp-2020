@@ -53,7 +53,14 @@ protected:
         CASE(n = 20000, q = 1000, randomArr(n, st, 2, 1000000), randomQuery(q, query, n, 0, 100));
         CASE(n = 7, q = 5000, randomArr(n, st, 0, 100), randomQuery(q, query, n, 0, 100));
         CASE(n = 721, q = 35, randomArr(n, st, 11, 101110), randomQuery(q, query, n, 321, 102220));
-        CASE(n = rnd.nextInt(1, 100000), q = rnd.nextInt(1, 100000), randomArr(n, st, 0, rnd.nextInt(10000000)), randomQuery(q, query, n, 0, rnd.nextInt(10000000)));
+        for (int i = 0; i < 5; ++i){
+            CASE(n = rnd.nextInt(10000, 100000), q = rnd.nextInt(10000, 100000), randomArr(n, st, 0, rnd.nextInt(1000000000)), randomQuery(q, query, n, 0, rnd.nextInt(1000000000)));
+        }
+        for (int i = 0; i < 2; ++i){
+            CASE(n = 100000, q = 100000, randomArr(n, st, 1000000000, 1000000006), randomQuery(q, query, n, 0, 1000000006));
+        }
+        CASE(n = 100000, q = 100000, randomArr(n, st, 100000, 1000000006), randomQuery(q, query, n, 100000000, 1000000006));
+        CASE(n = 100000, q = 100000, randomArr(n, st, 1000000006, 1000000006), randomQuery(q, query, n, 1000000006, 1000000006));
     }
 
 private:
