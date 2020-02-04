@@ -77,13 +77,13 @@ int main() {
         // asumsi tc:
         // query "sambung" kalo udah di potong di posisi itu
 
-        string type;
+        int type;
         ll val;
         cin >> type;
-        if (type == "potong") {
+        if (type == 1) {
             cin >> val;
             potong(val);
-        } else if (type == "sambung") { 
+        } else if (type == 2) { 
             cin >> val;
             sambung(val);
         } else {
