@@ -24,7 +24,7 @@ pair<LL, LL> f(LL n, LL k){
     LL indeks = tot;
     while (lo <= hi){
         LL mid = (lo + hi) >> 1;
-        if (4 * n * mid - 4 * mid *(mid+1) + 4*mid > k){
+        if (4 * n * mid - 4 * mid *(mid+1) + 4*mid >= k){
             pertama = 4 * n * mid - 4 * mid * (mid+1) + 4*mid;
             indeks = mid;
             hi = mid - 1;

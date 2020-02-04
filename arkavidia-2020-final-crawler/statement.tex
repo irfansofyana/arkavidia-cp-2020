@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{Keliling ITB} % ganti judul soal
+    \section*{Otobiografi} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -48,64 +48,53 @@
 \end{center}
 
 \subsection*{Deskripsi}
-Pada hari ini Anda dan kelompok Anda datang ke ITB untuk mengikuti Final \textit{Competitive Programming} dari Arkavidia. Karena Kalian (mungkin) belum pernah
-datang ke ITB, Kalian pun berkeliling ITB. Di ITB terdapat banyak sekali gedung seperti Labtek kembar (salah satu labnya adalah tempat Kalian berada sekarang).
-Saat kalian tiba di Intel (Indonesia Tenggelam), di tengah Labtek Kembar, kalian bertemu dengan salah satu panitia Arkavidia yang sedang membagikan makanan gratis (semoga ada, amin).
-Syarat dari makanan tersebut adalah menjawab kuis dari panitia tersebut.
+Elza, keturunan shahih maung Padjajaran dan pewaris resmi Arkav Empire, baru saja menyelesaikan situs web otobiografinya. Situs ini berisi informasi lengkap yang dibutuhkan siapapun untuk mengetahui sejarah hidup Elza, garis keluarganya, pencapaian dan peninggalan berharga Arkav Empire, sampai jalinan hubungan negara ini dengan negara-negara besar lainnya dan PBB. Sebagai keturunan bangsawan yang ahli memimpin dan mengatur bawahannya, Elza mengantisipasi besarnya \textit{traffic} yang akan mengunjungi situs yang telah dia buat. Sehingga, Elza membutuhkan bantuan Anda sebagai ahli pemrograman handal untuk menentukan laman mana yang akan banyak dikunjungi oleh banyak orang dan meminta Anda mengatur alokasi sumber daya agar setiap orang dapat mengakses situsnya tanpa kendala.
 
-kalian pun ingin mendapatkan makanan tersebut sehingga kalian pun mengikuti kuis tersebut. Setelah kalian mendaftar kalian diberikan sebuah peta ITB yang setiap gedungnya
-digambarkan dengan lingkaran dengan yang bertuliskan node ke-$i$, dengan $0 \leq i$ yang terlihat seperti graph berarah. Kuisnya adalah menghitung banyaknya kemungkinan suatu gedung 
-dikunjungi dalam $k$ kali langkah. Misalkan Peta Anda memiliki 3 node (node 0, node 1, dan node 2) yang setiap notenya saling terhubung (Setiap node terhubung dengan node lain), 
-maka kemungkinan kombinasi bergerak dengan $k = 2 $ yaitu:
+Masalahnya hanya satu. Belum ada seorangpun yang mengunjungisitus tersebut (kecuali Elza sendiri). Anda pun harus menggunakan kecerdikan Anda untuk memprediksi alur \textit{traffic} yang akan terjadi saat situs ini dikunjungi oleh banyak orang. Anda pun memrogram sebuah bot khusus untuk mengemulasikan \textit{traffic} pada \textit{website}. Bot tersebut pada setiap saatnya berada di suatu laman di situs Elza dan mencatat riwayat laman apa saja yang telah dia kunjungi. Pada awalnya, hanya terdapat satu instans bot tersebut di laman utama situs tersebut. Pada setiap satuan waktu, bot yang berada pada suatu laman akan mengecek laman apa saja yang dapat dituju dari laman yang dia tempati sekarang menggunakan \textit{link} tautan yang ada pada laman tersebut. Setelah itu, bot tersebut membuat \textit{clone} dirinya sendiri dengan riwayat yang sama, sebanyak laman yang dapat dia tuju sekarang, lalu setiap \textit{clone} berpindah ke laman-laman yang berbeda tersebut. Apabila bot tidak dapat berpindah ke laman lain, atau bot telah melakukan $K$ perpindahan, $\textit{lifetime}$ bot tersebut pun habis, dan riwayat laman yang telah dikunjungi bot tersebut dikembalikan ke program utama. Program utama mencatat total banyaknya setiap laman dikunjungi oleh setiap bot (tidak menghitung laman utama sebagai laman pertama bot). Total banyaknya setiap laman tersebutlah yang akan dipakai Anda untuk menganalisis prediksi \textit{traffic} situs otobiografi Elza. Jadi, mohon dihitungkan oleh Anda total banyak kunjungan masing-masing laman oleh semua bot.
 
-\begin{enumerate}
-    \setlength\itemsep{0pt}
-    \item node 0 -> node 1 -> node 0
-    \item node 0 -> node 1 -> node 2
-    \item node 0 -> node 2 -> node 0
-    \item node 0 -> node 2 -> node 1
-\end{enumerate}
-
-sehingga node 0 dapat dikunjungi 6x, node 1 dapat dikunjungi 3x, dan node 2 dapat dikunjungi 3x. Anda pun langsung mengerti dengan soal dan langsung 
-mendapatkan jawabannya. Anda pun langsung mengeluarkan laptop kesayangan Anda dan mulai mengoding. Dapatkah Anda mendapatkan makanan gratis tersebut?
+Perhatikan bahwa suatu laman dapat memiliki \textit{link} ke dirinya sendiri. Walau mungkin kenyataannya terdapat banyak \texit{link} dari suatu laman ke suatu laman lainnya, bot hanya akan membuat satu \textit{clone} dirinya untuk pindah ke laman tersebut. Suatu laman dapat dikunjungi oleh beberapa \textit{clone} bot pada waktu yang bersamaan, mereka tidak mengetahui keberadaan bot yang lainnya. Perhatikan juga bahwa karena jawabannya mungkin sangat besar, cukup keluarkan total banyak kunjungan masing-masing laman, dimod $10^9+7$.
 
 \subsection*{Format Masukan}
 
-Baris pertama berisi sebuah bilangan bulat $N$, $M$, dan $K$, ($1 \leq N,M,K \leq 100.000$). Dengan $N$ merupakan banyaknya Node, $M$ banyaknya \textit{path} yang ada.
-dan $K$ banyaknya langkah.
-$M$ baris berikutnya berisikan bilangan bulat $X_i$ dan $Y_i$ ($0 \leq X,Y \leq N$) yang dipisahkan dengan sebuah spasi.
+Baris pertama berisi tiga bilangan bulat $N$, $M$, dan $K$, ($1 \leq N \leq 50, 1 \leq M \leq N^2, 1 \leq K \leq 100.000$). Dengan $N$ merupakan banyaknya laman yang ada, dinomori dari $1$ sampai $N$. $M$ banyaknya hubungan \texit{link} antara dua laman, dan $K$ banyaknya langkah maksimum dari bot sebelum kembali ke program utama. Laman utama situs merupakan situs yang dinomori dengan angka $1$.
+
+$M$ baris berikutnya berisikan bilangan bulat $X_i$ dan $Y_i$ ($0 \leq X,Y \leq N$) yang dipisahkan dengan sebuah spasi, yang menandakan terdapat suatu $\textit{link}$ dari laman bernomor $X_i$ ke laman bernomor $Y_i$. Dipastikan untuk setiap pasangan $X_i$ $Y_i$ hanya ada satu entri dalam $M$ baris ini.
 
 \subsection*{Format Keluaran}
 
-$N$ buah baris yang menunjukkan banyaknya kemungkinan suatu node dikunjungi.
+Sebuah baris yang berisi dengan $N$ bilangan. Bilangan ke-$i$ menandakan total banyaknya laman ke $i$ dikunjungi oleh setiap bot, dimod $10^9+7$.
 \\
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}
 \begin{lstlisting}
-3 6 2
-0 1
-0 2
-1 0
+4 6 3
 1 2
-2 0
-2 1
+1 3
+2 3
+2 4
+4 1
+4 4
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-6
-3
-3
+1 3 2 3
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
 \subsection*{Penjelasan}
-Bilangan yang dimasukkan peserta arisan adalah $1, 3, 5$. 
-Setelah satu kali operasi XOR bersebelahan, maka barisan yang dihasilkan adalah $[(1$ XOR $3), (3$ XOR $5)]$ atau  $[2, 6]$. Setelah melakukan operasi XOR bersebelahan sekali lagi, maka barisan bilangan yang dihasilkan adalah $[2$ XOR $6]$ atau [4]. Sehingga bilangan yang dihasilkan \textit{pseudo random generator} adalah 4.
-
+Riwayat setiap \texit{clone} bot yang ada adalah sebagai berikut :
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item $1 \rightarrow 2 \rightarrow 3$
+    \item $1 \rightarrow 2 \rightarrow 4 \rightarrow 1$
+    \item $1 \rightarrow 2 \rightarrow 4 \rightarrow 4$
+    \item $1 \rightarrow 3$
+\end{itemize}
+Maka tidak menghitung posisi awal bot, laman $1$ dikunjungi sebanyak sekali, laman $2$ sebanyak tiga kali, laman $3$ sebanyak dua kali, dan laman $4$ sebanyak tiga kali.
 
 \pagebreak
 
