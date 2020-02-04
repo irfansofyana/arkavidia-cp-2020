@@ -103,7 +103,7 @@ int main() {
   for (int i = 0; i < q; ++i) {
     int t, x, y;
     scanf("%d", &t);
-    if (t != 2) {
+    if (t != 3) {
       scanf("%d %d", &x, &y);
       if (x > y)
         swap(x, y);
@@ -128,7 +128,7 @@ int main() {
       points.insert(x);
       points.insert(y);
     }
-    else if (t == 3) {
+    else if (t == 2) {
       points.erase(x);
       points.erase(y);
       auto e1 = find_neighboors(x);
