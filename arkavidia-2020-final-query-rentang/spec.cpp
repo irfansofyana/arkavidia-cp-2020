@@ -117,14 +117,6 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomArrayNormal(Q, ql, qr)
                 );
             }
-            for (int i = 0; i < 3; ++i){
-                CASE(
-                    N = MAXN,
-                    randomArrayNormal(N, L, R),
-                    Q = MAXN,
-                    randomWorstCase(Q, ql, qr, L, R)
-                );
-            }
         }
     private:
         void randomArrayNormal(int sz, vector<int> & a, vector<int> & b){
@@ -132,40 +124,6 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             b.clear();
             for (int i = 0; i < sz; ++i){
                 int l = rnd.nextInt(0, MAXM);
-                int r = rnd.nextInt(l, MAXM);
-                a.push_back(l);
-                b.push_back(r);
-            }
-        }
-
-        void randomArray1(int sz, vector<int> &a, vector<int> &b){
-            a.clear();
-            b.clear();
-            for (int i = 0; i < sz; ++i){
-                int l, r;
-                if (i == 0){
-                    l = rnd.nextInt(0, MAXM);
-                    r = rnd.nextInt(l, MAXM);
-                }else {
-                    l = rnd.nextInt(a[i-1], b[i-1]);
-                    r = rnd.nextInt(b[i-1], MAXM);
-                }
-                a.push_back(l);
-                b.push_back(r);
-            }
-        }
-
-        void randomWorstCase(int sz, vector<int> &a, vector<int> &b, const vector<int> &l, const vector<int> &R){
-            a.clear();
-            b.clear();
-            int maks = 0;
-            assert(L.size() == R.size());
-            for (int i = 0; i < L.size(); ++i){
-                maks = max(maks, L[i]);
-                maks = max(maks, R[i]);
-            }
-            for (int i = 0; i < sz; ++i){
-                int l = rnd.nextInt(maks, MAXM);
                 int r = rnd.nextInt(l, MAXM);
                 a.push_back(l);
                 b.push_back(r);
