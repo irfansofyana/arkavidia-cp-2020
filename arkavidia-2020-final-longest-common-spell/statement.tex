@@ -56,18 +56,22 @@ Sebuah prefix $t$ dari sebuah string $s$ adalah string $s_1s_2...s_i$ dengan $1 
 
 Sayangnya, pada beberapa saat, ada murid dari Sekolah Sihir Arkav yang mengundurkan diri, Ketika seorang murid mengundurkan diri, dia juga membawa pergi spell yang dia ajukan.
 
-Arvy memiliki sejarah masuk dan keluarnya murid-murid, berikut adalah penjelasan catatan yang dimiliki Arvy
-\begin{itemize}
-	\item1 S : Seorang murid mendaftar dan mengajukan spell $S$
-	\item2 S : Seorang murid keluar dari sekolah dan membawa pergi spell $S$
-\end{itemize}
+Arvy memiliki sejarah masuk dan keluarnya murid-murid dari awal saat tidak ada seorang muridpun yang mengikuti Sekolah Sihir Arkav.
 Arvy ingin mengetahui kekuatan superspell paling kuat yang dapat dibuat pada setiap saat. Bantulah Arvy!
 
 \subsection*{Format Masukan}
-Baris pertama terdiri dari satu bilangan bulat $Q (1 \leq Q \leq 2\cdot10^4)$. $Q$ baris berikutnya berisi catatan sejarah Arvy. Untuk setiap catatan $1\:S$ dan $2\:S$, $S$ terdiri dari karakter 'A' dan 'B' serta $1 \leq |S| \leq 30$.
+Baris pertama terdiri dari satu bilangan bulat $Q (1 \leq Q \leq 2\cdot10^4)$, panjang dari catatan sejarah Arvy. 
+
+$Q$ baris berikutnya berisi catatan sejarah Arvy dengan format :
+\begin{itemize}
+    \setlength\itemsep{0pt}
+	\item1 S : Seorang murid mendaftar dan mengajukan spell $S$
+	\item2 S : Seorang murid keluar dari sekolah dan membawa pergi spell $S$
+\end{itemize}
+$S$ terdiri dari karakter 'A' dan 'B' serta $1 \leq |S| \leq 30$.
 
 \subsection*{Format Keluaran}
-Keluaran berupa $Q$ baris, setiap baris berisi kekuatan superspell paling kuat pada saat itu. Jika tidak ada superspell yang dapat dibuat (dengan kata lain Arvy hanya memiliki kurang dari 2 spell), maka kekuatan superspellnya adalah 0.
+Keluaran berupa $Q$ baris, setiap baris berisi kekuatan superspell paling kuat pada saat itu. Jika tidak ada superspell yang dapat dibuat (Arvy memiliki kurang dari 2 spell), maka kekuatan superspellnya adalah 0.
 
 \begin{multicols}{2}
 \subsection*{Contoh Masukan}

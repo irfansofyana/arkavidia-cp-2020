@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{Outside of Arvy's World} % ganti judul soal
+    \section*{Isokai} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -50,37 +50,32 @@
 \subsection*{Deskripsi}
 
 Arkavland pada tahun $2077$ sedang mengalami krisis ruang dan waktu, krisis ini mengakibatkan disrupsi waktu dan alur waktu yang tidak wajar.
-Untuk menyelamatkan Arkavland, Arvy sedang meneliti dunia lain bernama Isokai untuk dihidupi penduduk Arkavland, dunia Isokai memiliki usia alam semesta $T$ satuan waktu.
+Untuk menyelamatkan Arkavland, Arvy sedang meneliti dunia lain bernama Isokai untuk dihidupi penduduk Arkavland, dunia Isokai memiliki usia alam semesta $T$ satuan waktu. 
+Dalam penelitian ini, Arvy telah mengembangkan alat bernama TARKAVM \textit{(Time Anomaly Rescue Key And Vortex Manipulator)}. TARKAVM dapat memindahkan semua penduduk Arkavland ke dunia Isokai waktu $t$, loncatan ini disebut \textit{Time Jump}.
 
-Dalam penelitian ini, Arvy telah mengembangkan alat bernama TARKAVM \textit{(Time Anomaly Rescue Key And Vortex Manipulator)}. TARKAVM dapat digunakan untuk berpindah ke dunia Isokai pada waktu $t$, loncatan ini disebut \textit{Time Jump}.
+Ternyata, anomali waktu dunia ikut mempengaruhi dunia Isokai pada suatu selang waktu. Penduduk Arkavland yang berpindah ke dunia Isokai akan terpaksa kembali ke dunia asalnya apabila terjadi anomali waktu pada waktu ke-$x$ atau usia alam semesta dunia Isokai telah habis.
 
-Ternyata, anomali waktu dari dunia asal Arvy dapat mempengaruhi dunia Isokai pada waktu $X$. Anomali waktu ini akan membuat setiap penduduk Arkavland berpindah ke dunia asal.
-Ketika penduduk Arkavland berada di dunia Isokai di waktu $X$, maka semua penduduk Arkavland akan terpindah ke dunia asal pada waktu $X+1$.
-Ketika umur dunia Isokai telah habis, maka penduduk Arkavland juga akan terpindah ke dunia asal, kejadian ini juga dapat dibilang sebagai anomali waktu.
+Arvy ingin penduduk Arkavland menghabiskan waktu selama mungkin di dunia Isokai, sehingga setiap \textit{Time Jump} yang dilakukan TARKAVM diatur agar memindahkan setiap penduduk Arkavland ke waktu $t$ sedemikian sehingga jarak waktu $t$ ke anomali atau akhir alam semesta terdekat semaksimal mungkin. Apabila anomali atau akhir alam semesta terdekat terjadi di waktu $x$, maka penduduk Arkavland mempunyai $x - t + 1$ satuan waktu sebelum terpaksa kembali.
 
-TARKAVM yang dikembangkan Arvy dapat melihat setiap anomali yang terjadi dalam usia dunia Isokai, TARKAVM juga dapat mendeteksi hilangnya anomali-anomali tersebut.
-Arvy ingin penduduk Arkavland menghabiskan waktu selama mungkin di dunia Isokai,
-maka setiap \textit{Time Jump} yang dilakukan TARKAVM akan memindahkan setiap penduduk Arkavland ke waktu $t$, sedemikian hingga $X-t+1$ adalah maksimal; $X$ adalah saat terjadinya anomali waktu terdekat dari $t$.
-Dengan kata lain, \textit{Time Jump} yang dilakukan TARKAVM akan memaksimalkan waktu yang dimiliki penduduk Arkavland di dunia Isokai sebelum terpaksa pindah ke dunia asal.
-
-Sayangnya TARKAVM belum sempurna, sehingga \textit{Time Jump} dapat terjadi kapan saja.
-
-Diberikan Q data dari TARKAVM, jenis-jenis data adalah sebagai berikut:
-\begin{itemize}
-	\item1 t : Telah terjadi anomali waktu pada waktu t
-	\item2 t : Anomali pada waktu t telah hilang, jika ada beberapa anomali waktu yang terjadi pada waktu t, maka semua anomali pada waktu tersebut hilang
-	\item3 : TARKAVM melakukan Time Jump ke dunia Isokai sesuai dengan spesifikasi diatas
-\end{itemize}
-Untuk setiap data bertipe 3, tulislah waktu yang dihabiskan penduduk Arkavland di dunia Isokai.
+TARKAVM cukup canggih sehingga dapat mendeteksi kemunculan ataupun kehilangannya anomali waktu di dunia Isokai, namun TARKAVM belum sempurna, TARKAVM dapat sewaktu-waktu melakukan \textit{Time Jump}. Untuk memastikan keselamatan penduduk Arkavland, untuk semua \textit{Time Jump} yang dilakukan TARKAVM, hitung berapa lama yang akan dihabiskan penduduk Arkavland di dunia Isokai.
 
 
 \subsection*{Format Masukan}
 
-Baris pertama terdiri dari dua bilangan bulat $T (1 \leq T \leq 10^1^8)$ dan $Q (1 \leq Q \leq 10^5)$. $Q$ baris berikutnya berisi data dari TARKAVM. Untuk setiap data \textbf{1 t} dan \textbf{2 t}, maka $1 \leq t \leq T$. Data \textbf{2 t} hanya dapat muncul jika sudah ada setidaknya satu anomali di waktu $t$.
+Baris pertama terdiri dari dua bilangan bulat $T (1 \leq T \leq 10^1^8)$ dan $Q (1 \leq Q \leq 10^5)$, menandakan usia alam semesta dunia Isokai dan banyak hal yang terjadi
+
+$Q$ baris berikutnya berisi kejadian yang terjadi dengan format :
+\begin{itemize}
+    \setlength\itemsep{0pt}
+	\item$1\:t$, artinya telah terjadi anomali waktu pada waktu $t$
+	\item$2\:t$, artinya semua anomali pada waktu $t$ telah hilang
+	\item$3$, artinya TARKAVM melakukan \textit{Time Jump} ke dunia Isokai
+\end{itemize}
+($1 \leq t \leq T$). Dipastikan kejadian $2$ hanya dapat muncul jika sudah ada setidaknya satu anomali di waktu $t$.
 
 \subsection*{Format Keluaran}
 
-Keluaran berupa $N$ baris dengan $N$ merupakan banyaknya data tipe 3, tiap baris menyatakan durasi waktu yang dimiliki penduduk Arkavland setelah melakukan \textit{Time Jump} di dunia Isokai sebelum terpaksa pindah ke dunia asal.
+Untuk setiap \textit{Time Jump} yang dilakukan, Keluarkan durasi waktu yang dimiliki penduduk Arkavland sebelum terpaksa kembali ke dunia asal.
 \\
 
 \begin{multicols}{2}
@@ -107,39 +102,7 @@ Keluaran berupa $N$ baris dengan $N$ merupakan banyaknya data tipe 3, tiap baris
 \end{multicols}
 
 \subsection*{Penjelasan}
-Umur dari dunia Isokai adalah 6 satuan waktu.
-
-1 2 3 4 5 6
-
-
-Data 1 mencatat bahwa TARKAVM melakukan \textit{Time Jump} ke $t = 1$, sehingga penduduk Arkavland memiliki 6 satuan waktu sebelum terpaksa pindah ke dunia asal.
-
-\textbf{1 2 3 4 5 6}
-
-Data 2 mencatat bahwa telah terjadi anomali pada waktu 3
-
-1 2 3 | 4 5 6
-
-Data 3 mencatat bahwa telah terjadi anomali pada waktu 5
-
-1 2 3 | 4 5 | 6
-
-Data 4 mencatat bahwa TARKAVM melakukan \textit{Time Jump} ke $t = 1$, \textit{Time Jump} yang dilakukan mengakibatkan penduduk Arkavland memiliki 3 satuan waktu sebelum terpaksa pindah ke dunia asal.
-
-\textbf{1 2 3} | 4 5 | 6
-
-Data 5 mencatat bahwa anomali pada waktu 5 telah hilang.
-
-1 2 3 | 4 5 6
-
-Data 6 mencatat bahwa TARKAVM melakukan \textit{Time Jump}, \textit{Time Jump} yang dilakukan mengakibatkan penduduk Arkavland memiliki 3 satuan waktu sebelum terpaksa pindah ke dunia asal.
-\textit{Time Jump} yang dilakukan dapat dilakukan ke $t = 1$ atau $t = 4$.
-
-\textbf{1 2 3} | 4 5 6
-atau
-1 2 3 | \textbf{4 5 6}
-
-\textit{Catatan}: Boleh saja melakukan \textit{Time Jump} ke waktu yang sama berulang kali.
+Pada \textit{Time Jump} pertama, TARKAVM berpindah ke waktu $t = 1$, sehingga penduduk Arkavland memiliki 6 satuan waktu sebelum terpaksa kembali ke dunia asal. Pada \textit{Time Jump} kedua, karena terdapat anomali pada waktu $3$ dan $5$, TARKVAM akan berpindah ke waktu $t = 1$ untuk mendapatkan $3$ satuan waktu. Pada \textit{Time Jump} ketiga, TARKVAM dapat memilih untuk berpindah ke waktu $t = 1$ atau $t = 4$ untuk mendapatkan $3$ satuan waktu.
 
 \pagebreak
 
