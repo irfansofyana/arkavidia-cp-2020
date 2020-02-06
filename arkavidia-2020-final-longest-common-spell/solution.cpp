@@ -94,11 +94,11 @@ int main () {
 
     cin >> q;
     while (q--){
-        char tipe;
+        int tipe;
         string s;
         cin >> tipe >> s;
 
-        if (tipe == '+'){
+        if (tipe == 1){
             trie.insert(s);
         } else{
             trie.erase(s);

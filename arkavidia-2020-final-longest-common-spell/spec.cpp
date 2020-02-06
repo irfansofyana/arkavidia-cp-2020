@@ -38,7 +38,7 @@ class ProblemSpec: public BaseProblemSpec{
         bool stringContainsAB(const vector<string>& a){
             for (string x : a){
                 for (int j = 0; j < x.size(); ++j){
-                    if (x[j] != 'a' && x[j] != 'b'){
+                    if (x[j] != 'A' && x[j] != 'B'){
                         return false;
                     }
                 }
@@ -81,6 +81,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomOperation(q, op, query_string)
                 );
             }
+            
         }
 
     private:
@@ -95,7 +96,9 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
 
         string randomStringAB(int n, int tipe){
             string res = "";
-            int k = rnd.nextInt(1, n/2);
+            int k;
+            if (n == 1) k = 1;
+            else k = rnd.nextInt(1, n/2);
             for (int i = 0; i < k; ++i){
                 res += (tipe == 0 ? 'A' : 'B');
             }
@@ -113,6 +116,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                 int sz = rnd.nextInt(1, 30);
                 string tes = randomStringAB(sz, rnd.nextInt(0, 1));
                 ms.insert(tes);
+                query_string.push_back(tes);
                 op.push_back(1);
             }
             for (int i = 0; i < q-phase1; ++i){
@@ -122,9 +126,10 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     int sz = rnd.nextInt(1, 30);
                     string tes = (rnd.nextInt(0, 1) == 0 ? randomString(sz):randomStringAB(sz, rnd.nextInt(0, 1)));
                     ms.insert(tes);
+                    query_string.push_back(tes);
                 }else{
-                    int sz = min(ms.size(), 1000);
-                    string get;
+                    int sz = min((int)ms.size(), 1000);
+                    string get = *(ms.begin());
                     for (multiset<string>::iterator it = ms.begin(); sz > 0 && it != ms.end(); ++it){
                         --sz;
                         if (sz == 0){
@@ -132,6 +137,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                             break;
                         }
                     }
+                    query_string.push_back(get);
                     ms.erase(ms.find(get));
                 }
             }
