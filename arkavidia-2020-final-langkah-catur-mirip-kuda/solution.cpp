@@ -42,9 +42,9 @@ bool valid(int x, int y, int prevx, int prevy){
 	if(x < 0 || x >= n || y < 0 || y >= m || arr[x][y]){
 		return false;
 	}
-	if(prefVer[x][y] == prefVer[prevx][y] && prefHori[prevx][y] == prefHori[prevx][prevy]){
+	if(prefVer[x][y] == prefVer[prevx][y] && prefHori[prevx][y] == prefHori[prevx][prevy] && !arr[prevx][y]){
 		return true;
-	} else if (prefHori[x][y] == prefHori[x][prevy] && prefVer[x][prevy] == prefVer[prevx][prevy]){
+	} else if (prefHori[x][y] == prefHori[x][prevy] && prefVer[x][prevy] == prefVer[prevx][prevy] && !arr[x][prevy]){
 		return true;
 	} else {
 		return false;
