@@ -78,10 +78,27 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             for (int i = 0; i < 3; ++i){
                 CASE(
                     q = rnd.nextInt(10, 100),
-                    randomOperation(q, op, query_string)
+                    randomOperation(q, op, query_string, q/5)
                 );
             }
-            
+            for (int i = 0; i < 3; ++i){
+                CASE(
+                    q = rnd.nextInt(101, 1000),
+                    randomOperation(q, op, query_string, q/10)
+                );
+            }
+            for (int i = 0; i < 3; ++i){
+                CASE(
+                    q = rnd.nextInt(1001, 10000),
+                    randomOperation(q, op, query_string, q/100)
+                );
+            }
+            for (int i = 0; i < 5; ++i){
+                CASE(
+                    q = rnd.nextInt(10001, MAXQ),
+                    randomOperation(q, op, query_string, q/1000)
+                );
+            }
         }
 
     private:
@@ -109,9 +126,9 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             return res;
         }
 
-        void randomOperation(int q, vector<int> &op, vector<string> &query_string){
+        void randomOperation(int q, vector<int> &op, vector<string> &query_string, int limit){
             multiset<string> ms;
-            int phase1 = rnd.nextInt(1, q/2);
+            int phase1 = rnd.nextInt(1, q/3);
             for (int i = 0; i < phase1; ++i){
                 int sz = rnd.nextInt(1, 30);
                 string tes = randomStringAB(sz, rnd.nextInt(0, 1));
@@ -119,14 +136,15 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                 query_string.push_back(tes);
                 op.push_back(1);
             }
+            
+            int cnt = 0;
             for (int i = 0; i < q-phase1; ++i){
-                int que = rnd.nextInt(1, 2);
-                op.push_back(que);
-                if (que == 1){
+                if (cnt < limit/3 || ms.size() == 0){
                     int sz = rnd.nextInt(1, 30);
                     string tes = (rnd.nextInt(0, 1) == 0 ? randomString(sz):randomStringAB(sz, rnd.nextInt(0, 1)));
                     ms.insert(tes);
                     query_string.push_back(tes);
+                    op.push_back(1);
                 }else{
                     int sz = min((int)ms.size(), 1000);
                     string get = *(ms.begin());
@@ -139,7 +157,11 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     }
                     query_string.push_back(get);
                     ms.erase(ms.find(get));
+                    op.push_back(2);
                 }
+                ++cnt;
+                if (cnt == limit) cnt = 0;
             }
         }
+
 };
