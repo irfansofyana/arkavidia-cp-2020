@@ -51,63 +51,57 @@
 
 Prof. Arvy seorang ilmuwan terkemuka di Negara Arkavidia berhasil menemukan sebuah terobosan baru dalam bidang transportasi yaitu teknologi teleportasi.
 
-Teknologi teleportasi yang ditemukan mampu memindahkan kendaraan pada posisi $A$ menuju posisi $B$.
+Teknologi teleportasi yang ditemukan mampu memindahkan kendaraan pada posisi $A$ menuju posisi $B$ secara instans.
 
 Awal tahun merupakan saat yang tepat untuk mencoba alat baru ini pada ruas jalan di Negara Arkavidia yang dibangun sejauh $N$ ($1 \leq N \leq 100.000$) kilometer yang setiap kilometernya direpresentasikan dalam bentuk titik. Prof. Arvy merencanakan uji coba akan dilakukan dengan $Q$ tahap. Dengan setiap tahapnya dapat berupa :
 
 \begin{enumerate}
     \setlength\itemsep{0pt}
-    \item  Penambahan alat teleportasi. Penambahan alat teleportasi dilakukan dengan menambah alat pada titik $A$ dan titik $B$. Alat teleportasi ini akan secara otomatis memindahkan kendaraan yang masuk ke titik $A$ menuju titik $B$ begitupun sebaliknya. Dikarenakan alat teleportasi yang masih dalam tahap pengembangan, alat teleportasi dari suatu titik tidak dapat memindahkan kendaraan ke dua titik berbeda.
+    \item  Pemasangan alat teleportasi pada titik $A$ dan titik $B$. Alat teleportasi ini akan secara otomatis memindahkan kendaraan yang berada di titik $A$ menuju ke titik $B$ begitupun sebaliknya. Dikarenakan alat teleportasi yang masih dalam tahap pengembangan, pada suatu titik yang sama tidak dapat dipasang lebih dari satu alat teleportasi.
 
-    \item Pengurangan alat teleportasi yang menghubungkan titik $A$ dan titik $B$
+    \item Pelepasan alat teleportasi yang menghubungkan titik $A$ dan titik $B$
 
-    \item Uji coba teleportasi. Uji coba teleportasi dilakukan dengan cara melakukan perjalanan dari posisi $0$ kilometer hingga posisi $N$ kilometer. Uji coba ini dilakukan untuk melihat keefektifan penempatan alat teleportasi. Pada uji coba teleportasi ini kendaraan hanya dapat bergerak maju atau melakukan teleportasi secara otomatis jika memenuhi kondisi yang telah dijelaskan sebelumnya. Sebagai salah satu parameter keefektifan, Prof. Arvy ingin menghitung berapa banyak teleportasi yang dilakukan hingga kendaraan sampai tujuan.   
+    \item Uji coba teleportasi. Uji coba teleportasi dilakukan dengan cara melakukan perjalanan dari posisi $0$ kilometer hingga posisi $N$ kilometer. Uji coba ini dilakukan untuk melihat keefektifan penempatan alat teleportasi. Pada uji coba teleportasi ini, kendaraan hanya dapat bergerak maju atau secara otomatis diteleportasi jika melewati suatu titik tempat alat teleportasi dipasang. Sebagai salah satu parameter keefektifan, Prof. Arvy ingin menghitung berapa banyak teleportasi yang dilakukan hingga kendaraan sampai tujuan.   
 \end{enumerate}
-
 
 Anda yang merupakan programmer terhebat di Negara Arkavidia sengaja direkrut oleh Prof. Arvy untuk membantu Prof. Arvy melaksanakan tugasnya. Tentu saja, Anda yang juga sudah mempelajari etika keprofesian bersedia membantu Prof. Arvy dengan senang hati. Tugas anda mudah saja, mencatat setiap tahapan yang dilakukan dan tentunya selalu dengan sigap menjawab pertanyaan Prof. Arvy mengenai keefektifan penempatan alat teleportasi tepat seusai setiap uji coba teleportasi dilakukan.
 
 \subsection*{Format Masukan}
 Baris pertama berisi bilangan $N$ dan $Q$ ($1 \leq N, Q \leq 100.000$). $N$ merupakan panjang jalan di Negara Arkavidia. $Q$ merupakan banyakya tahapan uji coba yang dilakukan
-Baris kedua hingga baris ke-$Q+1$ merupakan kegiatan yang dilakukan Prof. Arvy dalam setiap tahapannya. Setiap baris dapat berupa :
+$Q$ baris berikutnya merupakan kegiatan yang dilakukan Prof. Arvy dalam setiap tahapannya. Setiap baris dapat berupa :
 \begin{enumerate}
     \setlength\itemsep{0pt}
-    \item $1$ $A$ $B$ ($1 \leq A, B \leq 100.000$) berarti penambahan alat teleportasi yang menghubungkan titik $A$ dan $B$
-    \item $2$ $A$ $B$ ($1 \leq A, B \leq 100.000$) berarti pengurangan alat teleportasi yang menghubungkan titik $A$ dan $B$
-    \item $3$ berarti ujicoba dilakukan    
+    \item $1$ $A$ $B$ ($1 \leq A, B \leq 100.000$) berarti pemasangan alat teleportasi yang menghubungkan titik $A$ dan $B$
+    \item $2$ $A$ $B$ ($1 \leq A, B \leq 100.000$) berarti pelepasan alat teleportasi yang menghubungkan titik $A$ dan $B$
+    \item $3$ berarti uji coba dilakukan
 \end{enumerate}
 
 
 \subsection*{Format Keluaran}
-Setiap teradapat ujicoba, keluarkan sebuah baris yang berisi bilangan $M$ banyaknya teleportasi yang dilakukan untuk melakukan perjalanan dari titik $0$ hingga $N$ kilometer. 
+Setiap terdapat uji coba, keluarkan sebuah baris yang berisi bilangan $M$ banyaknya teleportasi yang dilakukan untuk melakukan perjalanan dari titik $0$ hingga $N$ kilometer. 
 \\
 
 \begin{multicols}{2}
-\subsection*{Contoh Masukan}
+\subsection*{Contoh Masukan 1}
 \begin{lstlisting}
-6 3
+6 4
 1 2 4
-1 5 6
+3
+1 3 5
 3
 \end{lstlisting}
 \columnbreak
-\subsection*{Contoh Keluaran}
+\subsection*{Contoh Keluaran 1}
 \begin{lstlisting}
-2
+1
+4
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
-\subsection*{Penjelasan}
-\includegraphics[width=40px]{contoh.png}
-Pada tahap pertama, ditambahkan alat teleportasi yang menghubungkan titik 2 ke titik 4
-Pada tahap kedua, ditambahkan alat teleportasi yang menghubungkan titik 5 ke titik 6
-Pada tahap ketiga, dilakukan uji coba alat teleportasi, terdapat 2 kali teleportasi yaitu titik 2 ke titik 4 dan titik 5 ke titik 6.
-\pagebreak
-
 \begin{multicols}{2}
-\subsection*{Contoh Masukan}
+\subsection*{Contoh Masukan 2}
 \begin{lstlisting}
 10 3
 1 2 3
@@ -115,13 +109,20 @@ Pada tahap ketiga, dilakukan uji coba alat teleportasi, terdapat 2 kali teleport
 3
 \end{lstlisting}
 \columnbreak
-\subsection*{Contoh Keluaran}
+\subsection*{Contoh Keluaran 2}
 \begin{lstlisting}
 0
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
+
+\subsection*{Penjelasan}
+Pada contoh pertama, dilakukan hal-hal berikut.
+Pada tahap pertama, dipasang alat teleportasi yang menghubungkan titik 2 ke titik 4.
+Pada tahap kedua, dilakukan uji coba, dimana terjadi 1 kali teleportasi dari titik 2 ke titik 4.
+Pada tahap ketiga, dipasang alat teleportasi yang menghubungkan titik 3 ke titik 5.
+Pada tahap keempat, dilakukan uji coba alat teleportasi, terdapat 4 kali teleportasi yaitu titik 2 ke titik 4, titik 5 ke titik 3, titik 4 ke titik 2, dan titik 3 ke titik 5.
 
 \end{document}
 

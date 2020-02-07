@@ -37,7 +37,7 @@
 \begin{document}
 
 \begin{center}
-    \section*{Ordered Segment} % ganti judul soal
+    \section*{Pantulan} % ganti judul soal
 
     \begin{tabular}{ | c c | }
         \hline
@@ -54,17 +54,17 @@ Hobinya tersebut didapat dari ayahnya yang juga hobi membaca buku.
 Waktu kecil ayahnya selalu membacakannya dongeng hingga Elza kecil tertidur.
 Momen indah itu selalu Elza ingat saat Elza senang maupun sedih.
 Kini Elza sudah menjadi mahasiswa.
-Kesibukan mengerjakan tugas dan belajar tidak mengahalangi Elza untuk membaca buku.
+Kesibukan mengerjakan tugas dan belajar tidak menghalangi Elza untuk membaca buku.
 Elza sangat senang membaca buku.
 
 Cahaya matahari kemerahan menyinari kamar Elza dan menemaninya terhanyut dalam buku yang ia baca.
-Di kamarnya, Elza memiliki sebuah lemari yang menyimpan $N$ buah buku miliknya. Setiap buku ke-i 
+Di kamarnya, Elza memiliki sebuah lemari yang menyimpan $N$ buah buku miliknya. Setiap buku ke-$i$ 
 memiliki banyak halaman sebanyak $X_i$.
 
-Lemari tersebut memantulkan keindahan cahaya keoranyean yang didapat dari pantulan buku - buku milik Elza.
+Lemari tersebut memantulkan keindahan cahaya kejinggaan yang didapat dari pantulan buku - buku milik Elza.
 Elza yang suka akan keindahan, menginginkan agar lemari memantulkan keindahan yang diinginkannya.
 Agar lemari dapat memantulkan cahaya dengan keindahan yang diinginkan Elza,
-Elza ingin agar buku - buku di lemarinya dibagi menjadi $Q$ bagian, dengan masing-masing bagian terdiri dari buku indeks
+Elza ingin agar buku - buku di lemarinya memiliki $Q$ bagian-bagian, dengan masing-masing bagian terdiri dari buku indeks
 $L_i$ dan $R_i$ (inklusif) memiliki jumlah halaman yang terurut menaik.
 
 Bantulah Elza untuk menentukan apakah di setiap rentang $L$ dan $R$, buku - buku yang terpasang terurut menaik agar menghasilkan keindahan pantulan cahaya yang diinginkan oleh Elza.
@@ -73,8 +73,9 @@ Bantulah Elza untuk menentukan apakah di setiap rentang $L$ dan $R$, buku - buku
 
 Baris pertama berisi sebuah bilangan bulat $N$ ($1 \leq N \leq 100.000$) yang merupakan jumlah buku yang dimiliki Elza.
 Baris kedua berisi $N$ buah bilangan bulat $X$ dipisahkan dengan spasi. $X_i$ ($1 \leq X_i \leq 100.000$) menyatakan jumlah halaman buku ke-i yang dimiliki Elza.
+
 Baris ketiga berisi sebuah bilangan bulat $Q$ ($1 \leq Q \leq 100.000$) yang merupakan banyaknya bagian buku agar menciptakan pantulan yang indah.
-Baris berikutnya berisi $Q$ buah rentang $L$ dan $R$ yang menyatakan rentang yang diperlukan agar memantulkan keindahan cahaya yang diinginkan Elza.
+$Q$ baris berikutnya berisi sebuah rentang $L$ dan $R$ ($1 \leq L \leq R \leq N$) yang menyatakan rentang yang diperlukan agar memantulkan keindahan cahaya yang diinginkan Elza.
 
 \subsection*{Format Keluaran}
 
@@ -105,8 +106,7 @@ YA
 \end{multicols}
 
 \subsection*{Penjelasan}
-1. Nilai indeks array pada rentang [1..3] terurut menaik
-2. Nilai indeks array pada rentang [2..5] tidak terurut menaik
+Nilai indeks array pada rentang $[1\ldots3]$ terurut menaik sedangkan nilai indeks array pada rentang $[2\ldots5]$ tidak terurut menaik.
 
 \pagebreak
 
