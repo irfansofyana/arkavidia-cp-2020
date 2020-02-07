@@ -4,7 +4,7 @@
 using namespace std;
 using namespace tcframe;
 
-const int MAXQ = 2e4;
+const int MAXQ = 1e5;
 
 class ProblemSpec: public BaseProblemSpec{
     protected:
@@ -77,18 +77,6 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
             CASE(q = 6, op={1, 1, 1, 1, 1, 1}, query_string={"AAABBB", "AAAB", "AAAAAAB", "AAB", "AAAAAAAAAAAAAAAAAA", "AAABA"});
             for (int i = 0; i < 3; ++i){
                 CASE(
-                    q = rnd.nextInt(10, 100),
-                    randomOperation(q, op, query_string, q/5)
-                );
-            }
-            for (int i = 0; i < 3; ++i){
-                CASE(
-                    q = rnd.nextInt(101, 1000),
-                    randomOperation(q, op, query_string, q/10)
-                );
-            }
-            for (int i = 0; i < 3; ++i){
-                CASE(
                     q = rnd.nextInt(1001, 10000),
                     randomOperation(q, op, query_string, q/100)
                 );
@@ -99,9 +87,49 @@ class TestSpec : public BaseTestSpec<ProblemSpec>{
                     randomOperation(q, op, query_string, q/1000)
                 );
             }
+            CASE(q = MAXQ,randomOperationMax());
+            for (int i = 1; i <= 5; ++i) {
+                CASE (q = MAXQ, randomOperationMaximum());
+            }
         }
 
     private:
+        void randomOperationMax() {
+            op.push_back(1);
+            for (int i = 1; i < q; i++) {
+                if (i % 2 == 1) op.push_back(1); 
+                else op.push_back(2);
+            }
+            string s = "AAAABAAAABAAAABAAAABAAAAB";
+            for (int i = 0; i < q; i++) {
+                query_string.push_back(s);
+            }
+        }
+
+        void randomOperationMaximum() {
+            set<string> st;
+            for (int i = 0; i < q; i++) {
+                if (st.size() < MAXQ/2) {
+                    string s = randomString(30);
+                    int operasi = 1;
+                    op.push_back(operasi);
+                    query_string.push_back(s);
+                    st.insert(s);
+                } else {
+                    op.push_back(2);
+                    int iterasi = rnd.nextInt(0, min(999, (int)st.size()-1));
+                    for (auto x : st) {
+                        iterasi--;
+                        if (iterasi == -1) {
+                            query_string.push_back(x);
+                            st.erase(x);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         string randomString(int n){
             string res = "";
             for (int i = 0; i < n; ++i){
