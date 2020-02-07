@@ -42,7 +42,7 @@ struct Trie{
         Node * cur = head;
         int len = s.length();
         for (int i=0;i<len;i++){
-            bool cek_b = (s[i] == 'b');
+            bool cek_b = (s[i] == 'B');
 
             (cur -> cnt)++;
             if (cur -> cnt == 2){
@@ -63,7 +63,7 @@ struct Trie{
         Node * cur = head;
         int len = s.length();
         for (int i=0;i<len;i++){
-            bool cek_b = (s[i] == 'b');
+            bool cek_b = (s[i] == 'B');
 
             (cur -> cnt)--;
             if (cur -> cnt == 1){
