@@ -58,7 +58,7 @@ Perhatikan bahwa bot tidak akan berpindah ke laman yang sedang dia tempati. Sela
 
 Baris pertama berisi tiga bilangan bulat $N$, $M$, dan $K$, ($1 \leq N \leq 50, 1 \leq M \leq N^2, 1 \leq K \leq 100.000$). Dengan $N$ merupakan banyaknya laman yang ada, dinomori dari $1$ sampai $N$. $M$ banyaknya hubungan \texit{link} antara dua laman, dan $K$ banyaknya langkah maksimum dari bot sebelum kembali ke program utama. Laman utama situs merupakan situs yang dinomori dengan angka $1$.
 
-$M$ baris berikutnya berisikan bilangan bulat $X_i$ dan $Y_i$ ($0 \leq X,Y \leq N$) yang dipisahkan dengan sebuah spasi, yang menandakan terdapat suatu $\textit{link}$ dari laman bernomor $X_i$ ke laman bernomor $Y_i$. Dipastikan untuk setiap pasangan $X_i$ $Y_i$ hanya ada satu entri dalam $M$ baris ini.
+$M$ baris berikutnya berisikan bilangan bulat $X_i$ dan $Y_i$ ($0 \leq X_i, Y_i \leq N, X_i \ne Y_i$) yang dipisahkan dengan sebuah spasi, yang menandakan terdapat suatu $\textit{link}$ dari laman bernomor $X_i$ ke laman bernomor $Y_i$. Dipastikan untuk setiap pasangan $X_i$ $Y_i$ hanya terdapat satu entri dalam $M$ baris ini.
 
 \subsection*{Format Keluaran}
 
@@ -74,27 +74,28 @@ Sebuah baris yang berisi dengan $N$ bilangan. Bilangan ke-$i$ menandakan total b
 2 3
 2 4
 4 1
-4 4
+4 2
 \end{lstlisting}
 \columnbreak
 \subsection*{Contoh Keluaran}
 \begin{lstlisting}
-1 3 2 3
+1 4 2 2
 \end{lstlisting}
 \vfill
 \null
 \end{multicols}
 
 \subsection*{Penjelasan}
+Pada awalnya, bot di laman $1$ membelah menjadi dua, satu ke laman $2$ dan satu ke laman $3$. Lalu bot di laman $2$ membelah menjadi dua, satu ke laman $3$ dan satu ke laman $4$. Akhirnya bot di laman $4$ membelah menjadi dua, satu ke laman $1$ dan satu ke laman $2$.
 Riwayat setiap \texit{clone} bot yang ada adalah sebagai berikut :
 \begin{itemize}
     \setlength\itemsep{0pt}
     \item $1 \rightarrow 2 \rightarrow 3$
     \item $1 \rightarrow 2 \rightarrow 4 \rightarrow 1$
-    \item $1 \rightarrow 2 \rightarrow 4 \rightarrow 4$
+    \item $1 \rightarrow 2 \rightarrow 4 \rightarrow 2$
     \item $1 \rightarrow 3$
 \end{itemize}
-Maka tidak menghitung posisi awal bot, laman $1$ dikunjungi sebanyak sekali, laman $2$ sebanyak tiga kali, laman $3$ sebanyak dua kali, dan laman $4$ sebanyak tiga kali.
+Maka tidak menghitung posisi awal bot, laman $1$ dikunjungi sebanyak sekali, laman $2$ sebanyak empat kali, laman $3$ sebanyak dua kali, dan laman $4$ sebanyak dua kali.
 
 \pagebreak
 
