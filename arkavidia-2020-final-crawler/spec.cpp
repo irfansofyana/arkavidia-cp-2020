@@ -4,9 +4,9 @@
 using namespace std;
 using namespace tcframe;
 
-const int NMax = 50;
-const int MMax = 2500;
-const int KMax = 100000;
+const int NMax = 25;
+const int MMax = 625;
+const int KMax = 1000000;
 
 class ProblemSpec : public BaseProblemSpec {
 protected:
@@ -103,15 +103,15 @@ protected:
     	for (int i = 0; i < 5; i++) {
     		CASE(N = rnd.nextInt(NMax / 2 + 1, NMax), M = rnd.nextInt(1, N - 2), K = rnd.nextInt(KMax / 2, KMax), randomGraph(N, M, U, V));
     	}
-    	for (int i = 0; i < 5; i++) {
-    		CASE(N = rnd.nextInt(10, NMax / 2), M = rnd.nextInt(N - 1, MMax), K = rnd.nextInt(1, KMax), randomConnectedGraph(N, M, U, V));
+    	for (int i = 0; i < 2; i++) {
+    		CASE(N = rnd.nextInt(8, NMax / 2), M = rnd.nextInt(N - 1, min(N*N, MMax)), K = rnd.nextInt(1, KMax), randomConnectedGraph(N, M, U, V));
     	}
     	for (int i = 0; i < 5; i++) {
-    		CASE(N = rnd.nextInt(NMax / 2 + 1, NMax), M = rnd.nextInt(N - 1, MMax), K = rnd.nextInt(KMax / 2, KMax), randomConnectedGraph(N, M, U, V));
+    		CASE(N = rnd.nextInt(NMax / 2 + 1, NMax), M = rnd.nextInt(N - 1, min(maxx(N), MMax)), K = rnd.nextInt(KMax / 2, KMax), randomConnectedGraph(N, M, U, V));
     	}
-    	CASE(N = 10, M = 100, completeGraph(N, M, U, V));
-    	CASE(N = 30, M = 900, completeGraph(N, M, U, V));
-    	CASE(N = 50, M = 2500, completeGraph(N, M, U, V));
+    	CASE(N = 10, M = maxx(N), completeGraph(N, M, U, V));
+    	CASE(N = 20, M = maxx(N), completeGraph(N, M, U, V));
+    	CASE(N = 25, M = maxx(N), completeGraph(N, M, U, V));
     }
 
 private:
@@ -156,21 +156,39 @@ private:
     void randomConnectedGraph(int n, int m, vector<int> &u, vector<int> &v) {
     	assert(m >= n - 1);
     	randomTree(n, u, v);
+		map<pair<int,int>, int> udah;
+		for (int i = 0; i < (int)u.size(); ++i){
+			udah[{u[i], v[i]}]++;
+		}
     	while (u.size() < m) {
-    		int newU = rnd.nextInt(1, N - 1);
-    		int newV = rnd.nextInt(newU + 1, N);
-    		u.push_back(newU);
-    		v.push_back(newV);
+    		int newU = rnd.nextInt(1, n);
+    		int newV = rnd.nextInt(1, n);
+			while (udah.find({newU, newV}) != udah.end() || (newU == newV)){
+				newU = rnd.nextInt(1, n);
+				newV = rnd.nextInt(1, n);
+			}
+			udah[{newU, newV}]++;
+			u.push_back(newU);
+			v.push_back(newV);
     	}
+		// cout << "\n";
+		// cout << "n = " << n << " m = " << m << '\n'; 
+		// for (int i = 0; i < m; ++i){
+		// 	cout << i << " " << u[i] << " " << v[i] << '\n';
+		// }
     }
 
     void completeGraph(int n, int m, vector<int> &u, vector<int> &v) {
-    	assert(m == n * n);
+    	assert(m == maxx(n));
     	for (int i = 0; i < n; i++) {
-    		for (int j = 0; j < n; j++) {
+    		for (int j = i+1; j < n; j++) {
     			u.push_back(i + 1);
     			v.push_back(j + 1);
     		}
     	}
     }
+
+	int maxx(int n){
+		return (n*(n-1))/2;
+	}
 };
