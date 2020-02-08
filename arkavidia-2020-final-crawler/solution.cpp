@@ -52,7 +52,6 @@ Matrix calcRec(int n, int k) {
         D = calcRec(n, k / 2);
         return pow(Q, k / 2) * D + D * pow(P, k / 2);
     } else {
-        D = calcRec(n, k - 1);
         return Q * calcRec(n, k - 1) + O * pow(P, k - 1);
     }
 }
