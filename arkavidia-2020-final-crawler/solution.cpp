@@ -91,8 +91,7 @@ int main() {
     O = Matrix::zeros();
     for (int i = 0; i < N; ++i) {
         O.data[i][i] = 1;
-        cout << calcVisit(i) << ' ';
+        cout << calcVisit(i) << (i == N-1 ? '\n' : ' ');
         O.data[i][i] = 0;
     }
-    cout << '\n';
 }
