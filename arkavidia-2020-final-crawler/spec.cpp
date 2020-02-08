@@ -4,8 +4,8 @@
 using namespace std;
 using namespace tcframe;
 
-const int NMax = 25;
-const int MMax = 625;
+const int NMax = 20;
+const int MMax = 190;
 const int KMax = 1000000;
 
 class ProblemSpec : public BaseProblemSpec {
@@ -98,20 +98,20 @@ protected:
     	CASE(N = 5, M = 4, K = 3, randomConnectedGraph(N, M, U, V));
     	CASE(N = 10, M = 9, K = 1000, randomConnectedGraph(N, M, U, V));
     	for (int i = 0; i < 5; i++) {
-    		CASE(N = rnd.nextInt(10, NMax / 2), M = rnd.nextInt(1, N - 2), K = rnd.nextInt(1, KMax), randomGraph(N, M, U, V));
+    		CASE(N = rnd.nextInt(5, NMax / 2), M = rnd.nextInt(1, N - 2), K = rnd.nextInt(1, KMax), randomGraph(N, M, U, V));
     	}
     	for (int i = 0; i < 5; i++) {
     		CASE(N = rnd.nextInt(NMax / 2 + 1, NMax), M = rnd.nextInt(1, N - 2), K = rnd.nextInt(KMax / 2, KMax), randomGraph(N, M, U, V));
     	}
     	for (int i = 0; i < 2; i++) {
-    		CASE(N = rnd.nextInt(8, NMax / 2), M = rnd.nextInt(N - 1, min(N*N, MMax)), K = rnd.nextInt(1, KMax), randomConnectedGraph(N, M, U, V));
+    		CASE(N = rnd.nextInt(6, NMax / 2), M = rnd.nextInt(N - 1, min(N*N, MMax)), K = rnd.nextInt(1, KMax), randomConnectedGraph(N, M, U, V));
     	}
     	for (int i = 0; i < 5; i++) {
     		CASE(N = rnd.nextInt(NMax / 2 + 1, NMax), M = rnd.nextInt(N - 1, min(maxx(N), MMax)), K = rnd.nextInt(KMax / 2, KMax), randomConnectedGraph(N, M, U, V));
     	}
     	CASE(N = 10, M = maxx(N), completeGraph(N, M, U, V));
+    	CASE(N = 19, M = maxx(N), completeGraph(N, M, U, V));
     	CASE(N = 20, M = maxx(N), completeGraph(N, M, U, V));
-    	CASE(N = 25, M = maxx(N), completeGraph(N, M, U, V));
     }
 
 private:
