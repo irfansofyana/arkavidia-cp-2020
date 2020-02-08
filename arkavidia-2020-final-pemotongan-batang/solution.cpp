@@ -85,6 +85,7 @@ int main() {
             potong(val);
         } else if (type == 2) { 
             cin >> val;
+            if (val == n) continue;
             sambung(val);
         } else {
             set<pll>::iterator biggest = lenpos.end();
