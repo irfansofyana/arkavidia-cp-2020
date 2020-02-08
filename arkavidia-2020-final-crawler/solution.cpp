@@ -65,6 +65,7 @@ long long calcVisit(int n) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     cin >> N >> M >> K;
     P = Matrix::zeros();
     for (int i = 0; i < M; ++i) {
