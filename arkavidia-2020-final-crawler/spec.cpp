@@ -5,7 +5,7 @@ using namespace std;
 using namespace tcframe;
 
 const int NMax = 20;
-const int MMax = 190;
+const int MMax = 380;
 const int KMax = 1000000;
 
 class ProblemSpec : public BaseProblemSpec {
@@ -184,11 +184,14 @@ private:
     		for (int j = i+1; j < n; j++) {
     			u.push_back(i + 1);
     			v.push_back(j + 1);
+
+				u.push_back(j+1);
+				v.push_back(i+1);
     		}
     	}
     }
 
 	int maxx(int n){
-		return (n*(n-1))/2;
+		return (n*(n-1));
 	}
 };
